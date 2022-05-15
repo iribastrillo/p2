@@ -1,0 +1,26 @@
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\bin\Debug\netcoreapp3.1\Dominio.deps.json
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\bin\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\bin\Debug\netcoreapp3.1\Dominio.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.AssemblyReference.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfoInputs.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfo.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\bin\Debug\netcoreapp3.1\Validation.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\bin\Debug\netcoreapp3.1\Validation.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.CopyComplete
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\bin\Debug\netcoreapp3.1\Dominio.deps.json
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\bin\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\bin\Debug\netcoreapp3.1\Dominio.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\bin\Debug\netcoreapp3.1\Validation.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\bin\Debug\netcoreapp3.1\Validation.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.AssemblyReference.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfoInputs.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfo.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.CopyComplete
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Dominio\obj\Debug\netcoreapp3.1\Dominio.pdb

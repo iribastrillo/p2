@@ -1,0 +1,61 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Manager/1.0.0": {
+        "dependencies": {
+          "CLI": "1.0.0",
+          "Dominio": "1.0.0",
+          "Validation": "1.0.0"
+        },
+        "runtime": {
+          "Manager.dll": {}
+        }
+      },
+      "CLI/1.0.0": {
+        "runtime": {
+          "CLI.dll": {}
+        }
+      },
+      "Dominio/1.0.0": {
+        "dependencies": {
+          "Validation": "1.0.0"
+        },
+        "runtime": {
+          "Dominio.dll": {}
+        }
+      },
+      "Validation/1.0.0": {
+        "runtime": {
+          "Validation.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Manager/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CLI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Dominio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Validation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
