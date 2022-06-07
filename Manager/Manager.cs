@@ -98,6 +98,18 @@ namespace Manager
                 return pedido;
         }
 
+        public User GetPersonaPorEmail(string email)
+        {
+            foreach (User u in usuarios)
+            {
+                if (u.Email.Equals(email))
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
         public Client AltaCliente(string name, string last_name, string email, string password)
         {
             bool validado = Client.IsValid(name, last_name, email, password);
@@ -131,6 +143,8 @@ namespace Manager
 
             return waiter;
         }
+
+
         public Deliveryman AltaRepartidor(string name, string last_name, Vehicle vehicle, string email, string password)
         {
             bool validado = Deliveryman.ValidoRepartidor(name, last_name);
