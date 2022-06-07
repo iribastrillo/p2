@@ -21,7 +21,7 @@ namespace Dominio
             this.rol = rol;
         }
 
-        public static bool EsValido(string email, string pass)
+        public static bool ValidoUser(string email, string pass)
         {
             return !string.IsNullOrWhiteSpace(email) || !string.IsNullOrWhiteSpace(pass);
         }
