@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj": {}
+    "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj": {
+    "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj",
-        "packagesPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\obj\\",
+        "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj",
+        "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin.DESKTOP-0Q23CA9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\agust\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -31,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\Validation.csproj": {
-                "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\Validation.csproj"
+              "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj": {
+                "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj"
               }
             }
           }
@@ -61,24 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\Validation.csproj": {
+    "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\Validation.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj",
         "projectName": "Validation",
-        "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\Validation.csproj",
-        "packagesPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\obj\\",
+        "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj",
+        "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin.DESKTOP-0Q23CA9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\agust\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
