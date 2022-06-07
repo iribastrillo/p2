@@ -1798,6 +1798,16 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "CLI/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/CLI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CLI.dll": {}
+        }
+      },
       "Dominio/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -1809,6 +1819,21 @@
         },
         "runtime": {
           "bin/placeholder/Dominio.dll": {}
+        }
+      },
+      "Manager/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "CLI": "1.0.0",
+          "Dominio": "1.0.0",
+          "Validation": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Manager.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Manager.dll": {}
         }
       },
       "Validation/1.0.0": {
@@ -6011,10 +6036,20 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "CLI/1.0.0": {
+      "type": "project",
+      "path": "../CLI/CLI.csproj",
+      "msbuildProject": "../CLI/CLI.csproj"
+    },
     "Dominio/1.0.0": {
       "type": "project",
       "path": "../Dominio/Dominio.csproj",
       "msbuildProject": "../Dominio/Dominio.csproj"
+    },
+    "Manager/1.0.0": {
+      "type": "project",
+      "path": "../Manager/Manager.csproj",
+      "msbuildProject": "../Manager/Manager.csproj"
     },
     "Validation/1.0.0": {
       "type": "project",
@@ -6025,6 +6060,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Dominio >= 1.0.0",
+      "Manager >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
     ]
   },
@@ -6061,6 +6097,9 @@
           "projectReferences": {
             "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj": {
               "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj"
+            },
+            "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Manager\\Manager.csproj": {
+              "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Manager\\Manager.csproj"
             }
           }
         }

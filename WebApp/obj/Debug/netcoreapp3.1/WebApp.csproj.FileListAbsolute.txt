@@ -151,3 +151,8 @@ C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\De
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\Debug\netcoreapp3.1\Validation.dll
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\Debug\netcoreapp3.1\Dominio.pdb
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\Debug\netcoreapp3.1\Validation.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\Debug\netcoreapp3.1\CLI.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\Debug\netcoreapp3.1\Manager.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\Debug\netcoreapp3.1\Manager.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\bin\Debug\netcoreapp3.1\CLI.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Dish\Index.cshtml.g.cs
