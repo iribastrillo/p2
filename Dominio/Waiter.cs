@@ -11,7 +11,7 @@ namespace Dominio
         static public int num = 0;
 
 
-        public Waiter(string name, string lastName) : base (name, lastName)
+        public Waiter(string name, string lastName, string email, string password, string rol) : base (name, lastName, email, password, rol)
         {
             WNum = num;
             num++;

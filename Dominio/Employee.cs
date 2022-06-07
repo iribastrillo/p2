@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Dominio;
 
 namespace Dominio
 {
-    public abstract class Employee
+    public abstract class Employee : User
     {
         private static int n = 0;
 
@@ -12,7 +13,7 @@ namespace Dominio
         private string name;
         private string lastName;
 
-        public Employee(string name, string lastName)
+        public Employee(string name, string lastName, string email, string password, string rol) : base(email,  password,  rol)
         {
             ID = n;
             Name = name;

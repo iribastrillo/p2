@@ -14,6 +14,7 @@ namespace Manager
         private List<Service> services = new List<Service>();
         private List<Deliveryman> repartidores = new List<Deliveryman>();
         private List<Pedido> pedidos = new List<Pedido>();
+        private List<User> usuarios = new List<User>();
 
         private Manager()
         {
@@ -47,17 +48,17 @@ namespace Manager
             Dish plato9 = AltaPlato("Pollo", 450);
             Dish plato10 = AltaPlato("Hamburguesa", 350);
 
-            Waiter waiter1 = AltaMozo("Hernan", "Pereira");
-            Waiter waiter2 = AltaMozo("Florencia", "Sánchez");
-            Waiter waiter3 = AltaMozo("Facundo", "Ricaldoni");
-            Waiter waiter4 = AltaMozo("Romina", "Hernández");
-            Waiter waiter5 = AltaMozo("Sofía", "Siena");
+            Waiter waiter1 = AltaMozo("Hernan", "Pereira", "hernanpereira@gmail.com", "hernan123");
+            Waiter waiter2 = AltaMozo("Florencia", "Sánchez", "hernanpereira@gmail.com", "hernan123");
+            Waiter waiter3 = AltaMozo("Facundo", "Ricaldoni", "hernanpereira@gmail.com", "hernan123");
+            Waiter waiter4 = AltaMozo("Romina", "Hernández", "hernanpereira@gmail.com", "hernan123");
+            Waiter waiter5 = AltaMozo("Sofía", "Siena", "hernanpereira@gmail.com", "hernan123");
 
-            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto);
-            Deliveryman repartidor2 = AltaRepartidor("Juan", "Pérez", Vehicle.Bicicleta);
-            Deliveryman repartidor3 = AltaRepartidor("Gonzalo", "Pereira", Vehicle.Pie);
-            Deliveryman repartidor4 = AltaRepartidor("Alejandro", "Marella", Vehicle.Bicicleta);
-            Deliveryman repartidor5 = AltaRepartidor("Roberto", "Sánchez", Vehicle.Moto);
+            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto, "agustina@hotmail.com", "agustina123");
+            Deliveryman repartidor2 = AltaRepartidor("Juan", "Pérez", Vehicle.Bicicleta, "agustina@hotmail.com", "agustina123");
+            Deliveryman repartidor3 = AltaRepartidor("Gonzalo", "Pereira", Vehicle.Pie, "agustina@hotmail.com", "agustina123");
+            Deliveryman repartidor4 = AltaRepartidor("Alejandro", "Marella", Vehicle.Bicicleta, "agustina@hotmail.com", "agustina123");
+            Deliveryman repartidor5 = AltaRepartidor("Roberto", "Sánchez", Vehicle.Moto, "agustina@hotmail.com", "agustina123");
 
             Delivery delivery1 = AltaDelivery(DateTime.Now, "Calle Falsa 122", 20, repartidor1, new List<Dish>() {plato1, plato7});
             Delivery delivery2 = AltaDelivery(DateTime.Now, "Calle Falsa 126", 20, repartidor2, new List<Dish>() { plato5, plato10, plato6 });
@@ -104,7 +105,7 @@ namespace Manager
             if (validado == false)
                 return null;
 
-            Client cliente = new Client(name, last_name, email, password);
+            Client cliente = new Client(name, last_name, email, password, "cliente");
 
             if (Clients.Contains(cliente))
                 cliente = null;
@@ -114,14 +115,14 @@ namespace Manager
             return cliente;
         }
 
-        public Waiter AltaMozo(string name, string last_name)
+        public Waiter AltaMozo(string name, string last_name, string email, string password)
         {
             bool validado = Waiter.ValidWaiter(name, last_name);
 
             if (validado == false)
                 return null;
 
-            Waiter waiter = new Waiter(name, last_name);
+            Waiter waiter = new Waiter(name, last_name, email, password, "mozo");
 
             if (Waiters.Contains(waiter))
                 waiter = null;
@@ -130,7 +131,7 @@ namespace Manager
 
             return waiter;
         }
-        public Deliveryman AltaRepartidor(string name, string last_name, Vehicle vehicle)
+        public Deliveryman AltaRepartidor(string name, string last_name, Vehicle vehicle, string email, string password)
         {
             bool validado = Deliveryman.ValidoRepartidor(name, last_name);
 
@@ -142,7 +143,7 @@ namespace Manager
                 vehicle = Vehicle.Moto;
             }
 
-            Deliveryman repartidor = new Deliveryman(name, last_name, vehicle);
+            Deliveryman repartidor = new Deliveryman(name, last_name, vehicle, email, password, "repartidor");
 
             if (Deliverymen.Contains(repartidor))
                 repartidor = null;
@@ -257,6 +258,19 @@ namespace Manager
             set
             {
                 services = value;
+            }
+        }
+
+        public List<User> Usuarios
+        {
+            get
+            {
+                return usuarios;
+            }
+
+            set
+            {
+                usuarios = value;
             }
         }
     }

@@ -4,7 +4,7 @@ using static Validation.Validator;
 
 namespace Dominio
 {
-    public class Client
+    public class Client : User
     {
         private static int n = 0;
 
@@ -12,23 +12,18 @@ namespace Dominio
         private string name;
         private string lastName;
 
-        private string email;
-        private string password;
-
-        public string Email { get => email; set => email = value; }
-        public string Password { get => password; set => password = value; }
         public int ID { get => iD; set => iD = value; }
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
 
-        public Client (string name, string lastName, string email, string password)
+        public Client (string name, string lastName, string email, string password, string rol) : base(email, password, rol)
         {
             this.ID = n;
-
             this.name = name;
             this.lastName = lastName;
             this.Email = email;
             this.Password = password;
+            this.Rol = "cliente";
 
             n++;
         }

@@ -5,7 +5,7 @@ namespace Dominio
     public class Deliveryman : Employee
     {
         private Vehicle vehicle;
-        public Deliveryman(string name, string last_name, Vehicle vehicle) : base (name, last_name)
+        public Deliveryman(string name, string last_name, Vehicle vehicle, string email, string password, string rol) : base (name, last_name, email, password, rol)
         {
             Vehicle = vehicle;
         }
