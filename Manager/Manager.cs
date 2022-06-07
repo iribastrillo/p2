@@ -8,6 +8,7 @@ namespace Manager
 {
     public class Manager
     {
+        public static Manager instance { get; set; }
 
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
@@ -16,10 +17,18 @@ namespace Manager
         private List<Deliveryman> repartidores = new List<Deliveryman>();
         private List<Pedido> pedidos = new List<Pedido>();
 
-
-        public Manager()
+        private Manager()
         {
             PrecargarDatos();
+        }
+
+        public static Manager getInstance ()
+        {
+            if (instance == null)
+            {
+                instance = new Manager();
+            }
+            return instance;
         }
 
         public void ListarPlatos()
