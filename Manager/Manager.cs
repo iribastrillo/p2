@@ -1,6 +1,4 @@
-﻿
-using System.Collections.Generic;
-using static System.Console;
+﻿using System.Collections.Generic;
 using Dominio;
 using System;
 
@@ -31,110 +29,9 @@ namespace Manager
             return instance;
         }
 
-        public void ListarPlatos()
+        public List<Dish> getDishes ()
         {
-            if (Dishes.Count > 0)
-            {
-                foreach (var dish in Dishes)
-                {
-                    WriteLine("  »  " + dish);
-                }
-            } else
-            {
-                WriteLine("  »  No hay platos cargados en el sistema.");
-            }
-        }
-        public void ListarClientes()
-        {
-            if (Clients.Count > 0)
-            {
-                Clients.Sort(Client.CompareByLastName);
-                foreach (var client in Clients)
-                {
-                    WriteLine("  »  " + client);
-                }
-            } else
-            {
-                WriteLine("  »  No hay clientes cargados en el sistema.");
-            }
-        }
-        
-        public void ListarWaiters()
-        {
-            if (Waiters.Count > 0)
-            {
-                foreach (var waiter in Waiters)
-                {
-                    WriteLine(waiter);
-                }
-            } else
-            {
-                WriteLine("  »  No hay mozos cargados en el sistema.");
-            }
-        }
-
-        public void ListarRepartidores()
-        {
-            if (Deliverymen.Count > 0)
-            {
-                foreach (var repartidor in Deliverymen)
-                {
-                    WriteLine("  »  " + repartidor);
-                }
-            } else
-            {
-                WriteLine("  »  No hay repartidores cargados en el sistema.");
-            }
-        }
-
-        public void ListarPedidos()
-        {
-            if (Pedidos.Count > 0)
-            {
-                foreach (var pedido in Pedidos)
-                {
-                    WriteLine(pedido);
-                }
-            } else
-            {
-                WriteLine("  »  No hay pedidos cargados en el sistema.");
-            }
-        }
-
-        public void ListarDeliveries(DateTime from, DateTime to, int ID)
-        {
-            List<Pedido> listaPedidos = new List<Pedido>();
-            foreach (var pedido in pedidos)
-            {
-                if (pedido.Service is Delivery)
-                {
-                    Delivery delivery = (Delivery)pedido.Service;
-                    if (delivery.Deliveryman.ID == ID)
-                    {
-                        if (pedido.Date > from && delivery.Delivered < to)
-                        {
-                            listaPedidos.Add(pedido);
-                            WriteLine("\n");
-                            ForegroundColor = ConsoleColor.Cyan;
-                            WriteLine("  »  " + pedido);
-                            foreach (var dish in pedido.Service.Dishes)
-                            {
-                                WriteLine("  »  »  " + dish);
-                            }
-                            ForegroundColor = ConsoleColor.Green;
-                        }
-                    }
-                }
-            }
-
-            WriteLine("\n───────────────────────────────────────────────────────────────");
-            if (listaPedidos.Count == 0)
-            {
-                WriteLine("\nNo hay deliveries para ese repartidor en ese rango de fechas.");
-                WriteLine("\nCorrobora que la fecha y el ID ingresado son correctos.");
-                WriteLine("\n───────────────────────────────────────────────────────────────\n");
-            }
-            WriteLine("\nPresione Enter para volver, cualquier otra tecla para salir.");
+            return dishes;
         }
 
         public void PrecargarDatos()
@@ -233,7 +130,6 @@ namespace Manager
 
             return waiter;
         }
-
         public Deliveryman AltaRepartidor(string name, string last_name, Vehicle vehicle)
         {
             bool validado = Deliveryman.ValidoRepartidor(name, last_name);

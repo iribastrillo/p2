@@ -32,6 +32,7 @@
       "WebApp/1.0.0": {
         "dependencies": {
           "Dominio": "1.0.0",
+          "Manager": "1.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -1543,6 +1544,14 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "CLI/1.0.0": {
+        "runtime": {
+          "CLI.dll": {}
+        },
+        "compile": {
+          "CLI.dll": {}
+        }
+      },
       "Dominio/1.0.0": {
         "dependencies": {
           "Validation": "1.0.0"
@@ -1552,6 +1561,19 @@
         },
         "compile": {
           "Dominio.dll": {}
+        }
+      },
+      "Manager/1.0.0": {
+        "dependencies": {
+          "CLI": "1.0.0",
+          "Dominio": "1.0.0",
+          "Validation": "1.0.0"
+        },
+        "runtime": {
+          "Manager.dll": {}
+        },
+        "compile": {
+          "Manager.dll": {}
         }
       },
       "Validation/1.0.0": {
@@ -4011,7 +4033,17 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
+    "CLI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Dominio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Manager/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
