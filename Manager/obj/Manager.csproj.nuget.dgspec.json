@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\agust\\source\\repos\\p2\\Manager\\Manager.csproj": {}
+    "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj": {
+    "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj",
         "projectName": "CLI",
-        "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj",
+        "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj",
         "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\obj\\",
+        "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\agust\\source\\repos\\p2\\Dominio\\Dominio.csproj": {
+    "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agust\\source\\repos\\p2\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\Dominio\\Dominio.csproj",
+        "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agust\\source\\repos\\p2\\Dominio\\obj\\",
+        "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -90,8 +90,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj": {
-                "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj"
+              "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj": {
+                "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj"
               }
             }
           }
@@ -124,14 +124,14 @@
         }
       }
     },
-    "C:\\Users\\agust\\source\\repos\\p2\\Manager\\Manager.csproj": {
+    "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agust\\source\\repos\\p2\\Manager\\Manager.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj",
         "projectName": "Manager",
-        "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\Manager\\Manager.csproj",
+        "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj",
         "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agust\\source\\repos\\p2\\Manager\\obj\\",
+        "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -152,14 +152,14 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj": {
-                "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj"
+              "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj": {
+                "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj"
               },
-              "C:\\Users\\agust\\source\\repos\\p2\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\Dominio\\Dominio.csproj"
+              "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj"
               },
-              "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj": {
-                "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj"
+              "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj": {
+                "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj"
               }
             }
           }
@@ -192,14 +192,14 @@
         }
       }
     },
-    "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj": {
+    "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj",
         "projectName": "Validation",
-        "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj",
+        "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj",
         "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agust\\source\\repos\\p2\\Validation\\obj\\",
+        "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
