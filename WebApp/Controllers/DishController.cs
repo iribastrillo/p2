@@ -9,11 +9,11 @@ namespace WebApp.Controllers
 {
     public class DishController : Controller
     {
-        Manager.Manager instance = Manager.Manager.getInstance();
+        Manager.Manager instance = Manager.Manager.GetInstance();
         
         public IActionResult Index()
         {
-            return View(instance.getDishes());
+            return View(instance.GetDishes());
         }
     }
 }
