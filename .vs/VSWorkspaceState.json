@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Manager",
+    "\\WebApp",
+    "\\WebApp\\Controllers"
   ],
-  "SelectedNode": "\\Obligatorio.sln",
+  "SelectedNode": "\\Manager\\Manager.cs",
   "PreviewInSolutionExplorer": false
 }

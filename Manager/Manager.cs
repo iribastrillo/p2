@@ -21,7 +21,7 @@ namespace Manager
             PrecargarDatos();
         }
 
-        public static Manager getInstance ()
+        public static Manager GetInstance()
         {
             if (instance == null)
             {
@@ -30,9 +30,37 @@ namespace Manager
             return instance;
         }
 
-        public List<Dish> getDishes ()
+        public List<Dish> GetDishes()
         {
             return dishes;
+        }
+
+
+        public User Login(string email, string password)
+        {
+            User u = null;
+            foreach (User user in Usuarios)
+            {
+                if (user.Email.Equals(email) && user.Password.Equals(password))
+                {
+                    u = GetUser(user.Email);
+                    break;
+                }
+            }
+            return u;
+
+        }
+
+        public User GetUser(string email)
+        {
+            foreach (User u in Usuarios)
+            {
+                if (u.Email.Equals(email))
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
         public void PrecargarDatos()
@@ -48,27 +76,27 @@ namespace Manager
             Dish plato9 = AltaPlato("Pollo", 450);
             Dish plato10 = AltaPlato("Hamburguesa", 350);
 
-            Waiter waiter1 = AltaMozo("Hernan", "Pereira", "hernanpereira@gmail.com", "hernan123");
-            Waiter waiter2 = AltaMozo("Florencia", "Sánchez", "hernanpereira@gmail.com", "hernan123");
-            Waiter waiter3 = AltaMozo("Facundo", "Ricaldoni", "hernanpereira@gmail.com", "hernan123");
-            Waiter waiter4 = AltaMozo("Romina", "Hernández", "hernanpereira@gmail.com", "hernan123");
-            Waiter waiter5 = AltaMozo("Sofía", "Siena", "hernanpereira@gmail.com", "hernan123");
+            Waiter waiter1 = AltaMozo("Hernan", "Pereira", "hernanpereira@gmail.com", "Hernan123");
+            Waiter waiter2 = AltaMozo("Florencia", "Sánchez", "hernanpereira1@gmail.com", "Hernan123");
+            Waiter waiter3 = AltaMozo("Facundo", "Ricaldoni", "hernanpereira2@gmail.com", "Hernan123");
+            Waiter waiter4 = AltaMozo("Romina", "Hernández", "hernanpereira3@gmail.com", "Hernan123");
+            Waiter waiter5 = AltaMozo("Sofía", "Siena", "hernanpereira4@gmail.com", "Hernan123");
 
-            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto, "agustina@hotmail.com", "agustina123");
-            Deliveryman repartidor2 = AltaRepartidor("Juan", "Pérez", Vehicle.Bicicleta, "agustina@hotmail.com", "agustina123");
-            Deliveryman repartidor3 = AltaRepartidor("Gonzalo", "Pereira", Vehicle.Pie, "agustina@hotmail.com", "agustina123");
-            Deliveryman repartidor4 = AltaRepartidor("Alejandro", "Marella", Vehicle.Bicicleta, "agustina@hotmail.com", "agustina123");
-            Deliveryman repartidor5 = AltaRepartidor("Roberto", "Sánchez", Vehicle.Moto, "agustina@hotmail.com", "agustina123");
+            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto, "agustina1@hotmail.com", "Agustina123");
+            Deliveryman repartidor2 = AltaRepartidor("Juan", "Pérez", Vehicle.Bicicleta, "agustina2@hotmail.com", "Agustina123");
+            Deliveryman repartidor3 = AltaRepartidor("Gonzalo", "Pereira", Vehicle.Pie, "agustina3@hotmail.com", "Agustina123");
+            Deliveryman repartidor4 = AltaRepartidor("Alejandro", "Marella", Vehicle.Bicicleta, "agustina4@hotmail.com", "Agustina123");
+            Deliveryman repartidor5 = AltaRepartidor("Roberto", "Sánchez", Vehicle.Moto, "agustina5@hotmail.com", "Agustina123");
 
-            Delivery delivery1 = AltaDelivery(DateTime.Now, "Calle Falsa 122", 20, repartidor1, new List<Dish>() {plato1, plato7});
+            Delivery delivery1 = AltaDelivery(DateTime.Now, "Calle Falsa 122", 20, repartidor1, new List<Dish>() { plato1, plato7 });
             Delivery delivery2 = AltaDelivery(DateTime.Now, "Calle Falsa 126", 20, repartidor2, new List<Dish>() { plato5, plato10, plato6 });
-            Delivery delivery3 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, repartidor4, new List<Dish>() { plato6});
+            Delivery delivery3 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, repartidor4, new List<Dish>() { plato6 });
             Delivery delivery4 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, repartidor1, new List<Dish>() { plato3, plato4 });
             Delivery delivery5 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, repartidor5, new List<Dish>() { plato9, plato8 });
 
-            Client cliente1 = AltaCliente("Agustina", "Balsas", "agus@hotmail.com", "agustina1B");
-            Client cliente2 = AltaCliente("Ignacio", "Ribas", "ignacio@gmail.com", "ignacio1R");
-            Client cliente3 = AltaCliente("Alejo", "Krucheff", "alejo@outlook.com", "alejo13B");
+            Client cliente1 = AltaCliente("Agustina", "Balsas", "agus@hotmail.com", "Agustina1B");
+            Client cliente2 = AltaCliente("Ignacio", "Ribas", "ignacio@gmail.com", "Ignacio1R");
+            Client cliente3 = AltaCliente("Alejo", "Krucheff", "alejo@outlook.com", "Alejo13B");
             Client cliente4 = AltaCliente("Anaru", "Martínez", "anaru@gmail.com", "Anaru1");
             Client cliente5 = AltaCliente("Juan", "Rodríguez", "juanr@outlook.com", "juanR13");
 
@@ -76,7 +104,7 @@ namespace Manager
             Local local2 = AltaLocal(4, cliente2, new List<Dish>() { plato6, plato5 });
             Local local3 = AltaLocal(7, cliente3, new List<Dish>() { plato10 });
             Local local4 = AltaLocal(1, cliente4, new List<Dish>() { plato8, plato4 });
-            Local local5 = AltaLocal( 3, cliente5, new List<Dish>() { plato9, plato10, plato5 });
+            Local local5 = AltaLocal(3, cliente5, new List<Dish>() { plato9, plato10, plato5 });
 
 
             Pedido pedido1 = AltaPedido(local1, cliente4);
@@ -93,9 +121,9 @@ namespace Manager
 
         public Pedido AltaPedido(Service service, Client client)
         {
-                Pedido pedido = new Pedido(service, client);
-                pedidos.Add(pedido);
-                return pedido;
+            Pedido pedido = new Pedido(service, client);
+            pedidos.Add(pedido);
+            return pedido;
         }
 
         public Client AltaCliente(string name, string last_name, string email, string password)
@@ -110,8 +138,10 @@ namespace Manager
             if (Clients.Contains(cliente))
                 cliente = null;
             else
+            {
                 clients.Add(cliente);
-
+                usuarios.Add(cliente);
+            }
             return cliente;
         }
 
@@ -127,8 +157,11 @@ namespace Manager
             if (Waiters.Contains(waiter))
                 waiter = null;
             else
+            {
                 waiters.Add(waiter);
+                usuarios.Add(waiter);
 
+            }
             return waiter;
         }
         public Deliveryman AltaRepartidor(string name, string last_name, Vehicle vehicle, string email, string password)
@@ -148,12 +181,15 @@ namespace Manager
             if (Deliverymen.Contains(repartidor))
                 repartidor = null;
             else
+            {
                 repartidores.Add(repartidor);
+                usuarios.Add(repartidor);
+            }
 
             return repartidor;
         }
 
-        public Delivery AltaDelivery(DateTime date, string address, float distance, Deliveryman deliveryman , List<Dish> dishes)
+        public Delivery AltaDelivery(DateTime date, string address, float distance, Deliveryman deliveryman, List<Dish> dishes)
         {
             Delivery delivery = new Delivery(address, distance, deliveryman, dishes);
             services.Add(delivery);

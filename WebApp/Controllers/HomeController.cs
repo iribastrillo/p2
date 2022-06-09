@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dominio;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,10 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
+
+        Manager.Manager instance = Manager.Manager.GetInstance();
+
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -20,6 +26,22 @@ namespace WebApp.Controllers
 
         public IActionResult Index()
         {
+            string logueadoRol = HttpContext.Session.GetString("LogueadoRol");
+            if (logueadoRol != null)
+            {
+                if (logueadoRol == "mozo" || logueadoRol == "cliente" || logueadoRol== "repartidor")
+                {
+                    string email = HttpContext.Session.GetString("LogueadoEmail");
+                    User user = instance.GetUser(email);
+                    ViewBag.msg = $"Hola {user.Email} ";
+                }
+
+            }
+            else
+            {
+                ViewBag.msg = $"Inicie sesión para acceder";
+            }
+
             return View();
         }
 
