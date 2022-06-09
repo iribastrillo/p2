@@ -37,7 +37,7 @@ namespace WebApp.Controllers
         public IActionResult Login(string email, string password)
         {
             User buscado = instance.Login(email, password);
-            if (instance.GetUser(email) != null)
+            if (buscado != null)
             {
 
                 HttpContext.Session.SetString("LogueadoEmail", buscado.Email);
