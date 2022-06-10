@@ -6061,7 +6061,8 @@
     ".NETCoreApp,Version=v3.1": [
       "Dominio >= 1.0.0",
       "Manager >= 1.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
+      "Validation >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6101,6 +6102,9 @@
             },
             "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj": {
               "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj"
+            },
+            "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj": {
+              "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj"
             }
           }
         }
