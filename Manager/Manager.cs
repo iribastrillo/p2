@@ -36,7 +36,7 @@ namespace Manager
         }
 
 
-        // ERA INTERN pero no me andaba
+        // ERA INTERNAL pero no me andaba
         public User Login(string email, string password)
         {
             User u = null;
