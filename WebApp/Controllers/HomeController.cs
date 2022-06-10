@@ -32,9 +32,11 @@ namespace WebApp.Controllers
                 if (logueadoRol == "mozo" || logueadoRol == "cliente" || logueadoRol== "repartidor")
                 {
                     string email = HttpContext.Session.GetString("LogueadoEmail");
+                    string rol = HttpContext.Session.GetString("LogueadoRol");
                     User user = instance.GetUser(email);
                     ViewBag.msg = $"Hola {user.Email} ";
-                }
+                    ViewBag.mes = $" {rol} ";
+                } 
 
             }
             else
