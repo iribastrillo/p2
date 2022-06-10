@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Manager;
 using Dominio;
 using Microsoft.AspNetCore.Http;
+using Validation;
 
 namespace WebApp.Controllers
 {
     public class PersonaController : Controller
     {
-
 
         Manager.Manager instance = Manager.Manager.GetInstance();
 
@@ -22,6 +22,11 @@ namespace WebApp.Controllers
 
 
         public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Registro()
         {
             return View();
         }
@@ -44,6 +49,25 @@ namespace WebApp.Controllers
                 HttpContext.Session.SetString("LogueadoRol", buscado.Rol);
                 // HttpContext.Session.SetString("LogueadoRol", buscado.GetType().Name);
                 return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.msg = "Error en los datos";
+
+            }
+            return View();
+
+        }
+
+        [HttpPost]
+        public IActionResult Registro(string name, string lastname, string email, string password)
+        {
+            User buscado = instance.GetUser(email);
+            bool contraSegura = Validation.Validator.EsSegura(password);
+            if (buscado == null && contraSegura)
+            {
+                instance.AltaCliente(name, lastname, email, password);
+                ViewBag.msg = "Alta exitosa! Inicie sesión.";
             }
             else
             {

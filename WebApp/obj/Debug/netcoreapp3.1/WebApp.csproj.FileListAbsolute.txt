@@ -239,3 +239,4 @@ C:\Users\agust\Source\Repos\p2\WebApp\bin\Debug\netcoreapp3.1\CLI.pdb
 C:\Users\agust\Source\Repos\p2\WebApp\bin\Debug\netcoreapp3.1\Validation.pdb
 C:\Users\agust\Source\Repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Dish\Index.cshtml.g.cs
 C:\Users\agust\source\repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Persona\Login.cshtml.g.cs
+C:\Users\agust\Source\Repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Persona\Registro.cshtml.g.cs
