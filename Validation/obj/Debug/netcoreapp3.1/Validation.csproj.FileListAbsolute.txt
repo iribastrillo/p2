@@ -28,3 +28,13 @@ C:\Users\agust\Source\Repos\p2\Validation\obj\Debug\netcoreapp3.1\Validation.Ass
 C:\Users\agust\Source\Repos\p2\Validation\obj\Debug\netcoreapp3.1\Validation.csproj.CoreCompileInputs.cache
 C:\Users\agust\Source\Repos\p2\Validation\obj\Debug\netcoreapp3.1\Validation.dll
 C:\Users\agust\Source\Repos\p2\Validation\obj\Debug\netcoreapp3.1\Validation.pdb
+C:\Users\kruch\Desktop\git\p2\Validation\bin\Debug\netcoreapp3.1\Validation.deps.json
+C:\Users\kruch\Desktop\git\p2\Validation\bin\Debug\netcoreapp3.1\Validation.dll
+C:\Users\kruch\Desktop\git\p2\Validation\bin\Debug\netcoreapp3.1\Validation.pdb
+C:\Users\kruch\Desktop\git\p2\Validation\obj\Debug\netcoreapp3.1\Validation.csproj.AssemblyReference.cache
+C:\Users\kruch\Desktop\git\p2\Validation\obj\Debug\netcoreapp3.1\Validation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kruch\Desktop\git\p2\Validation\obj\Debug\netcoreapp3.1\Validation.AssemblyInfoInputs.cache
+C:\Users\kruch\Desktop\git\p2\Validation\obj\Debug\netcoreapp3.1\Validation.AssemblyInfo.cs
+C:\Users\kruch\Desktop\git\p2\Validation\obj\Debug\netcoreapp3.1\Validation.csproj.CoreCompileInputs.cache
+C:\Users\kruch\Desktop\git\p2\Validation\obj\Debug\netcoreapp3.1\Validation.dll
+C:\Users\kruch\Desktop\git\p2\Validation\obj\Debug\netcoreapp3.1\Validation.pdb
