@@ -32,9 +32,26 @@ namespace Manager
 
         public List<Dish> GetDishes()
         {
+            dishes.Sort(PorNombreDish);
             return dishes;
         }
 
+        private int PorNombreDish(Dish a, Dish b)
+        {
+            if (a.Name.CompareTo(b.Name) > 0)
+            {
+                return 1;
+            }
+            else if (a.Name.CompareTo(b.Name) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
 
         // ERA INTERNAL pero no me andaba
         public User Login(string email, string password)

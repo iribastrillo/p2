@@ -67,9 +67,28 @@ namespace Dominio
             return $"{this.name} || {this.price}";
         }
 
+
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
-    }
+
+
+        public int CompareTo(Dish other)
+        {
+            if (Name.CompareTo(other.Name) > 0)
+            {
+                return 1;
+            }
+            else if (Name.CompareTo(other.Name) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        }
 }
