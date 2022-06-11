@@ -362,3 +362,4 @@ C:\Users\kruch\Desktop\git\p2\WebApp\obj\Debug\netcoreapp3.1\WebApp.csproj.CopyC
 C:\Users\kruch\Desktop\git\p2\WebApp\obj\Debug\netcoreapp3.1\WebApp.dll
 C:\Users\kruch\Desktop\git\p2\WebApp\obj\Debug\netcoreapp3.1\WebApp.pdb
 C:\Users\kruch\Desktop\git\p2\WebApp\obj\Debug\netcoreapp3.1\WebApp.genruntimeconfig.cache
+C:\Users\kruch\Desktop\git\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Service\Index.cshtml.g.cs
