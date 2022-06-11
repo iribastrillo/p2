@@ -1,22 +1,22 @@
 ﻿@model IEnumerable<Dominio.Service>
 
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Historical";
 }
 
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
 
-
-<h1>Pedido abierto:</h1>
-<hr/>
+<h1>Historial de pedidos</h1>
+<hr />
 <div class="row">
     <div class="col-md-4">
-        <p>descripcion del pedido abierto</p>
+        <p>Su historial</p>
         <br>
-        <input type="submit" value="Cerrar pedido" class="btn btn-primary" />
-        <input type="submit" value="Pedir a mi mesa" class="btn btn-primary" />
+        <input type="submit" value="Ver mi pedido mas caro" class="btn btn-primary" /><br><br>
+        <p>Ver pedido entre fechas: </p>
+        <input type="text" name="fechaInicial" placeholder="Ingrese fecha inicial" class="input-group"/>
+        <input type="text" name="fechaFinal" placeholder="Ingrese fecha final" class="input-group"/>
+        
+
     </div>
 </div>
 <p>@ViewBag.msg</p>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Dominio.Service>
+
+@{
+    ViewData["Title"] = "OpenService";
+}
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+
+<h1>Pedido abierto:</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <p>descripcion del pedido abierto</p>
+        <br>
+        <input type="submit" value="Cerrar pedido" class="btn btn-primary" />
+        <input type="submit" value="Pedir a mi mesa" class="btn btn-primary" />
+    </div>
+</div>
+<p>@ViewBag.msg</p>
