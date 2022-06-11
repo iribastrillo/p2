@@ -22,7 +22,14 @@ namespace Validation
 
         public static bool EsValido(string email)
         {
-            return email.IndexOf("@") != -1 && email.IndexOf("@") != 0 && email.IndexOf("@") != email.Length - 1 && email.Contains(".");
+            if (email == null)
+            {
+                return false;
+            }
+            else
+            {
+                return email.IndexOf("@") != -1 && email.IndexOf("@") != 0 && email.IndexOf("@") != email.Length - 1 && email.Contains(".");
+            }
         }
 
         public static bool TieneLetrasMayus(string password)
@@ -79,7 +86,15 @@ namespace Validation
 
         public static bool EsSegura(string password)
         {
-            return password.Length >= 6 && TieneNumeros(password) && TieneLetrasMinus(password) && TieneLetrasMayus(password);
+            if (password == null)
+            {
+                return false;
+            }
+            else
+            {
+                return password.Length >= 6 && TieneNumeros(password) && TieneLetrasMinus(password) && TieneLetrasMayus(password) && !string.IsNullOrEmpty(password);
+            }
+
         }
 
         public static bool EsAlfanumerico(string password)
