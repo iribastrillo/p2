@@ -66,8 +66,14 @@ namespace WebApp.Controllers
             bool contraSegura = Validation.Validator.EsSegura(password);
             if (buscado == null && contraSegura)
             {
-                instance.AltaCliente(name, lastname, email, password);
-                ViewBag.msg = "Alta exitosa! Inicie sesión.";
+                if (instance.AltaCliente(name, lastname, email, password) != null)
+                {
+                    instance.AltaCliente(name, lastname, email, password);
+                    ViewBag.msg = "Alta exitosa! Inicie sesión.";
+                } else
+                {
+                    ViewBag.msg = "Error en los datos";
+                }
             }
             else
             {
