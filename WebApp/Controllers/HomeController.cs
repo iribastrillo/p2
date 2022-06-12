@@ -13,10 +13,7 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-
         Manager.Manager instance = Manager.Manager.GetInstance();
-
-
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -27,27 +24,21 @@ namespace WebApp.Controllers
         public IActionResult Index()
         {
             string logueadoRol = HttpContext.Session.GetString("LogueadoRol");
-            if (logueadoRol != null)
+            if (logueadoRol == null || logueadoRol == "cliente")
             {
-                if (logueadoRol == "mozo" || logueadoRol == "cliente" || logueadoRol== "repartidor")
-                {
-                    string email = HttpContext.Session.GetString("LogueadoEmail");
-                    string rol = HttpContext.Session.GetString("LogueadoRol");
-                    User user = instance.GetUser(email);
-                    ViewBag.msg = $"Hola {user.Email} ";
-                    ViewBag.mes = $" {rol} ";
-                } 
-
+                // string email = HttpContext.Session.GetString("LogueadoEmail");
+                // string rol = HttpContext.Session.GetString("LogueadoRol");
+                // User user = instance.GetUser(email);
+                // ViewBag.msg = $"Hola {user.Email} ";
+                // ViewBag.mes = $" {rol} ";
+                return (RedirectToAction("Index", "Dish"));
             }
             else
             {
-                ViewBag.msg = $"Inicie sesión para acceder";
+                return View();
             }
-
-            return View();
         }
-
-        public IActionResult Cathalog ()
+        public IActionResult Cathalog()
         {
             return null;
         }
@@ -62,5 +53,10 @@ namespace WebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
+
+
+
+
