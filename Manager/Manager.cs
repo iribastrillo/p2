@@ -15,6 +15,7 @@ namespace Manager
         private List<Deliveryman> repartidores = new List<Deliveryman>();
         private List<Pedido> pedidos = new List<Pedido>();
         private List<User> usuarios = new List<User>();
+        private List<Like> likes = new List<Like>();
 
         private Manager()
         {
@@ -66,7 +67,13 @@ namespace Manager
                 }
             }
             return u;
+        }
 
+        public Like Likes (Client client, Dish dish)
+        {
+            Like like = new Like(dish, client);
+            likes.Add(like);
+            return like;
         }
 
         public User GetUser(string email)
@@ -80,7 +87,6 @@ namespace Manager
             }
             return null;
         }
-
         public void PrecargarDatos()
         {
             Dish plato1 = AltaPlato("Sushi", 490);
