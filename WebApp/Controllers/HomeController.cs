@@ -47,6 +47,11 @@ namespace WebApp.Controllers
             return View();
         }
 
+        public IActionResult Cathalog ()
+        {
+            return null;
+        }
+
         public IActionResult Team()
         {
             return View();

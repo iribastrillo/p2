@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dominio
 {
-    abstract public class User
+    public abstract class User
     {
         private string email;
         private string rol;
@@ -35,6 +35,11 @@ namespace Dominio
         public override bool Equals(object obj)
         {
             return obj is User user && email == user.Email && rol == user.Rol && password == user.Password;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();    
         }
     }
 }
