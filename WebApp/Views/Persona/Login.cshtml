@@ -1,14 +1,17 @@
 ﻿
-<h4>Ingrese sus datos</h4>
 
-<form method="post">
 
-    <label>Email</label><br>
-    <input type="text" name="email" /><br>
-
-    <label>Password</label><br>
-    <input type="password" name="password" /><br>
-    <input type="submit" value="Login" />
-</form>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <form class="d-flex flex-column justify-content-center" method="post">
+            <h1>¡Ingresa tus datos!</h1>
+            <label>Email</label>
+            <input class="mb-3" type="text" name="email" />
+            <label>Password</label>
+            <input class="mb-3" type="password" name="password" />
+            <input class="btn btn-primary" type="submit" value="Login" />
+        </form>
+    </div>
+</div>
 
 <p>@ViewBag.msg</p>
