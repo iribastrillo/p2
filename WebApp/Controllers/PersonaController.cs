@@ -78,6 +78,9 @@ namespace WebApp.Controllers
 
             }
             return View();
+        }
+        public void Like ()
+        {
 
         }
     }

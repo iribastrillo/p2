@@ -1,27 +1,26 @@
 ﻿@model IEnumerable<Dominio.Dish>
 
 @{
-    ViewData["Title"] = "ListView";
+    ViewData["Title"] = "Home";
 }
-
-<h1>ListView</h1>
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 
-<div class="row">
-    <div class="col-12">
-        @foreach (var item in Model)
-        {
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+<div class="row align-items-stretch">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3 pb-3">
+
+            <div class="card">
+                <img class="card-img-top" src="~/assets/img/burger.svg" alt="Card image cap">
                 <div class="card-body">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Me gusta</a>
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                     <p class="card-text">$ @Html.DisplayFor(modelItem => item.Price)</p>
                     <a href="#" class="btn btn-primary">@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })</a>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
