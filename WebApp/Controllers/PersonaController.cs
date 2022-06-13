@@ -20,42 +20,11 @@ namespace WebApp.Controllers
             return View();
         }
 
-
-        public IActionResult Login()
-        {
-            return View();
-        }
-
         public IActionResult Registro()
         {
             return View();
         }
-
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
-        }
-
-
-        [HttpPost]
-        public IActionResult Login(string email, string password)
-        {
-            User buscado = instance.Login(email, password);
-            if (buscado != null)
-            {
-
-                HttpContext.Session.SetString("LogueadoEmail", buscado.Email);
-                HttpContext.Session.SetString("LogueadoRol", buscado.Rol);
-                // HttpContext.Session.SetString("LogueadoRol", buscado.GetType().Name);
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.msg = "Error en los datos";
-                return View();
-            }
-        }
+       
         [HttpPost]
         public IActionResult Registro(string name, string lastname, string email, string password)
         {

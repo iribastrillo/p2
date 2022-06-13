@@ -254,6 +254,39 @@ namespace Manager
             return plato;
         }
 
+        public List<Pedido> GetServicios(string email)
+        {
+            User buscado = GetPersonaPorEmail(email);
+            List<Pedido> ret = new List<Pedido>();
+            if (buscado.Rol == "cliente" && buscado != null)
+            {
+
+                foreach (Pedido p in Pedidos)
+                {
+                    if (p.Client.Email.Equals(buscado.Email))
+                    {
+                        ret.Add(p);
+                    }
+                }
+            }
+            return ret;
+        }
+
+        public List<Pedido> ObtenerOperacionesEntre(DateTime f1, DateTime f2, string email)
+        {
+            List<Pedido> ret = GetServicios(email);
+            foreach (Pedido p in ret)
+            {
+                    if (p.Date > f1 && p.Date < f2)
+                {
+                    ret.Add(p);
+                }
+            }
+            return ret;
+        }
+
+
+
         public List<Deliveryman> Deliverymen
         {
             get

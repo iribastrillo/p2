@@ -26,12 +26,12 @@ namespace WebApp.Controllers
             string logueadoRol = HttpContext.Session.GetString("LogueadoRol");
             if (logueadoRol == null || logueadoRol == "cliente")
             {
-                // string email = HttpContext.Session.GetString("LogueadoEmail");
-                // string rol = HttpContext.Session.GetString("LogueadoRol");
-                // User user = instance.GetUser(email);
-                // ViewBag.msg = $"Hola {user.Email} ";
-                // ViewBag.mes = $" {rol} ";
-                return (RedirectToAction("Index", "Dish"));
+                  string email = HttpContext.Session.GetString("LogueadoEmail");
+                  string rol = HttpContext.Session.GetString("LogueadoRol");
+                 // User user = instance.GetUser(email);
+                 // ViewBag.msg = $"Hola {user.Email} ";
+                 //ViewBag.mes = $" {rol} ";
+                return (RedirectToAction("Index", "Home"));
             }
             else
             {
@@ -42,6 +42,36 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(string email, string password)
+        {
+            User buscado = instance.Login(email, password);
+            if (buscado != null)
+            {
+
+                HttpContext.Session.SetString("LogueadoEmail", buscado.Email);
+                HttpContext.Session.SetString("LogueadoRol", buscado.Rol);
+                // HttpContext.Session.SetString("LogueadoRol", buscado.GetType().Name);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.msg = "Error en los datos";
+                return View();
+            }
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

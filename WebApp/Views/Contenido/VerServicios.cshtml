@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Dominio.Pedido>
+
+@{
+    ViewData["Title"] = "VerServicios";
+}
+
+
+<h1>BuscarOperaciones</h1>
+
+<form method="post">
+    <label>Fecha1</label>
+    <input type="date" name="f1" /><br>
+
+    <label>Fecha2</label>
+    <input type="date" name="f2" /><br>
+
+    <input type="submit" value="Buscar">
+</form>
+
+@if (Model != null)
+{
+
+
+
+    //        private Service service;
+    //private Client client;
+    //private DateTime date;
+    ////private Deliveryman deliveryAsociado;
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Service)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date);
+                    </td>
+                 
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}
