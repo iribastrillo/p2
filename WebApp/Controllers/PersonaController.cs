@@ -53,12 +53,9 @@ namespace WebApp.Controllers
             else
             {
                 ViewBag.msg = "Error en los datos";
-
+                return View();
             }
-            return View();
-
         }
-
         [HttpPost]
         public IActionResult Registro(string name, string lastname, string email, string password)
         {
@@ -81,6 +78,9 @@ namespace WebApp.Controllers
 
             }
             return View();
+        }
+        public void Like ()
+        {
 
         }
     }

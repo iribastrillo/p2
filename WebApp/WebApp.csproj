@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Validation\Validation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\img\" />
+  </ItemGroup>
+
 </Project>
