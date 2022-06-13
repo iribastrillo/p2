@@ -5,6 +5,6 @@
     "\\WebApp",
     "\\WebApp\\Controllers"
   ],
-  "SelectedNode": "\\Manager\\Manager.cs",
+  "SelectedNode": "\\WebApp\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
