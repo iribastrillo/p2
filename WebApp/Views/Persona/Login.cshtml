@@ -1,14 +1,51 @@
-﻿
-<h4>Ingrese sus datos</h4>
+﻿<h4>Ingrese sus datos</h4>
 
-<form method="post">
+<form method="post" id="formLogin">
 
     <label>Email</label><br>
-    <input type="text" name="email" /><br>
+    <input type="text" id="txtEmail" name="email" /><br>
+    <span id="avisoEmail" class="text-danger"></span>
+
 
     <label>Password</label><br>
-    <input type="password" name="password" /><br>
+    <input type="password" id="txtPass" name="password" /><br>
+    <span id="avisoPass" class="text-danger"></span>
+    <br />
     <input type="submit" value="Login" />
 </form>
 
 <p>@ViewBag.msg</p>
+
+
+@section Scripts {
+
+    <script>
+        document.querySelector("#formLogin").addEventListener('submit', validarDatos);
+
+        function validarDatos(evento) {
+
+            evento.preventDefault();
+
+            let email = document.querySelector("#txtEmail").value;
+            let pass = document.querySelector("#txtPass").value;
+
+            let userValido = false;
+            let passValido = false;
+
+            if (email != "") { userValido = true; } else { document.querySelector("#avisoEmail").innerHTML = "El e-mail no puede ser vacío" }
+            if (pass != "") { passValido = true; } else { document.querySelector("#avisoPass").innerHTML = "El password no puede ser vacío" }
+
+
+            if (userValido && passValido) {
+
+                this.submit();
+            }
+
+
+        }
+
+
+
+    </script>
+
+}
