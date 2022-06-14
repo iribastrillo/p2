@@ -80,6 +80,7 @@ namespace WebApp.Controllers
         }
         public void Like ()
         {
+            ViewBag.likes = 0;
 
         }
     }
