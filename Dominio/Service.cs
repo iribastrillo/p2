@@ -18,6 +18,7 @@ namespace Dominio
         {
             Dishes.Add(dish);
         }
+
     }
     
     public class Delivery : Service
@@ -99,15 +100,17 @@ namespace Dominio
 
     public class Local : Service
     {
+        private Waiter mozo;
         private int table;
         private List<Client> guests;
         private static float cover = 100;
         
 
-        public Local (int table, List<Dish> dishes) : base (dishes)
+        public Local (int table, List<Dish> dishes, Waiter mozo) : base (dishes)
         {
             this.table = table;
             this.guests = new List<Client> ();
+            this.mozo = mozo;
         }
 
         public int Table
@@ -121,7 +124,20 @@ namespace Dominio
             {
                 table = value;
             }
-        } 
+        }
+
+        public Waiter Mozo
+        {
+            get
+            {
+                return mozo;
+            }
+
+            set
+            {
+                mozo = value;
+            }
+        }
 
         public float CalculateTotal ()
         {
@@ -171,7 +187,19 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{table} || {guests} || {cover}";
+            string str = "";
+            foreach (Client g in guests)
+            {
+                str += $" {g.Name} {g.LastName}"; 
+            }
+            return $" {mozo.Name} || {table} || {cover} ||  {str} ";
+          
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Local local && mozo == local.Mozo && table == local.Table && guests == local.Guests && cover == local.Cover;
+        }
+
     }
 }

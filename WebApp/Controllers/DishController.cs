@@ -15,5 +15,7 @@ namespace WebApp.Controllers
         {
             return View(instance.GetDishes());
         }
+
+
     }
 }

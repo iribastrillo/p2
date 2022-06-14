@@ -21,14 +21,29 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
 
+
+                        @if (Context.Session.GetString("LogueadoRol") == "cliente")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Dish" asp-action="Index">Platos</a>
+                            </li>
+                        }
+
+                        @if (Context.Session.GetString("LogueadoRol") == "mozo")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Mozo" asp-action="ServiciosAtendidos">Servicios</a>
+                            </li>
+                        }
+
                         @if (Context.Session.GetString("LogueadoEmail") == null)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Login">Ingresar</a>
                             </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Registro">Registrarse</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Registro">Registrarse</a>
+                            </li>
                         }
 
                         @if (Context.Session.GetString("LogueadoEmail") != null)
@@ -43,6 +58,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Logout">Salir</a>
                             </li>
                         }
+
                     </ul>
                 </div>
             </div>
