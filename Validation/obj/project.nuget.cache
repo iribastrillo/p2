@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4QJAjHeX87t0EhsVOatAO868eBHBJk+0xSDBKt+k7Nqmvt4YllocTetYW1JHkSHTJ9DQws8NACUKlyElmbWsCA==",
+  "dgSpecHash": "tqbSDhaeY4lMvUapRTbPaSbshZ0GVrET3x+YuyIUd73MmlfTZ4vbiZG1vfG4ppyNl7vSpm8v9hhLdWEkELoQJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj",
+  "projectFilePath": "C:\\Users\\agust\\source\\repos\\p2\\Validation\\Validation.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

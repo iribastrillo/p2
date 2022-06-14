@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http 
+﻿@using Microsoft.AspNetCore.Http
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,41 +20,25 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Login">Ingresar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Registro">Registrarse</a>
+                        </li>
 
-
-                        @if (Context.Session.GetString("LogueadoEmail") == null)
+                        @if (Context.Session.GetString("LogueadoEmail") != null)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Login">Ingresar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Registro">Registrarse</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Dish" asp-action="Index">Platos</a>
-                            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Dish" asp-action="Index">Platos</a>
+            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Team">Integrantes</a>
                             </li>
-                        }
-
-                        @if (Context.Session.GetString("LogueadoRol") == "client")
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Dish" asp-action="Index">Platos</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Contenido" asp-action="VerServicios">Servicios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Logout">Salir</a>
-                            </li>
-                        }
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Logout">Salir</a>
+                                            </li>}
                     </ul>
                 </div>
             </div>

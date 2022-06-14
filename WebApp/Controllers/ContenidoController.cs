@@ -23,20 +23,6 @@ namespace WebApp.Controllers
 
         public IActionResult VerServicio()
         {
-            if (HttpContext.Session.GetString("LogueadoRol") == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if (HttpContext.Session.GetString("LogueadoRol") == "mozo")
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if (HttpContext.Session.GetString("LogueadoRol") == "repartidor")
-            {
-                return RedirectToAction("Index", "Home");
-            }
 
             return View();
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj": {}
+    "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj": {
+    "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj",
         "projectName": "CLI",
-        "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj",
+        "projectPath": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj",
         "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\obj\\",
+        "outputPath": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

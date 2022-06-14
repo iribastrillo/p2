@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x6eIuOnrYddPV8FrfyynWJiq09gCH1D9fo5CxB2rJNQffeLkWrOWdn+qrL6tKQkgOGspmK37nbC0cJyj2QBlpw==",
+  "dgSpecHash": "FcrkTKl7IpP9QftHoeNFL6HTGZUJpP0HJEPoy/VNojmPnYFvVovx5VCVG3oOM9kkBsnZO7ZhBxIHfQ9LMXJBEQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agust\\Source\\Repos\\p2\\CLI\\CLI.csproj",
+  "projectFilePath": "C:\\Users\\agust\\source\\repos\\p2\\CLI\\CLI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

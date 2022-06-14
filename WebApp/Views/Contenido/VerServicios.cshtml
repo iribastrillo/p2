@@ -16,39 +16,3 @@
 
     <input type="submit" value="Buscar">
 </form>
-
-@if (Model != null)
-{
-
-
-
-    //        private Service service;
-    //private Client client;
-    //private DateTime date;
-    ////private Deliveryman deliveryAsociado;
-
-    <table class="table">
-        <thead>
-            <tr>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.Service)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date);
-                    </td>
-                 
-                </tr>
-            }
-        </tbody>
-    </table>
-
-
-}
