@@ -59,6 +59,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Registro(string name, string lastname, string email, string password)
         {
+
             User buscado = instance.GetUser(email);
             bool contraSegura = Validation.Validator.EsSegura(password);
             if (buscado == null && contraSegura)
@@ -67,8 +68,7 @@ namespace WebApp.Controllers
                 {
                     instance.AltaCliente(name, lastname, email, password);
                     ViewBag.msg = "Alta exitosa! Inicie sesión.";
-                } else
-                {
+                } else                {
                     ViewBag.msg = "Error en los datos";
                 }
             }

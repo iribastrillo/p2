@@ -24,16 +24,20 @@ namespace WebApp.Controllers
         public IActionResult Index()
         {
             string logueadoRol = HttpContext.Session.GetString("LogueadoRol");
-            if (logueadoRol == null || logueadoRol == "cliente")
+            if (logueadoRol == null)
             {
-                // string email = HttpContext.Session.GetString("LogueadoEmail");
-                // string rol = HttpContext.Session.GetString("LogueadoRol");
-                // User user = instance.GetUser(email);
-                // ViewBag.msg = $"Hola {user.Email} ";
-                // ViewBag.mes = $" {rol} ";
-                return (RedirectToAction("Index", "Dish"));
+                 return (RedirectToAction("Index", "Dish"));
             }
-            else
+            else if (logueadoRol == "cliente")
+            {
+                string email = HttpContext.Session.GetString("LogueadoEmail");
+                string rol = HttpContext.Session.GetString("LogueadoRol");
+                User user = instance.GetUser(email);
+                ViewBag.msg = $"Hola {user.Email} ";
+                ViewBag.mes = $" {rol} ";
+                return (RedirectToAction("Index", "Home"));
+            }
+            else 
             {
                 return View();
             }
