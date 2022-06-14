@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Dominio.Local>
+
+@{
+    ViewData["Title"] = "ServiciosAtendidos";
+}
+
+<h1>Servicios atendidos</h1>
+
+<form method="post">
+    <label>Fecha1</label>
+    <input type="date" name="f1" /><br>
+
+    <label>Fecha2</label>
+    <input type="date" name="f2" /><br>
+
+    <input type="submit" value="Buscar">
+</form>
+
+
+@if (Model != null)
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Mesa
+                </th>
+                <th>
+                    Platos
+                </th>
+
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Comensal
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Table)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dishes)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cover)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Guests)
+                </td>
+
+
+            </tr>
+            }
+        </tbody>
+    </table>
+}

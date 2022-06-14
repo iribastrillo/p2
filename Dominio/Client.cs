@@ -46,7 +46,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $" {ID} || {LastName} || {Name} || {Email}";
+            return $"{Name} {LastName} || {Email}";
         }
 
         public override bool Equals(object obj)

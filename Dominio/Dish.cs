@@ -64,10 +64,8 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{this.name} || {this.price}";
+            return $"{this.name} - {this.price} || ";
         }
-
-
 
         public override int GetHashCode()
         {
