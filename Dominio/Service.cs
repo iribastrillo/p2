@@ -31,7 +31,7 @@ namespace Dominio
         public DateTime Delivered { get; set; }
         public void Deliver()
         {
-            Delivered = new DateTime(2022, 7, 1, 7, 0, 0);
+            Delivered = new DateTime(01/01/2020);
         }
 
         public Delivery (string address, float distance, Deliveryman deliveryman, List<Dish> dishes) : base ( dishes)
