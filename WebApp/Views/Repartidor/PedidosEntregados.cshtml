@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Dominio.Delivery>
+
+@{
+    ViewData["Title"] = "PedidosEntregados";
+}
+
+<h1>Pedidos entregados</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha de entrega
+            </th>
+            <th>
+                Dirección
+            </th>
+            <th>
+               Distancia (KM)
+            </th>
+            <th>
+                Platos
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delivered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dishes)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

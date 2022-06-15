@@ -18,8 +18,6 @@ namespace Manager
         private List<Local> locales = new List<Local>();
         private List<Delivery> aDomicilio = new List<Delivery>();
 
-        
-
         private Manager()
         {
             PrecargarDatos();
@@ -47,6 +45,23 @@ namespace Manager
                 return 1;
             }
             else if (a.Name.CompareTo(b.Name) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
+        private int PorFechaRepartos(Delivery a, Delivery b)
+        {
+            if (a.Delivered.CompareTo(b.Delivered) > 0)
+            {
+                return 1;
+            }
+            else if (a.Delivered.CompareTo(b.Delivered) < 0)
             {
                 return -1;
             }
@@ -180,6 +195,25 @@ namespace Manager
             
         }
 
+
+        public List<Delivery> PedidosEntregados(string email)
+        {
+            List<Delivery> ret = new List<Delivery>();
+            foreach (Delivery d in ADomicilio)
+            {
+                if (d.Delivered < DateTime.Now)
+                {
+                    if(d.Deliveryman.Email == email)
+                    {
+                        ret.Add(d);
+                    }
+                }
+            }
+             ret.Sort(PorFechaRepartos);
+
+            return ret;
+        }
+
         public Pedido AltaPedido(Service service, Client client)
         {
             Pedido pedido = new Pedido(service, client);
@@ -301,6 +335,7 @@ namespace Manager
 
             return plato;
         }
+
 
         public List<Deliveryman> Deliverymen
         {
