@@ -26,6 +26,13 @@
                         {
                         }
 
+                        @if (Context.Session.GetString("LogueadoRol") == "repartidor")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Repartidor" asp-action="PedidosEntregados">Entregas realizadas</a>
+                            </li>
+                        }
+
                         @if (Context.Session.GetString("LogueadoRol") == "mozo")
                         {
                             <li class="nav-item">
