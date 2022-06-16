@@ -9,6 +9,11 @@ namespace Dominio
         private Service service;
         private Client client;
         private DateTime date;
+        private float finalPrice;
+
+
+
+        public float FinalPrice { get => finalPrice; set => finalPrice = value; }
 
         public Service Service { get => service; set => service = value; }
 

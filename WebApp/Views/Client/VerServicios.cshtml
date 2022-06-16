@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Dominio.Pedido>
+
+@{
+    ViewData["Title"] = "VerServicios";
+}
+
+<h1>VerServicios</h1>
+
+
+<form method="post">
+    <label>Fecha 1</label>
+    <input type="date" name="f1" /><br>
+
+    <label>Fecha 2</label>
+    <input type="date" name="f2" /><br>
+
+    <input type="submit" value="Buscar">
+</form>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

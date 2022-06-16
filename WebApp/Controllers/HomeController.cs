@@ -28,15 +28,6 @@ namespace WebApp.Controllers
             {
                  return (RedirectToAction("Index", "Dish"));
             }
-            else if (logueadoRol == "cliente")
-            {
-                string email = HttpContext.Session.GetString("LogueadoEmail");
-                string rol = HttpContext.Session.GetString("LogueadoRol");
-                User user = instance.GetUser(email);
-                ViewBag.msg = $"Hola {user.Email} ";
-                ViewBag.mes = $" {rol} ";
-                return (RedirectToAction("Index", "Home"));
-            }
             else 
             {
                 return View();
