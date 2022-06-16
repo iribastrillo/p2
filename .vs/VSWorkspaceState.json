@@ -3,8 +3,10 @@
     "",
     "\\Manager",
     "\\WebApp",
-    "\\WebApp\\Controllers"
+    "\\WebApp\\Controllers",
+    "\\WebApp\\Views",
+    "\\WebApp\\Views\\Waiter"
   ],
-  "SelectedNode": "\\WebApp\\Controllers\\HomeController.cs",
+  "SelectedNode": "\\Obligatorio.sln",
   "PreviewInSolutionExplorer": false
 }
