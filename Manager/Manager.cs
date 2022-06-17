@@ -155,6 +155,7 @@ namespace Manager
             Pedido pedido10 = AltaPedido(delivery5, cliente3);
         }
 
+
         public List<Local> GetWaiterLocal(string email)
         {
             List<Local> ret = new List<Local>();
