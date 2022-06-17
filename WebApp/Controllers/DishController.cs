@@ -23,6 +23,11 @@ namespace WebApp.Controllers
             return View("Index", instance.GetDishes());
         }
 
+        public IActionResult Add (string id)
+        {
+            return View();
+        }
+
 
     }
 }
