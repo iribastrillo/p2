@@ -1,12 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Dominio",
     "\\Manager",
     "\\WebApp",
     "\\WebApp\\Controllers",
     "\\WebApp\\Views",
+    "\\WebApp\\Views\\Repartidor",
     "\\WebApp\\Views\\Waiter"
   ],
-  "SelectedNode": "\\Obligatorio.sln",
+  "SelectedNode": "\\Dominio\\Pedido.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -67,7 +67,7 @@ namespace Dominio
 
         public Deliveryman Deliveryman { get => deliveryman; set => deliveryman = value; }
 
-        public float CalculateTotal ()
+        public float CalculateTotal()
         {
              /*
              * Si la entrega es mediante Delivery se agregan $50 de envío
@@ -215,6 +215,11 @@ namespace Dominio
         public override bool Equals(object obj)
         {
             return obj is Local local && mozo == local.Mozo && table == local.Table && guests == local.Guests && cover == local.Cover;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();  
         }
 
     }

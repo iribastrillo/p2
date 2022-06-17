@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Dominio;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Manager;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -14,6 +18,12 @@ namespace WebApp.Controllers
         public IActionResult Index()
         {
             return View(instance.GetDishes());
+        }
+
+        public IActionResult Like (string id)
+        {
+            instance.Likes(HttpContext.Session.GetString("LogueadoEmail"), id);
+            return View("Index", instance.GetDishes());
         }
 
 

@@ -15,9 +15,9 @@ namespace Manager
         private List<Deliveryman> repartidores = new List<Deliveryman>();
         private List<Pedido> pedidos = new List<Pedido>();
         private List<User> usuarios = new List<User>();
+        private List<Like> likes = new List<Like>();
         private List<Local> locales = new List<Local>();
         private List<Delivery> aDomicilio = new List<Delivery>();
-
         private Manager()
         {
             PrecargarDatos();
@@ -85,7 +85,12 @@ namespace Manager
                 }
             }
             return u;
+        }
 
+        public Like Likes (string email, string dishID)
+        {
+            //Like like = new Like(dish, client);
+            return null;
         }
 
         public User GetUser(string email)
@@ -99,7 +104,6 @@ namespace Manager
             }
             return null;
         }
-
         public void PrecargarDatos()
         {
             Dish plato1 = AltaPlato("Sushi", 490);
@@ -155,6 +159,7 @@ namespace Manager
             Pedido pedido10 = AltaPedido(delivery5, cliente3);
         }
 
+
         public List<Local> GetWaiterLocal(string email)
         {
             List<Local> ret = new List<Local>();
@@ -194,8 +199,6 @@ namespace Manager
                 return ret;
             
         }
-
-
         public List<Delivery> PedidosEntregados(string email)
         {
             List<Delivery> ret = new List<Delivery>();
@@ -222,16 +225,25 @@ namespace Manager
             return pedido;
         }
 
-        public User GetPersonaPorEmail(string email)
+        public List<Pedido> GetServicios(string email)
         {
-            foreach (User u in usuarios)
-            {
-                if (u.Email.Equals(email))
+            User buscado = GetUser(email);
+            List<Pedido> ret = new List<Pedido>();
+                foreach (Pedido p in Pedidos)
                 {
-                    return u;
+                    if (p.Client.Email.Equals(buscado.Email))
+                    {
+                        ret.Add(p);
+                    }
                 }
-            }
-            return null;
+            return ret;
+        }
+
+        public List<Dish> GetOpenOrderForCurrentUser (string currentUser)
+        {
+            /* Este casteo es raro y me parece que puede dar problemas, habría que implementarlo mejor */
+            Client client = GetUser(currentUser) as Client;
+            return client.GetPedido();
         }
 
         public Client AltaCliente(string name, string last_name, string email, string password)
@@ -272,7 +284,6 @@ namespace Manager
             }
             return waiter;
         }
-
 
         public Deliveryman AltaRepartidor(string name, string last_name, Vehicle vehicle, string email, string password)
         {

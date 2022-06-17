@@ -4,7 +4,7 @@
     ViewData["Title"] = "VerServicios";
 }
 
-<h1>VerServicios</h1>
+<h1>Ver Servicios</h1>
 
 
 <form method="post">
@@ -18,23 +18,41 @@
 </form>
 
 
-@*<table class="table">
+@if (Model != null)
+{
+    <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Date)
+                    Fecha
                 </th>
-                <th></th>
+                <th>
+                    Plato
+                </th>
+                <th>
+                    Precio
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service.Dishes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinalPrice)
+                </td>
+            </tr>
             }
         </tbody>
-    </table>*@
+    </table>
+} else
+            {
+                <p>No hay pedidos.</p>
+            }
