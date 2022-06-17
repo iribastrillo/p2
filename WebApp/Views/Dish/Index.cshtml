@@ -3,9 +3,6 @@
 @{
     ViewData["Title"] = "Home";
 }
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 
 <div class="row align-items-stretch">
     @foreach (var item in Model)
@@ -15,7 +12,12 @@
             <div class="card">
                 <img class="card-img-top" src="~/assets/img/burger.svg" alt="Card image cap">
                 <div class="card-body">
+<<<<<<< HEAD
                     <a class="nav-link" asp-area="" asp-controller="Client" asp-action="Like">Me gusta</a>
+=======
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Me gusta</a>
+                    @ViewBag.Likes <p> Likes</p>
+>>>>>>> main
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                     <p class="card-text">$ @Html.DisplayFor(modelItem => item.Price)</p>
                     <a href="#" class="btn btn-primary">Ver más</a>

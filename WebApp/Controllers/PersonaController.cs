@@ -20,7 +20,6 @@ namespace WebApp.Controllers
             return View();
         }
 
-
         public IActionResult Login()
         {
             return View();
@@ -48,7 +47,7 @@ namespace WebApp.Controllers
                 HttpContext.Session.SetString("LogueadoEmail", buscado.Email);
                 HttpContext.Session.SetString("LogueadoRol", buscado.Rol);
                 // HttpContext.Session.SetString("LogueadoRol", buscado.GetType().Name);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dish");
             }
             else
             {
@@ -59,6 +58,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Registro(string name, string lastname, string email, string password)
         {
+
             User buscado = instance.GetUser(email);
             bool contraSegura = Validation.Validator.EsSegura(password);
             if (buscado == null && contraSegura)
@@ -67,8 +67,7 @@ namespace WebApp.Controllers
                 {
                     instance.AltaCliente(name, lastname, email, password);
                     ViewBag.msg = "Alta exitosa! Inicie sesión.";
-                } else
-                {
+                } else                {
                     ViewBag.msg = "Error en los datos";
                 }
             }
@@ -79,5 +78,11 @@ namespace WebApp.Controllers
             }
             return View();
         }
+<<<<<<< HEAD
+=======
+        public void Like ()
+        {
+        }
+>>>>>>> main
     }
 }

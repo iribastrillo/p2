@@ -18,6 +18,7 @@ namespace Dominio
         {
             Dishes.Add(dish);
         }
+
     }
     
     public class Delivery : Service
@@ -30,7 +31,7 @@ namespace Dominio
         public DateTime Delivered { get; set; }
         public void Deliver()
         {
-            Delivered = new DateTime(2022, 7, 1, 7, 0, 0);
+            Delivered = new DateTime(01/01/2020);
         }
 
         public Delivery (string address, float distance, Deliveryman deliveryman, List<Dish> dishes) : base ( dishes)
@@ -95,19 +96,37 @@ namespace Dominio
         {
             return $"{address} || {distance}";
         }
+
+        public int CompareTo(Delivery other)
+        {
+            if (Delivered.CompareTo(other.Delivered) > 0)
+            {
+                return 1;
+            }
+            else if (Delivered.CompareTo(other.Delivered) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     } 
 
     public class Local : Service
     {
+        private Waiter mozo;
         private int table;
         private List<Client> guests;
         private static float cover = 100;
         
 
-        public Local (int table, List<Dish> dishes) : base (dishes)
+        public Local (int table, List<Dish> dishes, Waiter mozo) : base (dishes)
         {
             this.table = table;
             this.guests = new List<Client> ();
+            this.mozo = mozo;
         }
 
         public int Table
@@ -121,7 +140,20 @@ namespace Dominio
             {
                 table = value;
             }
-        } 
+        }
+
+        public Waiter Mozo
+        {
+            get
+            {
+                return mozo;
+            }
+
+            set
+            {
+                mozo = value;
+            }
+        }
 
         public float CalculateTotal ()
         {
@@ -171,7 +203,19 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{table} || {guests} || {cover}";
+            string str = "";
+            foreach (Client g in guests)
+            {
+                str += $" {g.Name} {g.LastName}"; 
+            }
+            return $" {mozo.Name} || {table} || {cover} ||  {str} ";
+          
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Local local && mozo == local.Mozo && table == local.Table && guests == local.Guests && cover == local.Cover;
+        }
+
     }
 }

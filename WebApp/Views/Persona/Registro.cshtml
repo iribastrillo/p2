@@ -5,32 +5,32 @@
 }
 
 <h1>Registro</h1>
-
 <h4>Cliente</h4>
 <hr/>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Registro">
+        <form asp-action="Registro" id="formAlta">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Nombre</label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" id="txtName" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+                <span asp-validation-for="LastName" id="avisoNombre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LastName" class="control-label">Apellido</label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
+                <input asp-for="LastName" id="txtLName" class="form-control" />
+                <span asp-validation-for="LastName" id="avisoApellido" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label">Correo electrónico</label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <input asp-for="Email" id="txtEmail" class="form-control" />
+                <span asp-validation-for="Email" id="avisoEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label">Contraseña</label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <input asp-for="Password" id="txtPass" type="password" class="form-control" />
+                <span asp-validation-for="Password" id="avisoPass" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -40,10 +40,43 @@
 </div>
 <p>@ViewBag.msg</p>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
+
+    <script>
+        document.querySelector("#formAlta").addEventListener('submit', validarDatos);
+
+        function validarDatos(evento) {
+
+            evento.preventDefault();
+
+            let nombre = document.querySelector("#txtName").value;
+            let apellido = document.querySelector("#txtLName").value;
+            let email = document.querySelector("#txtEmail").value;
+            let pass = document.querySelector("#txtPass").value;
+
+            let nombreValido = false;
+            let apellidoValido = false;
+            let emailValido = false;
+            let passValido = false;
+
+            if (nombre != "") { nombreValido = true; } else { document.querySelector("#avisoNombre").innerHTML = "El nombre no puede ser vacío" }
+            if (apellido != "") { apellidoValido = true; } else { document.querySelector("#avisoApellido").innerHTML = "El apellido no puede ser vacío" }
+            if (email != "") { emailValido = true; } else { document.querySelector("#avisoEmail").innerHTML = "El Email no puede ser vacío" }
+            if (pass != "") { passValido = true; } else { document.querySelector("#avisoPass").innerHTML = "El password no puede ser vacío" }
+
+
+            if (nombreValido && apellidoValido && emailValido && passValido) {
+
+                this.submit();
+            }
+
+
+
+        }
+
+
+
+    </script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

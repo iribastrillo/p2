@@ -16,7 +16,8 @@ namespace Manager
         private List<Pedido> pedidos = new List<Pedido>();
         private List<User> usuarios = new List<User>();
         private List<Like> likes = new List<Like>();
-
+        private List<Local> locales = new List<Local>();
+        private List<Delivery> aDomicilio = new List<Delivery>();
         private Manager()
         {
             PrecargarDatos();
@@ -44,6 +45,23 @@ namespace Manager
                 return 1;
             }
             else if (a.Name.CompareTo(b.Name) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
+        private int PorFechaRepartos(Delivery a, Delivery b)
+        {
+            if (a.Delivered.CompareTo(b.Delivered) > 0)
+            {
+                return 1;
+            }
+            else if (a.Delivered.CompareTo(b.Delivered) < 0)
             {
                 return -1;
             }
@@ -106,17 +124,17 @@ namespace Manager
             Waiter waiter4 = AltaMozo("Romina", "Hernández", "hernanpereira3@gmail.com", "Hernan123");
             Waiter waiter5 = AltaMozo("Sofía", "Siena", "hernanpereira4@gmail.com", "Hernan123");
 
-            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto, "agustina1@hotmail.com", "Agustina123");
+            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto, "agu@hotmail.com", "Agustina123");
             Deliveryman repartidor2 = AltaRepartidor("Juan", "Pérez", Vehicle.Bicicleta, "agustina2@hotmail.com", "Agustina123");
             Deliveryman repartidor3 = AltaRepartidor("Gonzalo", "Pereira", Vehicle.Pie, "agustina3@hotmail.com", "Agustina123");
             Deliveryman repartidor4 = AltaRepartidor("Alejandro", "Marella", Vehicle.Bicicleta, "agustina4@hotmail.com", "Agustina123");
             Deliveryman repartidor5 = AltaRepartidor("Roberto", "Sánchez", Vehicle.Moto, "agustina5@hotmail.com", "Agustina123");
 
-            Delivery delivery1 = AltaDelivery(DateTime.Now, "Calle Falsa 122", 20, repartidor1, new List<Dish>() { plato1, plato7 });
-            Delivery delivery2 = AltaDelivery(DateTime.Now, "Calle Falsa 126", 20, repartidor2, new List<Dish>() { plato5, plato10, plato6 });
-            Delivery delivery3 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, repartidor4, new List<Dish>() { plato6 });
-            Delivery delivery4 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, repartidor1, new List<Dish>() { plato3, plato4 });
-            Delivery delivery5 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, repartidor5, new List<Dish>() { plato9, plato8 });
+            Delivery delivery1 = AltaDelivery("Calle Falsa 122", 20, repartidor1, new List<Dish>() { plato1, plato7 });
+            Delivery delivery2 = AltaDelivery("Calle Falsa 126", 20, repartidor2, new List<Dish>() { plato5, plato10, plato6 });
+            Delivery delivery3 = AltaDelivery("Calle Falsa 123", 20, repartidor4, new List<Dish>() { plato6 });
+            Delivery delivery4 = AltaDelivery("Calle Falsa 123", 20, repartidor1, new List<Dish>() { plato3, plato4 });
+            Delivery delivery5 = AltaDelivery("Calle Falsa 123", 20, repartidor5, new List<Dish>() { plato9, plato8 });
 
             Client cliente1 = AltaCliente("Agustina", "Balsas", "agus@hotmail.com", "Agustina1B");
             Client cliente2 = AltaCliente("Ignacio", "Ribas", "ignacio@gmail.com", "Ignacio1R");
@@ -124,12 +142,11 @@ namespace Manager
             Client cliente4 = AltaCliente("Anaru", "Martínez", "anaru@gmail.com", "Anaru1");
             Client cliente5 = AltaCliente("Juan", "Rodríguez", "juanr@outlook.com", "juanR13");
 
-            Local local1 = AltaLocal(2, cliente1, new List<Dish>() { plato1, plato2 });
-            Local local2 = AltaLocal(4, cliente2, new List<Dish>() { plato6, plato5 });
-            Local local3 = AltaLocal(7, cliente3, new List<Dish>() { plato10 });
-            Local local4 = AltaLocal(1, cliente4, new List<Dish>() { plato8, plato4 });
-            Local local5 = AltaLocal(3, cliente5, new List<Dish>() { plato9, plato10, plato5 });
-
+            Local local1 = AltaLocal(2, cliente1, new List<Dish>() { plato1, plato2 }, waiter2);
+            Local local2 = AltaLocal(4, cliente2, new List<Dish>() { plato6, plato5, plato4 }, waiter3);
+            Local local3 = AltaLocal(7, cliente3, new List<Dish>() { plato10 }, waiter1);
+            Local local4 = AltaLocal(1, cliente4, new List<Dish>() { plato8, plato4 }, waiter4);
+            Local local5 = AltaLocal(3, cliente5, new List<Dish>() { plato9, plato10, plato5 }, waiter5);
 
             Pedido pedido1 = AltaPedido(local1, cliente4);
             Pedido pedido2 = AltaPedido(local4, cliente5);
@@ -143,10 +160,70 @@ namespace Manager
             Pedido pedido10 = AltaPedido(delivery5, cliente3);
         }
 
+        public List<Local> GetWaiterLocal(string email)
+        {
+            List<Local> ret = new List<Local>();
+            if (email != null)
+            {
+                foreach (Local l in Locales)
+                {
+                    if (l.Mozo.Email == email)
+                    {
+                        ret.Add(l);
+                    }
+                }
+            }
+            return ret;
+
+        }
+
+        public List<Local> ServiciosAtendidos(DateTime f1, DateTime f2, string email)
+        {
+                List<Local> ret = new List<Local>();
+                List<Local> propias = GetWaiterLocal(email);
+
+            foreach (Pedido pedido in Pedidos)
+            {
+                foreach (Local p in propias)
+                {
+      
+                    if (p.Equals(pedido.Service))
+                        if (pedido.Date > f1 && pedido.Date < f2)
+                    {
+                        ret.Add(p);
+                    }
+                }
+
+            }
+                
+                return ret;
+            
+        }
+
+
+        public List<Delivery> PedidosEntregados(string email)
+        {
+            List<Delivery> ret = new List<Delivery>();
+            foreach (Delivery d in ADomicilio)
+            {
+                if (d.Delivered < DateTime.Now)
+                {
+                    if(d.Deliveryman.Email == email)
+                    {
+                        ret.Add(d);
+                    }
+                }
+            }
+             ret.Sort(PorFechaRepartos);
+
+            return ret;
+        }
+
         public Pedido AltaPedido(Service service, Client client)
         {
             Pedido pedido = new Pedido(service, client);
             pedidos.Add(pedido);
+            
             return pedido;
         }
 
@@ -227,19 +304,23 @@ namespace Manager
             return repartidor;
         }
 
-        public Delivery AltaDelivery(DateTime date, string address, float distance, Deliveryman deliveryman, List<Dish> dishes)
+        public Delivery AltaDelivery(string address, float distance, Deliveryman deliveryman, List<Dish> dishes)
         {
             Delivery delivery = new Delivery(address, distance, deliveryman, dishes);
             services.Add(delivery);
+            aDomicilio.Add(delivery);
+
             return delivery;
         }
 
-        public Local AltaLocal(int table, Client cliente, List<Dish> dishes)
+        public Local AltaLocal(int table, Client cliente, List<Dish> dishes, Waiter mozo)
         {
-            Local local = new Local(table, dishes);
+            Local local = new Local(table, dishes, mozo);
 
             local.AddGuest(cliente);
             services.Add(local);
+            locales.Add(local);
+            
             return local;
         }
 
@@ -259,6 +340,7 @@ namespace Manager
 
             return plato;
         }
+
 
         public List<Deliveryman> Deliverymen
         {
@@ -345,6 +427,32 @@ namespace Manager
             set
             {
                 usuarios = value;
+            }
+        }
+
+        public List<Delivery> ADomicilio
+        {
+            get
+            {
+                return aDomicilio;
+            }
+
+            set
+            {
+                aDomicilio = value;
+            }
+        }
+
+        public List<Local> Locales
+        {
+            get
+            {
+                return locales;
+            }
+
+            set
+            {
+                locales = value;
             }
         }
     }
