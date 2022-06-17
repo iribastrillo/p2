@@ -2623,7 +2623,7 @@
       ]
     },
     "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "sha512": "znZGbws7E4BA9jxNZ7FuiIRI3C9hrgatVQSTKhIYZYNOud4M5VfGlTYi6RdYO5sQrebFuF/g9UEV3hOxDMXF6Q==",
       "type": "package",
       "path": "newtonsoft.json/11.0.2",
       "files": [
@@ -2653,7 +2653,7 @@
       ]
     },
     "NuGet.Frameworks/4.7.0": {
-      "sha512": "qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
+      "sha512": "KuqDbPzjOWbUM6gPMbkvdhlQ10roQAoMM7mNZ8hcY/fH+9J4Zc+qT8dLWoNzGyr0OrxQVdZdbSjy/fxwoICgGg==",
       "type": "package",
       "path": "nuget.frameworks/4.7.0",
       "files": [
@@ -3080,7 +3080,7 @@
       ]
     },
     "System.Collections.Immutable/1.5.0": {
-      "sha512": "EXKiDFsChZW0RjrZ4FYHu9aW6+P4MCgEDCklsVseRfhoO0F+dXeMSsMRAlVXIo06kGJ/zv+2w1a2uc2+kxxSaQ==",
+      "sha512": "RGxi2aQoXgZ5ge0zxrKqI4PU9LrYYoLC+cnEnWXKsSduCOUhE1GEAAoTexUVT8RZOILQyy1B27HC8Xw/XLGzdQ==",
       "type": "package",
       "path": "system.collections.immutable/1.5.0",
       "files": [
@@ -3103,7 +3103,7 @@
       ]
     },
     "System.Composition/1.0.31": {
-      "sha512": "I+D26qpYdoklyAVUdqwUBrEIckMNjAYnuPJy/h9dsQItpQwVREkDFs4b4tkBza0kT2Yk48Lcfsv2QQ9hWsh9Iw==",
+      "sha512": "CbzwbjxT04VU+JzQuPOYfUCybzBtbGZdqGJS9482dDBoBHbt3Zz0QAJ/Cjzpmq5xdL+hhW4FYWf/3wq2OCVXgg==",
       "type": "package",
       "path": "system.composition/1.0.31",
       "files": [
@@ -3144,7 +3144,7 @@
       ]
     },
     "System.Composition.Hosting/1.0.31": {
-      "sha512": "fN1bT4RX4vUqjbgoyuJFVUizAl2mYF5VAb+bVIxIYZSSc0BdnX+yGAxcavxJuDDCQ1K+/mdpgyEFc8e9ikjvrg==",
+      "sha512": "KlZ4qkaa1p/U2WKr353XeQ9bjrxBwn9FcD5k9WFEuV1MloDMnTnhUwQU7h1WigvsCYykzoRdnDLq33wnUPwBeg==",
       "type": "package",
       "path": "system.composition.hosting/1.0.31",
       "files": [
@@ -4038,7 +4038,7 @@
       ]
     },
     "System.Net.Http/4.3.0": {
-      "sha512": "sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA==",
+      "sha512": "Z1UfSF6dlpCdZdxh6LeoGlYH+q6ptG/iiIWgUUeKhE3DbQACmZkU7Sz2nOX0qdHjz72MOdYRbkSJ5Qwl6sZgvg==",
       "type": "package",
       "path": "system.net.http/4.3.0",
       "files": [
@@ -4563,7 +4563,7 @@
       ]
     },
     "System.Reflection.Metadata/1.6.0": {
-      "sha512": "COC1aiAJjCoA5GBF+QKL2uLqEBew4JsCkQmoHKbN3TlOZKa2fKLz5CpiRQKDz0RsAOEGsVKqOD5bomsXq/4STQ==",
+      "sha512": "I4aWCii7N1bmn43vviRfJQYW6UAco1G/CcjJouvgGdb/sr2BRTSnddhaPMg2oxu9VHFn8T1z3dTLq0pna8zmtA==",
       "type": "package",
       "path": "system.reflection.metadata/1.6.0",
       "files": [
@@ -5569,7 +5569,7 @@
       ]
     },
     "System.Text.Encodings.Web/4.5.0": {
-      "sha512": "Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
+      "sha512": "JF+wDdfFiRl3rz3dPMfR6aR568AW2J5CUMmhSflgHDz4zbVK4/00ax8UHnHyEMvblPewgNugjuA4oyoL8Pex2g==",
       "type": "package",
       "path": "system.text.encodings.web/4.5.0",
       "files": [
@@ -6066,24 +6066,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\agust\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin.DESKTOP-0Q23CA9\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agust\\Source\\Repos\\p2\\WebApp\\WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\WebApp\\WebApp.csproj",
-      "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agust\\Source\\Repos\\p2\\WebApp\\obj\\",
+      "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\WebApp\\WebApp.csproj",
+      "packagesPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\agust\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin.DESKTOP-0Q23CA9\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6097,14 +6096,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Dominio\\Dominio.csproj"
+            "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Dominio\\Dominio.csproj"
             },
-            "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj": {
-              "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Manager\\Manager.csproj"
+            "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Manager\\Manager.csproj": {
+              "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Manager\\Manager.csproj"
             },
-            "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj": {
-              "projectPath": "C:\\Users\\agust\\Source\\Repos\\p2\\Validation\\Validation.csproj"
+            "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\Validation.csproj": {
+              "projectPath": "C:\\Users\\Admin.DESKTOP-0Q23CA9\\Desktop\\Personal\\ORT\\P2\\Obligatorio\\Validation\\Validation.csproj"
             }
           }
         }
@@ -6142,7 +6141,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }

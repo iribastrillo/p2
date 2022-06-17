@@ -1,21 +1,16 @@
-﻿<h4>Ingrese sus datos</h4>
-
-<form method="post" id="formLogin">
-
-    <label>Email</label><br>
-    <input type="text" id="txtEmail" name="email" /><br>
-    <span id="avisoEmail" class="text-danger"></span>
-
-
-    <label>Password</label><br>
-    <input type="password" id="txtPass" name="password" /><br>
-    <span id="avisoPass" class="text-danger"></span>
-    <br />
-    <input type="submit" value="Login" />
-</form>
-
-<p>@ViewBag.msg</p>
-
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <form class="d-flex flex-column justify-content-center" method="post">
+            <h1>¡Ingresa tus datos!</h1>
+            <label>Email</label>
+            <input class="mb-3" type="text" name="email" />
+            <label>Password</label>
+            <input class="mb-3" type="password" name="password" />
+            <input class="btn btn-primary" type="submit" value="Login" />
+            <p>@ViewBag.msg</p>
+        </form>
+    </div>
+</div>
 
 @section Scripts {
 

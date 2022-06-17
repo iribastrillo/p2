@@ -244,3 +244,7 @@ C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\De
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Persona\Registro.cshtml.g.cs
 C:\Users\agust\Source\Repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Mozo\ServiciosAtendidos.cshtml.g.cs
 C:\Users\agust\Source\Repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Repartidor\PedidosEntregados.cshtml.g.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Mozo\ServiciosAtendidos.cshtml.g.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Repartidor\PedidosEntregados.cshtml.g.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\View.cshtml.g.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client\Order.cshtml.g.cs

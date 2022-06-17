@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 ﻿using Dominio;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+=======
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+>>>>>>> 8eba32cac26465a3452c0ab76ca4cf05e9fbf103
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,6 +23,12 @@ namespace WebApp.Controllers
         public IActionResult Index()
         {
             return View(instance.GetDishes());
+        }
+
+        public IActionResult Like (string id)
+        {
+            instance.Likes(HttpContext.Session.GetString("LogueadoEmail"), id);
+            return View("Index", instance.GetDishes());
         }
 
 

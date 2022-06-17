@@ -217,5 +217,10 @@ namespace Dominio
             return obj is Local local && mozo == local.Mozo && table == local.Table && guests == local.Guests && cover == local.Cover;
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();  
+        }
+
     }
 }
