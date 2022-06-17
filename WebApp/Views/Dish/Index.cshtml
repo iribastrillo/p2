@@ -13,7 +13,6 @@
                 <img class="card-img-top" src="~/assets/img/burger.svg" alt="Card image cap">
                 <div class="card-body">
                     <a class="nav-link" asp-area="" asp-controller="Client" asp-action="Like">Me gusta</a>
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Me gusta</a>
                     @ViewBag.Likes <p> Likes</p>
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                     <p class="card-text">$ @Html.DisplayFor(modelItem => item.Price)</p>
