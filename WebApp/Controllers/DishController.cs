@@ -1,10 +1,18 @@
+<<<<<<< HEAD
+﻿using Dominio;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+=======
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+>>>>>>> 8eba32cac26465a3452c0ab76ca4cf05e9fbf103
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Manager;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
