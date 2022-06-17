@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,12 @@ namespace WebApp.Controllers
         public IActionResult Index()
         {
             return View(instance.GetDishes());
+        }
+
+        public IActionResult Like (string id)
+        {
+            instance.Likes(HttpContext.Session.GetString("LogueadoEmail"), id);
+            return View("Index", instance.GetDishes());
         }
 
 

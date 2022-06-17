@@ -87,11 +87,10 @@ namespace Manager
             return u;
         }
 
-        public Like Likes (Client client, Dish dish)
+        public Like Likes (string email, string dishID)
         {
-            Like like = new Like(dish, client);
-            likes.Add(like);
-            return like;
+            //Like like = new Like(dish, client);
+            return null;
         }
 
         public User GetUser(string email)

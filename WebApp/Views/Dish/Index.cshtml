@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Dominio.Dish>
+﻿@using Microsoft.AspNetCore.Http
+
+@model IEnumerable<Dominio.Dish>
 
 @{
     ViewData["Title"] = "Home";
@@ -12,11 +14,26 @@
             <div class="card p-3">
                 <img class="card-img-top" src="~/assets/img/burger.svg" alt="Card image cap">
                 <div class="card-body">
-                    <a class="nav-link" asp-area="" asp-controller="Client" asp-action="Like">Me gusta</a>
-                    @ViewBag.Likes <p> Likes</p>
+                    @if (Context.Session.GetString("LogueadoRol") == "cliente")
+                    {
+                        <div class="d-flex">
+                            <img src="~/assets/img/like.svg" alt="Ícono de like" style="height:24px;" />
+                            @Html.ActionLink("Me gusta",
+                                 "Like",
+                                 new { id = item.ID }
+                                )
+                        </div>
+                    }
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                     <p class="card-text">$ @Html.DisplayFor(modelItem => item.Price)</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
+                    @if (Context.Session.GetString("LogueadoRol") == "cliente")
+                    {
+                        @Html.ActionLink("+",
+                             "Add",
+                             new { id = item.ID },
+                             new { @class = "btn btn-primary" }
+                            )
+                    }
                 </div>
             </div>
         </div>
