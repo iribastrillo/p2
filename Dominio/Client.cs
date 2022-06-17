@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using static Validation.Validator;
 
 
@@ -11,12 +12,12 @@ namespace Dominio
         private int iD;
         private string name;
         private string lastName;
-        private Pedido orden;
+        private List<Dish> orden;
 
         public int ID { get => iD; set => iD = value; }
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
-        public Pedido Orden { get => orden; set => orden = value; }
+        public List<Dish> Orden { get => orden; set => orden = value; }
 
         public Client (string name, string lastName, string email, string password, string rol) : base(email, password, rol)
         {
@@ -26,8 +27,7 @@ namespace Dominio
             this.Email = email;
             this.Password = password;
             this.Rol = "cliente";
-            this.Orden = null;
-
+            this.Orden = new List<Dish>();
             n++;
         }
 
@@ -47,7 +47,7 @@ namespace Dominio
             return isValid;
         }
 
-        public Pedido GetPedido ()
+        public List<Dish> GetPedido ()
         {
             return Orden;
         }

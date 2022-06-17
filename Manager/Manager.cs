@@ -199,8 +199,6 @@ namespace Manager
                 return ret;
             
         }
-
-
         public List<Delivery> PedidosEntregados(string email)
         {
             List<Delivery> ret = new List<Delivery>();
@@ -227,22 +225,10 @@ namespace Manager
             return pedido;
         }
 
-        public User GetPersonaPorEmail(string email)
-        {
-            foreach (User u in usuarios)
-            {
-                if (u.Email.Equals(email))
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
-
-        public Pedido GetOpenOrderForCurrentUser (string currentUser)
+        public List<Dish> GetOpenOrderForCurrentUser (string currentUser)
         {
             /* Este casteo es raro y me parece que puede dar problemas, habría que implementarlo mejor */
-            Client client = GetPersonaPorEmail(currentUser) as Client;
+            Client client = GetUser(currentUser) as Client;
             return client.GetPedido();
         }
 
