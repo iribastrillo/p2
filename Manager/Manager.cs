@@ -107,7 +107,8 @@ namespace Manager
         {
             //Like like = new Like(dish, client);
             return null;
-        } public void AddToOrder (string email, int dishID)
+        } 
+        public void AddToOrder (string email, int dishID)
         {
             Client client = GetUser(email) as Client;
             client.Orden.Add(GetDishByID(dishID));

@@ -25,9 +25,10 @@ namespace WebApp.Controllers
 
         public IActionResult Add (string id)
         {
-            return View();
+            int ID = int.Parse(id);
+            string email = HttpContext.Session.GetString("LogueadoEmail");
+            instance.AddToOrder (email, ID);
+            return View("Index", instance.GetDishes());
         }
-
-
     }
 }
