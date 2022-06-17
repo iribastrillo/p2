@@ -78,11 +78,8 @@ namespace WebApp.Controllers
             }
             return View();
         }
-<<<<<<< HEAD
-=======
         public void Like ()
         {
         }
->>>>>>> main
     }
 }
