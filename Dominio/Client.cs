@@ -11,10 +11,12 @@ namespace Dominio
         private int iD;
         private string name;
         private string lastName;
+        private Pedido orden;
 
         public int ID { get => iD; set => iD = value; }
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
+        public Pedido Orden { get => orden; set => orden = value; }
 
         public Client (string name, string lastName, string email, string password, string rol) : base(email, password, rol)
         {
@@ -24,6 +26,7 @@ namespace Dominio
             this.Email = email;
             this.Password = password;
             this.Rol = "cliente";
+            this.Orden = null;
 
             n++;
         }
@@ -42,6 +45,11 @@ namespace Dominio
 
             bool isValid = isValidName && isValidLastName && isValidEmail && isValidPassword;
             return isValid;
+        }
+
+        public Pedido GetPedido ()
+        {
+            return Orden;
         }
 
         public override string ToString()

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +7,17 @@ using Manager;
 
 namespace WebApp.Controllers
 {
-    public class ClientController : Controller
+    public class PedidoController : Controller
     {
         Manager.Manager instance = Manager.Manager.GetInstance();
-        public IActionResult Likes ()
+        public IActionResult Index()
         {
             return View();
         }
-        public IActionResult Order ()
+        public IActionResult Details ()
         {
-            string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
-            return View(instance.GetOpenOrderForCurrentUser(loggedEmail));
+            /* Controla acceso a la vista del pedido */
+            return View();
         }
     }
 }

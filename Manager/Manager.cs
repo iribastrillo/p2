@@ -239,6 +239,13 @@ namespace Manager
             return null;
         }
 
+        public Pedido GetOpenOrderForCurrentUser (string currentUser)
+        {
+            /* Este casteo es raro y me parece que puede dar problemas, habría que implementarlo mejor */
+            Client client = GetPersonaPorEmail(currentUser) as Client;
+            return client.GetPedido();
+        }
+
         public Client AltaCliente(string name, string last_name, string email, string password)
         {
             bool validado = Client.IsValid(name, last_name, email, password);

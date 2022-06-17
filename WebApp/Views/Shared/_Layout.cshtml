@@ -24,6 +24,12 @@
 
                         @if (Context.Session.GetString("LogueadoRol") == "cliente")
                         {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Client" asp-action="Order">Orden</a>
+                            </li>
+                            <li class="nav-item">
+                                <a onclick="return preguntarLogout()" class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Logout">Salir</a>
+                            </li>
                         }
 
                         @if (Context.Session.GetString("LogueadoRol") == "repartidor")
@@ -49,20 +55,6 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Registro">Registrarse</a>
                             </li>
                         }
-
-                        @if (Context.Session.GetString("LogueadoEmail") != null)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Dish" asp-action="Index">Platos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Team">Integrantes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a onclick="return preguntarLogout()" class="nav-link text-dark"  asp-area="" asp-controller="Persona" asp-action="Logout">Salir</a>
-                            </li>
-                        }
-
                     </ul>
                 </div>
             </div>
