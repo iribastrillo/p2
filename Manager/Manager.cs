@@ -225,6 +225,20 @@ namespace Manager
             return pedido;
         }
 
+        public List<Pedido> GetServicios(string email)
+        {
+            User buscado = GetUser(email);
+            List<Pedido> ret = new List<Pedido>();
+                foreach (Pedido p in Pedidos)
+                {
+                    if (p.Client.Email.Equals(buscado.Email))
+                    {
+                        ret.Add(p);
+                    }
+                }
+            return ret;
+        }
+
         public List<Dish> GetOpenOrderForCurrentUser (string currentUser)
         {
             /* Este casteo es raro y me parece que puede dar problemas, habría que implementarlo mejor */
@@ -270,7 +284,6 @@ namespace Manager
             }
             return waiter;
         }
-
 
         public Deliveryman AltaRepartidor(string name, string last_name, Vehicle vehicle, string email, string password)
         {

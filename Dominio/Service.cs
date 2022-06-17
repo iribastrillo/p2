@@ -67,7 +67,7 @@ namespace Dominio
 
         public Deliveryman Deliveryman { get => deliveryman; set => deliveryman = value; }
 
-        public float CalculateTotal ()
+        public float CalculateTotal()
         {
              /*
              * Si la entrega es mediante Delivery se agregan $50 de envío

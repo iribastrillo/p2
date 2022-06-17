@@ -1,10 +1,11 @@
-﻿@model IEnumerable<Dominio.Local>
+﻿@model IEnumerable<Dominio.Pedido>
 
 @{
-    ViewData["Title"] = "ServiciosAtendidos";
+    ViewData["Title"] = "VerServicios";
 }
 
-<h1>Servicios atendidos</h1>
+<h1>Ver Servicios</h1>
+
 
 <form method="post">
     <label>Fecha 1</label>
@@ -19,22 +20,17 @@
 
 @if (Model != null)
 {
-
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    Mesa
+                    Fecha
                 </th>
                 <th>
-                    Platos
+                    Plato
                 </th>
-
                 <th>
                     Precio
-                </th>
-                <th>
-                    Comensal
                 </th>
             </tr>
         </thead>
@@ -43,25 +39,20 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Table)
+                    @Html.DisplayFor(modelItem => item.Date)
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.Dishes)
+                    @Html.DisplayFor(modelItem => item.Service.Dishes)
                 </td>
-
-
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cover)
+                    @Html.DisplayFor(modelItem => item.FinalPrice)
                 </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Guests)
-                </td>
-
-
             </tr>
             }
         </tbody>
     </table>
-}
+} else
+            {
+                <p>No hay pedidos.</p>
+            }

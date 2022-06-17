@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Dominio",
     "\\Manager",
     "\\WebApp",
     "\\WebApp\\Controllers",
@@ -8,6 +9,6 @@
     "\\WebApp\\Views\\Repartidor",
     "\\WebApp\\Views\\Waiter"
   ],
-  "SelectedNode": "\\WebApp\\Views\\Repartidor\\PedidosEntregados.cshtml",
+  "SelectedNode": "\\Dominio\\Pedido.cs",
   "PreviewInSolutionExplorer": false
 }

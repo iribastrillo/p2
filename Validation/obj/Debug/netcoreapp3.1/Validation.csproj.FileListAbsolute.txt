@@ -1,23 +1,3 @@
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\bin\Debug\netcoreapp3.1\Validation.deps.json
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\bin\Debug\netcoreapp3.1\Validation.dll
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\bin\Debug\netcoreapp3.1\Validation.pdb
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\obj\Debug\netcoreapp3.1\Validation.csproj.AssemblyReference.cache
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\obj\Debug\netcoreapp3.1\Validation.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\obj\Debug\netcoreapp3.1\Validation.AssemblyInfoInputs.cache
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\obj\Debug\netcoreapp3.1\Validation.AssemblyInfo.cs
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\obj\Debug\netcoreapp3.1\Validation.csproj.CoreCompileInputs.cache
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\obj\Debug\netcoreapp3.1\Validation.dll
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Proyectos\Obligatorio P2\Obligatorio-v-1.0\Validation\obj\Debug\netcoreapp3.1\Validation.pdb
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\bin\Debug\netcoreapp3.1\Validation.deps.json
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\bin\Debug\netcoreapp3.1\Validation.dll
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\bin\Debug\netcoreapp3.1\Validation.pdb
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\obj\Debug\netcoreapp3.1\Validation.csproj.AssemblyReference.cache
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\obj\Debug\netcoreapp3.1\Validation.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\obj\Debug\netcoreapp3.1\Validation.AssemblyInfoInputs.cache
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\obj\Debug\netcoreapp3.1\Validation.AssemblyInfo.cs
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\obj\Debug\netcoreapp3.1\Validation.csproj.CoreCompileInputs.cache
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\obj\Debug\netcoreapp3.1\Validation.dll
-C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\Validation\obj\Debug\netcoreapp3.1\Validation.pdb
 C:\Users\agust\Source\Repos\p2\Validation\bin\Debug\netcoreapp3.1\Validation.deps.json
 C:\Users\agust\Source\Repos\p2\Validation\bin\Debug\netcoreapp3.1\Validation.dll
 C:\Users\agust\Source\Repos\p2\Validation\bin\Debug\netcoreapp3.1\Validation.pdb

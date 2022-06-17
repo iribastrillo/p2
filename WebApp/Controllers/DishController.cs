@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-﻿using Dominio;
+using Dominio;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-=======
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
->>>>>>> 8eba32cac26465a3452c0ab76ca4cf05e9fbf103
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
