@@ -26,6 +26,12 @@ namespace WebApp.Controllers
             return View("Index", instance.GetDishes());
         }
 
-
+        public IActionResult Add (string id)
+        {
+            int ID = int.Parse(id);
+            string email = HttpContext.Session.GetString("LogueadoEmail");
+            instance.AddToOrder (email, ID);
+            return View("Index", instance.GetDishes());
+        }
     }
 }

@@ -38,6 +38,20 @@ namespace Manager
             return dishes;
         }
 
+        public Dish GetDishByID (int id)
+        {
+            Dish dish = null;
+            foreach (var item in Dishes)
+            {
+                if (item.ID == id)
+                {
+                    dish = item;
+                    break;
+                }
+            }
+            return dish;
+        }
+
         private int PorNombreDish(Dish a, Dish b)
         {
             if (a.Name.CompareTo(b.Name) > 0)
@@ -87,11 +101,23 @@ namespace Manager
             return u;
         }
 
+        /*  FALTA IMPLEMENTACIÓN */
+
         public Like Likes (string email, string dishID)
         {
             //Like like = new Like(dish, client);
             return null;
+        } 
+        public void AddToOrder (string email, int dishID)
+        {
+            Client client = GetUser(email) as Client;
+            client.Orden.Add(GetDishByID(dishID));
         }
+        
+        
+        /*----------------------*/
+
+
 
         public User GetUser(string email)
         {
