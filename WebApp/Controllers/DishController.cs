@@ -33,5 +33,12 @@ namespace WebApp.Controllers
             instance.AddToOrder (email, ID);
             return View("Index", instance.GetDishes());
         }
+        public IActionResult Remove (string id)
+        {
+            int ID = int.Parse(id);
+            string email = HttpContext.Session.GetString("LogueadoEmail");
+            instance.RemoveFromOrder(email, ID);
+            return RedirectToAction("Order", "Client", instance.GetOpenOrderForCurrentUser(email));
+        }
     }
 }

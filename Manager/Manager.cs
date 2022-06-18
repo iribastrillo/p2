@@ -113,6 +113,11 @@ namespace Manager
             Client client = GetUser(email) as Client;
             client.Orden.Add(GetDishByID(dishID));
         }
+        public void RemoveFromOrder (string email, int id)
+        {
+            Client client = GetUser(email) as Client;
+            client.Orden.Remove(GetDishByID(id));
+        }
 
         public void BuildService (string email, bool asDelivery)
         {
