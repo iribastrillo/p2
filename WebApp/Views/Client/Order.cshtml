@@ -4,59 +4,96 @@
     ViewData["Title"] = "Order";
 }
 
+<h1>Tu orden</h1>
+
 @if (Model.Count() == 0)
 {
-<h1>Tu orden</h1>
-<section class="container border">
-    <div class="row">
-        <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
-            <figure>
-                <img class="empty-order" src="~/assets/img/20.svg" alt="Plato vacío" style="height:50px;"/>
-            </figure>
-            <h2 class="lead">Tu orden todavía está vacía</h2>
+    <section class="container border">
+        <div class="row">
+            <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
+                <figure>
+                    <img class="empty-order" src="~/assets/img/20.svg" alt="Plato vacío" style="height:50px;" />
+                </figure>
+                <h2 class="lead">Tu orden todavía está vacía</h2>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 }
 else
 {
 
+    <section class="container">
 
+        @foreach (var item in Model)
+        {
+            <div class="row mb-3 p-3 border d-flex align-content-center">
+                <div class="col-1 d-flex align-content-center">
+                    <img src="~/assets/img/burger.svg" alt="Imagen de hamburguesa" style="height: 48px;" />
+                </div>
+                <div class="col-9">
+                    <h2>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </h2>
+                    <h3>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </h3>
+                </div>
+                <div class="col-2">
+                    <p>
+                        @Html.ActionLink("Ver", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })
+                    </p>
+                </div>
+            </div>
+        }
+    </section>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    @if (ViewBag.Checkout)
+    {
+        <h1>Pago</h1>
+
+        <section class="border mb-3 p-3">
+            <div class="row">
+                <div class="col-4">
+                    <p>Costo del plato</p>
+                </div>
+                <div class="col-8">
+                    <p>@ViewBag.Costo</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p>Cubierto</p>
+                </div>
+                <div class="col-8">
+                    <p>@ViewBag.Cubierto</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p>TOTAL</p>
+                </div>
+                <div class="col-8">
+                    <p>@ViewBag.Total</p>
+                </div>
+            </div>
+        </section>
+    }
+
+    <section class="d-flex justify-content-center mb-3">
+        <form method="post">
+            <div class="row">
+                <div class="form-check form-switch col-12">
+                    <input class="form-check-input" type="checkbox" role="switch" id="asDelivery" name="asDelivery">
+                    <label class="form-check-label" for="asDelivery">Quiero delivery</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input class="btn btn-primary" type="submit" value="Pedir">
+                </div>
+            </div>
+        </form>
+    </section>
+
 }

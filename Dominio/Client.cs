@@ -15,6 +15,7 @@ namespace Dominio
         private List<Dish> orden;
 
         public int ID { get => iD; set => iD = value; }
+        public Service OpenService { get; set; } = null;
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public List<Dish> Orden { get => orden; set => orden = value; }

@@ -17,9 +17,28 @@ namespace WebApp.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult Order ()
         {
+            ViewBag.Checkout = false;
             string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
+            return View(instance.GetOpenOrderForCurrentUser(loggedEmail));
+        }
+        [HttpPost]
+        public IActionResult Order (bool asDelivery)
+        {
+            string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
+            instance.BuildService(loggedEmail, false);
+            Client client = instance.GetUser(loggedEmail) as Client;
+
+            if (!asDelivery)
+            {
+                Local openService = client.OpenService as Local;
+                ViewBag.Costo = openService.CalculateSubtotal();
+                ViewBag.Cubierto = openService.Cover;
+            }
+            ViewBag.Total = client.OpenService.CalculateTotal();
+            ViewBag.Checkout = true;
             return View(instance.GetOpenOrderForCurrentUser(loggedEmail));
         }
 

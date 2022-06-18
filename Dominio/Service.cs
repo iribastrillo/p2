@@ -13,6 +13,8 @@ namespace Dominio
         {
             this.dishes = dishes;
         }
+        public abstract float CalculateTotal();
+        public abstract float CalculateSubtotal();
 
         public void AddDish (Dish dish)
         {
@@ -67,7 +69,17 @@ namespace Dominio
 
         public Deliveryman Deliveryman { get => deliveryman; set => deliveryman = value; }
 
-        public float CalculateTotal()
+        public override float CalculateSubtotal()
+        {
+            float subtotal = 0;
+            foreach (var dish in Dishes)
+            {
+                subtotal += dish.Price;
+            }
+            return subtotal;
+        }
+
+        public override float CalculateTotal()
         {
              /*
              * Si la entrega es mediante Delivery se agregan $50 de envío
@@ -154,8 +166,17 @@ namespace Dominio
                 mozo = value;
             }
         }
+        public override float CalculateSubtotal()
+        {
+            float subtotal = 0;
+            foreach (var dish in Dishes)
+            {
+                subtotal += dish.Price;
+            }
+            return subtotal;
+        }
 
-        public float CalculateTotal ()
+        public override float CalculateTotal ()
         {
             float total = 0;
             foreach (var guest in guests)

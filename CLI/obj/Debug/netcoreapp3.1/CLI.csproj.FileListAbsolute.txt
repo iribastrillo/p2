@@ -8,3 +8,13 @@ C:\Users\agust\Source\Repos\p2\CLI\obj\Debug\netcoreapp3.1\CLI.AssemblyInfo.cs
 C:\Users\agust\Source\Repos\p2\CLI\obj\Debug\netcoreapp3.1\CLI.csproj.CoreCompileInputs.cache
 C:\Users\agust\Source\Repos\p2\CLI\obj\Debug\netcoreapp3.1\CLI.dll
 C:\Users\agust\Source\Repos\p2\CLI\obj\Debug\netcoreapp3.1\CLI.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\obj\Debug\netcoreapp3.1\CLI.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\obj\Debug\netcoreapp3.1\CLI.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\bin\Debug\netcoreapp3.1\CLI.deps.json
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\bin\Debug\netcoreapp3.1\CLI.dll
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\bin\Debug\netcoreapp3.1\CLI.pdb
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\obj\Debug\netcoreapp3.1\CLI.csproj.AssemblyReference.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\obj\Debug\netcoreapp3.1\CLI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\obj\Debug\netcoreapp3.1\CLI.AssemblyInfoInputs.cache
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\obj\Debug\netcoreapp3.1\CLI.AssemblyInfo.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\CLI\obj\Debug\netcoreapp3.1\CLI.csproj.CoreCompileInputs.cache

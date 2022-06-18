@@ -17,7 +17,6 @@
                     @if (Context.Session.GetString("LogueadoRol") == "cliente")
                     {
                         <div class="d-flex">
-                            <img src="~/assets/img/like.svg" alt="Ícono de like" style="height:12px;" />
                             @Html.ActionLink("Me gusta",
                                  "Like",
                                  new { id = item.ID }
@@ -28,7 +27,7 @@
                     <p class="card-text">$ @Html.DisplayFor(modelItem => item.Price)</p>
                     @if (Context.Session.GetString("LogueadoRol") == "cliente")
                     {
-                        @Html.ActionLink("+",
+                        @Html.ActionLink("Agregar a la orden",
                              "Add",
                              new { id = item.ID },
                              new { @class = "btn btn-primary" }

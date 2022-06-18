@@ -113,11 +113,20 @@ namespace Manager
             Client client = GetUser(email) as Client;
             client.Orden.Add(GetDishByID(dishID));
         }
-        
+
+        public void BuildService (string email, bool asDelivery)
+        {
+            Client client = GetUser(email) as Client;
+            if (asDelivery)
+            {
+                client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Orden);
+            } else
+            {
+                client.OpenService = new Local(1, client.Orden, Waiters[0]);
+            }
+        }
         
         /*----------------------*/
-
-
 
         public User GetUser(string email)
         {
