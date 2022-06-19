@@ -25,7 +25,7 @@ namespace WebApp.Controllers
         {
             ViewBag.Checkout = false;
             string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
-            return View(instance.GetOpenOrderForCurrentUser(loggedEmail));
+            return View(instance.GetCartForCurrentUser());
         }
         [HttpPost]
         public IActionResult Order (bool asDelivery)
@@ -42,7 +42,7 @@ namespace WebApp.Controllers
             }
             ViewBag.Total = client.OpenService.CalculateTotal();
             ViewBag.Checkout = true;
-            return View(instance.GetOpenOrderForCurrentUser(email));
+            return View(instance.GetCartForCurrentUser());
         }
 
         [HttpPost]

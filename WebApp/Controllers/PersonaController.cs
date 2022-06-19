@@ -46,7 +46,6 @@ namespace WebApp.Controllers
 
                 HttpContext.Session.SetString("LogueadoEmail", buscado.Email);
                 HttpContext.Session.SetString("LogueadoRol", buscado.Rol);
-                // HttpContext.Session.SetString("LogueadoRol", buscado.GetType().Name);
                 return RedirectToAction("Index", "Dish");
             }
             else

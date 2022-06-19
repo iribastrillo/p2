@@ -19,25 +19,23 @@ namespace WebApp.Controllers
         {
             return View(instance.GetDishes());
         }
-
         public IActionResult Like (string id)
         {
-            instance.Likes(HttpContext.Session.GetString("LogueadoEmail"), id);
-            return View("Index", instance.GetDishes());
+            int ID = int.Parse(id);
+            instance.Likes(ID);
+            return RedirectToAction("Index", instance.GetDishes());
         }
         public IActionResult Add (string id)
         {
             int ID = int.Parse(id);
-            string email = HttpContext.Session.GetString("LogueadoEmail");
-            instance.AddToOrder (email, ID);
+            instance.AddToOrder (ID);
             return View("Index", instance.GetDishes());
         }
         public IActionResult Remove (string id)
         {
             int ID = int.Parse(id);
-            string email = HttpContext.Session.GetString("LogueadoEmail");
-            instance.RemoveFromOrder(email, ID);
-            return RedirectToAction("Order", "Client", instance.GetOpenOrderForCurrentUser(email));
+            instance.RemoveFromOrder(ID);
+            return RedirectToAction("Order", "Client", instance.GetCartForCurrentUser());
         }
     }
 }

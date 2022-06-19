@@ -7,6 +7,7 @@ namespace Manager
     public class Manager
     {
         public static Manager instance { get; set; }
+        public User SessionUser { get; set; }
 
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
@@ -85,8 +86,6 @@ namespace Manager
             }
 
         }
-
-        // ERA INTERNAL pero no me andaba
         public User Login(string email, string password)
         {
             User u = null;
@@ -95,46 +94,58 @@ namespace Manager
                 if (user.Email.Equals(email) && user.Password.Equals(password))
                 {
                     u = GetUser(user.Email);
+                    instance.SessionUser = u;
                     break;
                 }
             }
             return u;
         }
-
-        /*  FALTA IMPLEMENTACIÓN */
-
-        public Like Likes (string email, string dishID)
+        public Like Likes (int id)
         {
-            //Like like = new Like(dish, client);
-            return null;
+            Like like = null;
+            if (instance.IsClient (instance.SessionUser))
+            {
+                Dish dish = GetDishByID(id);
+                Client client = instance.SessionUser as Client;
+                like = new Like(dish, client);
+                dish.Likes.Add(like);
+            }
+            return like;
         } 
-        public void AddToOrder (string email, int dishID)
+        public bool AddToOrder (int id)
         {
-            Client client = GetUser(email) as Client;
-            client.Orden.Add(GetDishByID(dishID));
+            bool success = false;
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Client client = instance.SessionUser as Client;
+                client.Cart.Add(GetDishByID(id));
+                success = true;
+            }
+            return success;
         }
-        public void RemoveFromOrder (string email, int id)
+        public bool RemoveFromOrder (int id)
         {
-            Client client = GetUser(email) as Client;
-            client.Orden.Remove(GetDishByID(id));
+            bool success = false;
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Client client = instance.SessionUser as Client;
+                client.Cart.Remove(GetDishByID(id));
+            }
+            return success;
         }
         /* Hay que arreglar esto */
         public Service BuildService (string email, bool asDelivery)
         {
-            Client client = GetUser(email) as Client;
-            Service service;
-            List <Dish> dishes = client.Orden;
+            Client client = instance.SessionUser as Client;
             if (asDelivery)
             {
-                service = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Orden);
+                client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Cart);
             } else
             {
-                service = new Local(1, client.Orden, Waiters[0]);
+                client.OpenService = new Local(1, client.Cart, Waiters[0]);
             }
-            client.OpenService = service;
-            return service;
+            return client.OpenService;
         }
-        
         /*----------------------*/
 
         public User GetUser(string email)
@@ -148,6 +159,12 @@ namespace Manager
             }
             return null;
         }
+
+        public bool IsClient (User user)
+        {
+            return user is Client;
+        }
+
         public void PrecargarDatos()
         {
             Dish plato1 = AltaPlato("Sushi", 490);
@@ -202,8 +219,6 @@ namespace Manager
             Pedido pedido9 = AltaPedido(delivery2, cliente1);
             Pedido pedido10 = AltaPedido(delivery5, cliente3);
         }
-
-
         public List<Local> GetWaiterLocal(string email)
         {
             List<Local> ret = new List<Local>();
@@ -220,7 +235,6 @@ namespace Manager
             return ret;
 
         }
-
         public List<Local> ServiciosAtendidos(DateTime f1, DateTime f2, string email)
         {
                 List<Local> ret = new List<Local>();
@@ -240,8 +254,7 @@ namespace Manager
 
             }
                 
-                return ret;
-            
+                return ret;   
         }
         public List<Delivery> PedidosEntregados(string email)
         {
@@ -260,7 +273,6 @@ namespace Manager
 
             return ret;
         }
-
         public Pedido AltaPedido(Service service, Client client)
         {
             Pedido pedido = new Pedido(service, client);
@@ -268,7 +280,6 @@ namespace Manager
             
             return pedido;
         }
-
         public List<Pedido> GetServicios(string email)
         {
             User buscado = GetUser(email);
@@ -282,13 +293,11 @@ namespace Manager
                 }
             return ret;
         }
-
-        public List<Dish> GetOpenOrderForCurrentUser (string currentUser)
+        public List<Dish> GetCartForCurrentUser ()
         {
-            Client client = GetUser(currentUser) as Client;
-            return client.GetPedido();
+            Client client = instance.SessionUser as Client;
+            return client.GetCart();
         }
-
         public Client AltaCliente(string name, string last_name, string email, string password)
         {
             bool validado = Client.IsValid(name, last_name, email, password);

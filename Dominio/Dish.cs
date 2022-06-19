@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Dominio
 {
     public class Dish
     {
+
         static public float minimumPrice = 100;
         static public int n = 0;
 
         private int iD = 0;
         private string name;
-        private float price;     
-
+        private float price;
+        private List<Like> likes;
         public string Name
         {
             get
@@ -37,12 +39,14 @@ namespace Dominio
         }
 
         public int ID { get => iD; set => iD = value; }
+        public List<Like> Likes { get => likes; set => likes = value; }
 
         public Dish (string name, float price)
         {
             Name = name;
             Price = price;
             ID = n;
+            Likes = new List<Like>();
 
             n++;
         }
