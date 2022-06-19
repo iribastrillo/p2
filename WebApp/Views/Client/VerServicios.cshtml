@@ -1,22 +1,39 @@
 ﻿@model IEnumerable<Dominio.Pedido>
 
 @{
-    ViewData["Title"] = "VerServicios";
+    ViewData["Title"] = "Historial";
 }
 
-<h1>Ver Servicios</h1>
+<h1>Tus pedidos anteriores</h1>
 
+<section class="container border mb-3">
+    <div class="row">
+        <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
+            <figure>
+                <img class="empty-order" src="~/assets/img/history.svg" alt="ícono de página de historial" style="height: 96px;" />
+            </figure>
+            <h2 class="lead">¡Conocé tu historia con DeliGO! :D</h2>
+        </div>
+    </div>
+</section>
 
-<form method="post">
-    <label>Fecha 1</label>
-    <input type="date" name="f1" /><br>
+<h2>Tus pedidos:</h2>
 
-    <label>Fecha 2</label>
-    <input type="date" name="f2" /><br>
-
-    <input type="submit" value="Buscar">
-</form>
-
+<section class="container border p-3 mb-3">
+    <form class="row" method="post">
+        <div class="col-6">
+            <label>Entre:</label>
+            <input type="date" name="f1" />
+        </div>
+        <div class="col-6">
+            <label>y:</label>
+            <input type="date" name="f2" />
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <input class="btn btn-outline-primary" type="submit" value="Buscar">
+        </div>   
+    </form>
+</section>
 
 @if (Model != null)
 {
@@ -37,22 +54,23 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Service.Dishes)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FinalPrice)
-                </td>
-            </tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service.Dishes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FinalPrice)
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
-} else
-            {
-                <p>No hay pedidos.</p>
-            }
+}
+else
+{
+    <p>No hay pedidos.</p>
+}

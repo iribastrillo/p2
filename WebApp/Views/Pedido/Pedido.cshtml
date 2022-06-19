@@ -50,6 +50,31 @@
     </div>
     <div class="row">
         <div class="col-4">
+            <p><b>COSTO POR PLATOS:</b></p>
+        </div>
+        <div class="col-8">
+            <p>$ @ViewBag.Service.CalculateSubtotal()</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p><b>CUBIERTO:</b></p>
+        </div>
+        <div class="col-8">
+            <p>$ 100</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p><b>PROPINA:</b></p>
+        </div>
+        <div class="col-8">
+            <p>$  @ViewBag.Service.CalculateSubtotal()</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
             <p><b>TOTAL A PAGAR:</b></p>
         </div>
         <div class="col-8">
@@ -69,7 +94,7 @@
         </div>
         <div class="col-6">
             @Html.ActionLink("Cancelar :(",
-                                 "Close",
+                                 "Cancel",
                                  new { },
                                  new { @class = "btn btn-outline-danger" }
                              )

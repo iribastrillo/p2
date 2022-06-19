@@ -16,7 +16,7 @@ namespace WebApp.Controllers
         {
             return View();
         }
-        public IActionResult DisplayOpen ()
+        public IActionResult Confirm ()
         {
             Client client = instance.SessionUser as Client;
             client.Pedido.Settle();
@@ -35,6 +35,34 @@ namespace WebApp.Controllers
             Client client = instance.SessionUser as Client;
             client.Confirm();
             client.ClearCart();
+            return View();
+        }
+        public IActionResult Cancel ()
+        {
+            Client client = instance.SessionUser as Client;
+            client.Cancel();
+            return View();
+        }
+        public IActionResult Close()
+        {
+            Client client = instance.SessionUser as Client;
+            client.Close();
+            return RedirectToAction("Thanks");
+        }
+        public IActionResult Open()
+        {
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Client client = instance.SessionUser as Client;
+                return View(client.Pedido);
+            }
+            else
+            {
+                return Forbid();
+            }
+        }
+        public IActionResult Thanks()
+        {
             return View();
         }
     }

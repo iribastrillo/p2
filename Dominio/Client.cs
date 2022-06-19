@@ -38,12 +38,19 @@ namespace Dominio
         {
             return String.Compare(client_one.LastName, client_two.LastName);
         }
-
+        public void Cancel ()
+        {
+            Cart = Pedido.Service.Dishes;
+            Pedido = null;
+        }
         public void Confirm ()
         {
             Pedido.Open = true;
         }
-
+        public void Close ()
+        {
+            Pedido = null;
+        }
         public static bool IsValid (string name, string last_name, string email, string password)
         {
             bool isValidName = !string.IsNullOrEmpty(name) && SinNumeros(name);

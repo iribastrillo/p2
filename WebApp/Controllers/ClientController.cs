@@ -69,17 +69,5 @@ namespace WebApp.Controllers
             }
             return View(retorno);
         }
-        public IActionResult Open()
-        {
-            if (instance.IsClient(instance.SessionUser))
-            {
-                Client client = instance.SessionUser as Client;
-                return View(client.Pedido);
-            } else
-            {
-                return Forbid();
-            }
-        }
-
     }
 }
