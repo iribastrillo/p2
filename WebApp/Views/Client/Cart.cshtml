@@ -1,20 +1,20 @@
 ﻿@model IEnumerable<Dominio.Dish>
 
 @{
-    ViewData["Title"] = "Order";
+    ViewData["Title"] = "Cart";
 }
 
-<h1>Tu orden</h1>
+<h2>Tu orden</h2>
 
 @if (Model.Count() == 0)
 {
-    <section class="container border">
+    <section class="container bg-white border">
         <div class="row">
             <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
                 <figure>
-                    <img class="empty-order" src="~/assets/img/20.svg" alt="Plato vacío" style="height:50px;" />
+                    <img class="empty-order" src="~/assets/img/20.svg" alt="Plato vacío" style="height:96px;" />
                 </figure>
-                <h2 class="lead">Tu orden todavía está vacía</h2>
+                <h3 class="lead">Tu orden todavía está vacía :(</h3>
             </div>
         </div>
     </section>
@@ -31,12 +31,12 @@ else
                     <img src="~/assets/img/burger.svg" alt="Imagen de hamburguesa" style="height: 48px;" />
                 </div>
                 <div class="col-9">
-                    <h2>
+                    <p>
                         @Html.DisplayFor(modelItem => item.Name)
-                    </h2>
-                    <h3>
+                    </p>
+                    <p>
                         @Html.DisplayFor(modelItem => item.Price)
-                    </h3>
+                    </p>
                 </div>
                 <div class="col-2">
                     <p>
@@ -50,31 +50,31 @@ else
 
     @if (ViewBag.Checkout)
     {
-        <h1>Detalles del pago</h1>
+        <h2>Detalles del pago</h2>
 
         <section class="border mb-3 p-3">
             <div class="row">
                 <div class="col-4">
-                    <p>Costo del plato</p>
+                    <p><b>COSTO POR PLATOS:</b></p>
                 </div>
                 <div class="col-8">
-                    <p>@ViewBag.Costo</p>
+                    <p>$ @ViewBag.Costo</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-4">
-                    <p>Cubierto</p>
+                    <p><b>CUBIERTO:</b></p>
                 </div>
                 <div class="col-8">
-                    <p>@ViewBag.Cubierto</p>
+                    <p>$ @ViewBag.Cubierto</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-4">
-                    <p>TOTAL</p>
+                    <p><b>TOTAL A PAGAR:</b></p>
                 </div>
                 <div class="col-8">
-                    <p>@ViewBag.Total</p>
+                    <p>$ @ViewBag.Total</p>
                 </div>
             </div>
         </section>
@@ -85,7 +85,7 @@ else
         <section class="d-flex justify-content-center mb-3">
                 <div class="row">
                     <div class="col-12">
-                        @Html.ActionLink("GO!", "DisplayOpen", "Pedido")
+                        @Html.ActionLink("GO!", "DisplayOpen", "Pedido", new { }, new {@class = "btn btn-outline-success"})
                     </div>
                 </div>
         </section>

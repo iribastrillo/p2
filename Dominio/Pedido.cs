@@ -10,6 +10,7 @@ namespace Dominio
         private Service service;
         private Client client;
         private DateTime date;
+        private bool open;
         private float finalPrice;
 
         public float FinalPrice { get => finalPrice; set => finalPrice = value; }
@@ -19,6 +20,7 @@ namespace Dominio
         public Client Client { get => client; set => client = value; }
 
         public DateTime Date { get => date; set => date = value; }
+        public bool Open { get => open; set => open = value; }
 
         public void Settle()
         {
@@ -29,6 +31,7 @@ namespace Dominio
             this.service = service;
             this.client = client;
             this.date = DateTime.Now;
+            this.open = false;
         }
         public Pedido ()
         {

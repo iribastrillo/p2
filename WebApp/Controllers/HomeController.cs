@@ -23,8 +23,8 @@ namespace WebApp.Controllers
 
         public IActionResult Index()
         {
-            string logueadoRol = HttpContext.Session.GetString("LogueadoRol");
-            if (logueadoRol == null)
+            
+            if (instance.IsLoggedIn())
             {
                  return (RedirectToAction("Index", "Dish"));
             }

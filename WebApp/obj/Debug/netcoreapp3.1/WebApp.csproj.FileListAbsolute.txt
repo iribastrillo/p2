@@ -252,3 +252,5 @@ C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\De
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\WebApp.genruntimeconfig.cache
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Pedido.cshtml.g.cs
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client\Cart.cshtml.g.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Success.cshtml.g.cs
+C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Open.cshtml.g.cs

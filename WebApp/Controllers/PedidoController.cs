@@ -30,12 +30,12 @@ namespace WebApp.Controllers
             ViewBag.Cart = client.Cart;
             return View("Pedido", client.Pedido);
         }
-        public IActionResult GO()
+        public IActionResult Success()
         {
             Client client = instance.SessionUser as Client;
-            instance.AltaPedido(client.Pedido);
+            client.Confirm();
             client.ClearCart();
-            return RedirectToAction("Index", "Dish");
+            return View();
         }
     }
 }

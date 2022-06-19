@@ -16,7 +16,6 @@ namespace Manager
         private List<Deliveryman> repartidores = new List<Deliveryman>();
         private List<Pedido> pedidos = new List<Pedido>();
         private List<User> usuarios = new List<User>();
-        private List<Like> likes = new List<Like>();
         private List<Local> locales = new List<Local>();
         private List<Delivery> aDomicilio = new List<Delivery>();
         private Manager()
@@ -145,10 +144,16 @@ namespace Manager
                 //client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Cart);
             } else
             {
-                Local local = new Local(1, client.Cart, Waiters[0]);
+                Random random = new Random();
+                int waiter = random.Next(Waiters.Count);
+                Local local = new Local(1, client.Cart, Waiters[waiter]);
                 client.Pedido = new Pedido(local, client);
             }
             return client.Pedido;
+        }
+        public bool IsLoggedIn()
+        {
+            return SessionUser == null;
         }
         public User GetUser(string email)
         {
@@ -165,6 +170,14 @@ namespace Manager
         public bool IsClient (User user)
         {
             return user is Client;
+        }
+        public bool IsWaiter(User user)
+        {
+            return user is Waiter;
+        }
+        public bool IsDeliveryman(User user)
+        {
+            return user is Deliveryman;
         }
 
         public void PrecargarDatos()

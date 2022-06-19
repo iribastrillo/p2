@@ -39,6 +39,11 @@ namespace Dominio
             return String.Compare(client_one.LastName, client_two.LastName);
         }
 
+        public void Confirm ()
+        {
+            Pedido.Open = true;
+        }
+
         public static bool IsValid (string name, string last_name, string email, string password)
         {
             bool isValidName = !string.IsNullOrEmpty(name) && SinNumeros(name);
