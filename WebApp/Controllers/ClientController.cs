@@ -12,7 +12,10 @@ namespace WebApp.Controllers
     public class ClientController : Controller
     {
         Manager.Manager instance = Manager.Manager.GetInstance();
-        // public IActionResult Likes() {    }
+        public IActionResult Likes()
+        {
+            return View();
+        }
         public IActionResult VerServicios()
         {
             return View();
@@ -27,9 +30,9 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Order (bool asDelivery)
         {
-            string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
-            instance.BuildService(loggedEmail, false);
-            Client client = instance.GetUser(loggedEmail) as Client;
+            string email = HttpContext.Session.GetString("LogueadoEmail");
+            Service service = instance.BuildService(email, false);
+            Client client = instance.GetUser(email) as Client;
 
             if (!asDelivery)
             {
@@ -39,7 +42,7 @@ namespace WebApp.Controllers
             }
             ViewBag.Total = client.OpenService.CalculateTotal();
             ViewBag.Checkout = true;
-            return View(instance.GetOpenOrderForCurrentUser(loggedEmail));
+            return View(instance.GetOpenOrderForCurrentUser(email));
         }
 
         [HttpPost]

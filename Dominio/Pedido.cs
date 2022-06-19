@@ -12,8 +12,6 @@ namespace Dominio
         private DateTime date;
         private float finalPrice;
 
-
-
         public float FinalPrice { get => finalPrice; set => finalPrice = value; }
 
         public Service Service { get => service; set => service = value; }
@@ -22,26 +20,19 @@ namespace Dominio
 
         public DateTime Date { get => date; set => date = value; }
 
-        public float PrecioFinal()
+        public void Settle()
         {
-            if (service is Delivery)
-            {
-                Delivery delivery = (Delivery)service;
-                return delivery.CalculateTotal();
-            } else
-            {
-                Local local = (Local)service;
-                return local.CalculateTotal();
-            }
+            FinalPrice = Service.CalculateTotal();
         }
-
-
         public Pedido(Service service, Client client)
         {
             this.service = service;
             this.client = client;
             this.date = DateTime.Now;
-            this.finalPrice = PrecioFinal();
+        }
+        public Pedido ()
+        {
+
         }
 
         public override string ToString()

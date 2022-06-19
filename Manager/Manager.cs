@@ -118,17 +118,21 @@ namespace Manager
             Client client = GetUser(email) as Client;
             client.Orden.Remove(GetDishByID(id));
         }
-
-        public void BuildService (string email, bool asDelivery)
+        /* Hay que arreglar esto */
+        public Service BuildService (string email, bool asDelivery)
         {
             Client client = GetUser(email) as Client;
+            Service service;
+            List <Dish> dishes = client.Orden;
             if (asDelivery)
             {
-                client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Orden);
+                service = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Orden);
             } else
             {
-                client.OpenService = new Local(1, client.Orden, Waiters[0]);
+                service = new Local(1, client.Orden, Waiters[0]);
             }
+            client.OpenService = service;
+            return service;
         }
         
         /*----------------------*/

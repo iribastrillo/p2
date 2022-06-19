@@ -28,8 +28,6 @@ namespace Dominio
         private string address;
         private float distance;
         private Deliveryman deliveryman;
-
-
         public DateTime Delivered { get; set; }
         public void Deliver()
         {
@@ -42,7 +40,6 @@ namespace Dominio
             this.distance = distance;
             this.deliveryman = deliveryman;
         }
-
         public string Address
         {
             get
@@ -140,7 +137,6 @@ namespace Dominio
             this.guests = new List<Client> ();
             this.mozo = mozo;
         }
-
         public int Table
         {
             get
