@@ -20,6 +20,7 @@ namespace WebApp.Controllers
         {
             string email = HttpContext.Session.GetString("LogueadoEmail");
             Client client = instance.GetUser(email) as Client;
+            Service service = client.OpenService;
             Pedido pedido = new Pedido(client.OpenService, client);
             pedido.Settle();
             return RedirectToAction("Details", pedido);

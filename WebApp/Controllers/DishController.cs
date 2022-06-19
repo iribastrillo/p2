@@ -25,7 +25,6 @@ namespace WebApp.Controllers
             instance.Likes(HttpContext.Session.GetString("LogueadoEmail"), id);
             return View("Index", instance.GetDishes());
         }
-
         public IActionResult Add (string id)
         {
             int ID = int.Parse(id);

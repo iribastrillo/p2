@@ -285,7 +285,6 @@ namespace Manager
 
         public List<Dish> GetOpenOrderForCurrentUser (string currentUser)
         {
-            /* Este casteo es raro y me parece que puede dar problemas, habría que implementarlo mejor */
             Client client = GetUser(currentUser) as Client;
             return client.GetPedido();
         }
