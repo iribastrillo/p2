@@ -12,35 +12,25 @@ namespace WebApp.Controllers
     public class ClientController : Controller
     {
         Manager.Manager instance = Manager.Manager.GetInstance();
-        public IActionResult Likes()
-        {
-            return View();
-        }
         public IActionResult VerServicios()
         {
             return View();
         }
         [HttpGet]
-        public IActionResult Order ()
+        public IActionResult Cart ()
         {
             ViewBag.Checkout = false;
             string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
             return View(instance.GetCartForCurrentUser());
         }
         [HttpPost]
-        public IActionResult Order (bool asDelivery)
+        public IActionResult Cart (string isDelivery)
         {
-            string email = HttpContext.Session.GetString("LogueadoEmail");
-            Service service = instance.BuildService(email, false);
-            Client client = instance.GetUser(email) as Client;
-
-            if (!asDelivery)
-            {
-                Local openService = client.OpenService as Local;
-                ViewBag.Costo = openService.CalculateSubtotal();
-                ViewBag.Cubierto = openService.Cover;
-            }
-            ViewBag.Total = client.OpenService.CalculateTotal();
+            Pedido pedido = instance.BuildPedido(false);
+            Local service = pedido.Service as Local;
+            ViewBag.Costo = pedido.Service.CalculateSubtotal();
+            ViewBag.Cubierto = service.Cover;
+            ViewBag.Total = pedido.Service.CalculateSubtotal();
             ViewBag.Checkout = true;
             return View(instance.GetCartForCurrentUser());
         }

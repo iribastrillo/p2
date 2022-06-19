@@ -13,12 +13,13 @@ namespace Dominio
         private string name;
         private string lastName;
         private List<Dish> cart;
+        private Pedido pedido;
 
         public int ID { get => iD; set => iD = value; }
-        public Service OpenService { get; set; } = null;
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public List<Dish> Cart { get => cart; set => cart = value; }
+        public Pedido Pedido { get => pedido; set => pedido = value; }
 
         public Client (string name, string lastName, string email, string password, string rol) : base(email, password, rol)
         {
@@ -29,6 +30,7 @@ namespace Dominio
             this.Password = password;
             this.Rol = "cliente";
             this.Cart = new List<Dish>();
+            this.Pedido = null;
             n++;
         }
 
@@ -51,6 +53,11 @@ namespace Dominio
         public List<Dish> GetCart ()
         {
             return Cart;
+        }
+
+        public void ClearCart ()
+        {
+            Cart = new List<Dish>();
         }
 
         public override string ToString()

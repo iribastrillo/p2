@@ -18,17 +18,24 @@ namespace WebApp.Controllers
         }
         public IActionResult DisplayOpen ()
         {
-            string email = HttpContext.Session.GetString("LogueadoEmail");
-            Client client = instance.GetUser(email) as Client;
-            Service service = client.OpenService;
-            Pedido pedido = new Pedido(client.OpenService, client);
-            pedido.Settle();
-            return RedirectToAction("Details", pedido);
+            Client client = instance.SessionUser as Client;
+            client.Pedido.Settle();
+            return RedirectToAction("Details");
         }
 
-        public IActionResult Details (Pedido pedido)
-        {    
-            return View("Pedido", pedido);
+        public IActionResult Details ()
+        {
+            Client client = instance.SessionUser as Client;
+            ViewBag.Service = client.Pedido.Service;
+            ViewBag.Cart = client.Cart;
+            return View("Pedido", client.Pedido);
+        }
+        public IActionResult GO()
+        {
+            Client client = instance.SessionUser as Client;
+            instance.AltaPedido(client.Pedido);
+            client.ClearCart();
+            return RedirectToAction("Index", "Dish");
         }
     }
 }

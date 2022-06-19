@@ -100,6 +100,10 @@ namespace Manager
             }
             return u;
         }
+        public void Logout()
+        {
+            instance.SessionUser = null;
+        }
         public Like Likes (int id)
         {
             Like like = null;
@@ -133,21 +137,19 @@ namespace Manager
             }
             return success;
         }
-        /* Hay que arreglar esto */
-        public Service BuildService (string email, bool asDelivery)
+        public Pedido BuildPedido (bool isDelivery)
         {
             Client client = instance.SessionUser as Client;
-            if (asDelivery)
+            if (isDelivery)
             {
-                client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Cart);
+                //client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Cart);
             } else
             {
-                client.OpenService = new Local(1, client.Cart, Waiters[0]);
+                Local local = new Local(1, client.Cart, Waiters[0]);
+                client.Pedido = new Pedido(local, client);
             }
-            return client.OpenService;
+            return client.Pedido;
         }
-        /*----------------------*/
-
         public User GetUser(string email)
         {
             foreach (User u in Usuarios)
@@ -277,7 +279,11 @@ namespace Manager
         {
             Pedido pedido = new Pedido(service, client);
             pedidos.Add(pedido);
-            
+            return pedido;
+        }
+        public Pedido AltaPedido(Pedido pedido)
+        {
+            Pedidos.Add(pedido);
             return pedido;
         }
         public List<Pedido> GetServicios(string email)

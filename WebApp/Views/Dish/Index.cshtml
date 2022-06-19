@@ -14,7 +14,10 @@
             <div class="card p-3">
                 <img class="card-img-top" src="~/assets/img/burger.svg" alt="Card image cap">
                 <div class="card-body">
-                    <p>@item.Likes.Count()</p>
+                    @if (item.Likes.Count > 0)
+                    {
+                        <p>@item.Likes.Count()</p>
+                    }
                     @if (Context.Session.GetString("LogueadoRol") == "cliente")
                     {
                         <div class="d-flex">

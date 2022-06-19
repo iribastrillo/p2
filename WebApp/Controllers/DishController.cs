@@ -35,7 +35,7 @@ namespace WebApp.Controllers
         {
             int ID = int.Parse(id);
             instance.RemoveFromOrder(ID);
-            return RedirectToAction("Order", "Client", instance.GetCartForCurrentUser());
+            return RedirectToAction("Cart", "Client", instance.GetCartForCurrentUser());
         }
     }
 }
