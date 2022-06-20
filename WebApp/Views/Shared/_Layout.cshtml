@@ -33,6 +33,10 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Client" asp-action="MayorPrecio">Servicios de mayor precio</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Client" asp-action="VerPedidosPorPlato">Pedidos por plato</a>
+                            </li>
                         }
 
                         @if (Context.Session.GetString("LogueadoRol") == "repartidor")

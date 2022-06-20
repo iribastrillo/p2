@@ -38,7 +38,7 @@ namespace Manager
             return dishes;
         }
 
-        public Dish GetDishByID (int id)
+        public Dish GetDishByID(int id)
         {
             Dish dish = null;
             foreach (var item in Dishes)
@@ -120,6 +120,27 @@ namespace Manager
             return retorno;
         }
 
+        public List<Pedido> VerPedidosPorPlato(string plato) 
+        {
+            Dish dish = null;
+            foreach (Dish d in Dishes)
+            {
+                if (d.Name.ToUpper() == plato.ToUpper())
+                {
+                    dish = d;
+                }
+            }
+            List<Pedido> comienzo = GetServicios(instance.SessionUser.Email);
+            List<Pedido> retorno = new List<Pedido>();
+
+            foreach (Pedido p in comienzo)
+            {
+                if (p.Service.Dishes.Contains(dish)) {
+                    retorno.Add(p);
+                }
+            }
+            return retorno;
+        } 
 
         public List<Pedido> VerServiciosPorFecha(DateTime f1, DateTime f2) 
         { 

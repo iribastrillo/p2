@@ -77,5 +77,17 @@ namespace WebApp.Controllers
             return View(retorno);
         }
 
+        public IActionResult VerPedidosPorPlato()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult VerPedidosPorPlato(string plato)
+        {
+            List<Pedido> retorno = instance.VerPedidosPorPlato(plato);
+            return View(retorno);
+        }
+
     }
 }

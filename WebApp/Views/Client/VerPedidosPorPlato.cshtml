@@ -1,10 +1,22 @@
 ﻿@model IEnumerable<Dominio.Pedido>
 
 @{
-    ViewData["Title"] = "MayorPrecio";
+    ViewData["Title"] = "VerPedidosPorPlato";
 }
 
-<h1>Pedidos de mayor precio</h1>
+<h1>Ver pedidos de platos específicos</h1>
+
+<section class="container border p-3 mb-3">
+    <form class="row" method="post">
+        <div class="col-6">
+            <label>Nombre de plato</label>
+            <input type="text" name="plato" />
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <input class="btn btn-outline-primary" type="submit" value="Buscar">
+        </div>
+    </form>
+</section>
 
 @if (Model != null)
 {
