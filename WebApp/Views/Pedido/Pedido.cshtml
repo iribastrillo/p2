@@ -1,0 +1,79 @@
+﻿@model Dominio.Pedido
+
+@{
+    ViewData["Title"] = "Pedido";
+}
+
+<h2>Pedido</h2>
+
+<section class="container border mb-3">
+    <div class="row">
+        <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
+            <figure>
+                <img class="empty-order" src="~/assets/img/order.svg" alt="Imagen de la orden en proceso" style="height: 96px;" />
+            </figure>
+            <h2 class="lead">Confirmá los detalles del servicio en el local</h2>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+
+    @foreach (var item in ViewBag.Cart)
+    {
+        <div class="row mb-3 p-3 border d-flex align-content-center">
+            <div class="col-1 d-flex align-content-center">
+                <img src="~/assets/img/burger.svg" alt="Imagen de hamburguesa" style="height: 48px;" />
+            </div>
+            <div class="col-11">
+                <p>
+                    @item.Name
+                </p>
+                <p>
+                    @item.Price
+                </p>
+            </div>
+        </div>
+    }
+</section>
+
+<h2>Detalles del pago</h2>
+
+<section class="border mb-3 p-3">
+    <div class="row">
+        <div class="col-4">
+            <p><b>FECHA:</b></p>
+        </div>
+        <div class="col-8">
+            <p>@Html.DisplayFor(model => model.Date)</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p><b>TOTAL A PAGAR:</b></p>
+        </div>
+        <div class="col-8">
+            <p>$ @Html.DisplayFor(model => model.FinalPrice)</p>
+        </div>
+    </div>
+</section>
+
+<section class="d-flex justify-content-center mb-3">
+    <div class="row">
+        <div class="col-6">
+            @Html.ActionLink("¡Confirmar!",
+                                 "Success",
+                                 new { },
+                                 new {@class = "btn btn-outline-success" }
+                             )
+        </div>
+        <div class="col-6">
+            @Html.ActionLink("Cancelar :(",
+                                 "Close",
+                                 new { },
+                                 new { @class = "btn btn-outline-danger" }
+                             )
+        </div>
+    </div>
+</section>
+

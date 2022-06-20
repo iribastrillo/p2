@@ -7,6 +7,7 @@ namespace Manager
     public class Manager
     {
         public static Manager instance { get; set; }
+        public User SessionUser { get; set; }
 
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
@@ -15,7 +16,6 @@ namespace Manager
         private List<Deliveryman> repartidores = new List<Deliveryman>();
         private List<Pedido> pedidos = new List<Pedido>();
         private List<User> usuarios = new List<User>();
-        private List<Like> likes = new List<Like>();
         private List<Local> locales = new List<Local>();
         private List<Delivery> aDomicilio = new List<Delivery>();
         private Manager()
@@ -36,6 +36,20 @@ namespace Manager
         {
             dishes.Sort(PorNombreDish);
             return dishes;
+        }
+
+        public Dish GetDishByID (int id)
+        {
+            Dish dish = null;
+            foreach (var item in Dishes)
+            {
+                if (item.ID == id)
+                {
+                    dish = item;
+                    break;
+                }
+            }
+            return dish;
         }
 
         private int PorNombreDish(Dish a, Dish b)
@@ -71,8 +85,6 @@ namespace Manager
             }
 
         }
-
-        // ERA INTERNAL pero no me andaba
         public User Login(string email, string password)
         {
             User u = null;
@@ -81,18 +93,68 @@ namespace Manager
                 if (user.Email.Equals(email) && user.Password.Equals(password))
                 {
                     u = GetUser(user.Email);
+                    instance.SessionUser = u;
                     break;
                 }
             }
             return u;
         }
-
-        public Like Likes (string email, string dishID)
+        public void Logout()
         {
-            //Like like = new Like(dish, client);
-            return null;
+            instance.SessionUser = null;
         }
-
+        public Like Likes (int id)
+        {
+            Like like = null;
+            if (instance.IsClient (instance.SessionUser))
+            {
+                Dish dish = GetDishByID(id);
+                Client client = instance.SessionUser as Client;
+                like = new Like(dish, client);
+                dish.Likes.Add(like);
+            }
+            return like;
+        } 
+        public bool AddToOrder (int id)
+        {
+            bool success = false;
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Client client = instance.SessionUser as Client;
+                client.Cart.Add(GetDishByID(id));
+                success = true;
+            }
+            return success;
+        }
+        public bool RemoveFromOrder (int id)
+        {
+            bool success = false;
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Client client = instance.SessionUser as Client;
+                client.Cart.Remove(GetDishByID(id));
+            }
+            return success;
+        }
+        public Pedido BuildPedido (bool isDelivery)
+        {
+            Client client = instance.SessionUser as Client;
+            if (isDelivery)
+            {
+                //client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Cart);
+            } else
+            {
+                Random random = new Random();
+                int waiter = random.Next(Waiters.Count);
+                Local local = new Local(1, client.Cart, Waiters[waiter]);
+                client.Pedido = new Pedido(local, client);
+            }
+            return client.Pedido;
+        }
+        public bool IsLoggedIn()
+        {
+            return SessionUser == null;
+        }
         public User GetUser(string email)
         {
             foreach (User u in Usuarios)
@@ -104,6 +166,20 @@ namespace Manager
             }
             return null;
         }
+
+        public bool IsClient (User user)
+        {
+            return user is Client;
+        }
+        public bool IsWaiter(User user)
+        {
+            return user is Waiter;
+        }
+        public bool IsDeliveryman(User user)
+        {
+            return user is Deliveryman;
+        }
+
         public void PrecargarDatos()
         {
             Dish plato1 = AltaPlato("Sushi", 490);
@@ -158,8 +234,6 @@ namespace Manager
             Pedido pedido9 = AltaPedido(delivery2, cliente1);
             Pedido pedido10 = AltaPedido(delivery5, cliente3);
         }
-
-
         public List<Local> GetWaiterLocal(string email)
         {
             List<Local> ret = new List<Local>();
@@ -176,7 +250,6 @@ namespace Manager
             return ret;
 
         }
-
         public List<Local> ServiciosAtendidos(DateTime f1, DateTime f2, string email)
         {
                 List<Local> ret = new List<Local>();
@@ -196,8 +269,7 @@ namespace Manager
 
             }
                 
-                return ret;
-            
+                return ret;   
         }
         public List<Delivery> PedidosEntregados(string email)
         {
@@ -216,15 +288,17 @@ namespace Manager
 
             return ret;
         }
-
         public Pedido AltaPedido(Service service, Client client)
         {
             Pedido pedido = new Pedido(service, client);
             pedidos.Add(pedido);
-            
             return pedido;
         }
-
+        public Pedido AltaPedido(Pedido pedido)
+        {
+            Pedidos.Add(pedido);
+            return pedido;
+        }
         public List<Pedido> GetServicios(string email)
         {
             User buscado = GetUser(email);
@@ -238,14 +312,11 @@ namespace Manager
                 }
             return ret;
         }
-
-        public List<Dish> GetOpenOrderForCurrentUser (string currentUser)
+        public List<Dish> GetCartForCurrentUser ()
         {
-            /* Este casteo es raro y me parece que puede dar problemas, habría que implementarlo mejor */
-            Client client = GetUser(currentUser) as Client;
-            return client.GetPedido();
+            Client client = instance.SessionUser as Client;
+            return client.GetCart();
         }
-
         public Client AltaCliente(string name, string last_name, string email, string password)
         {
             bool validado = Client.IsValid(name, last_name, email, password);

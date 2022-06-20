@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Manager;
+using Dominio;
 
 namespace WebApp.Controllers
 {
@@ -14,9 +16,25 @@ namespace WebApp.Controllers
         {
             return View();
         }
+        public IActionResult DisplayOpen ()
+        {
+            Client client = instance.SessionUser as Client;
+            client.Pedido.Settle();
+            return RedirectToAction("Details");
+        }
+
         public IActionResult Details ()
         {
-            /* Controla acceso a la vista del pedido */
+            Client client = instance.SessionUser as Client;
+            ViewBag.Service = client.Pedido.Service;
+            ViewBag.Cart = client.Cart;
+            return View("Pedido", client.Pedido);
+        }
+        public IActionResult Success()
+        {
+            Client client = instance.SessionUser as Client;
+            client.Confirm();
+            client.ClearCart();
             return View();
         }
     }

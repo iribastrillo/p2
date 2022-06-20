@@ -12,15 +12,46 @@ namespace WebApp.Controllers
     public class ClientController : Controller
     {
         Manager.Manager instance = Manager.Manager.GetInstance();
-        // public IActionResult Likes() {    }
         public IActionResult VerServicios()
         {
             return View();
         }
-        public IActionResult Order ()
+        [HttpGet]
+        public IActionResult Cart ()
         {
-            string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
-            return View(instance.GetOpenOrderForCurrentUser(loggedEmail));
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Client client = instance.SessionUser as Client;
+                if (client.Pedido == null)
+                {
+                    ViewBag.Checkout = false;
+                    return View(instance.GetCartForCurrentUser());
+                } else
+                {
+                    if (client.Pedido.Open)
+                    {
+                        return RedirectToAction("Open", "Pedido", client.Pedido);
+                    } else
+                    {
+                        ViewBag.Checkout = false;
+                        return View(instance.GetCartForCurrentUser());
+                    }
+                }
+            } else
+            {
+                return Forbid();
+            }
+        }
+        [HttpPost]
+        public IActionResult Cart (string isDelivery)
+        {
+            Pedido pedido = instance.BuildPedido(false);
+            Local service = pedido.Service as Local;
+            ViewBag.Costo = pedido.Service.CalculateSubtotal();
+            ViewBag.Cubierto = service.Cover;
+            ViewBag.Total = pedido.Service.CalculateTotal();
+            ViewBag.Checkout = true;
+            return View(instance.GetCartForCurrentUser());
         }
 
         [HttpPost]
@@ -37,6 +68,17 @@ namespace WebApp.Controllers
                 }
             }
             return View(retorno);
+        }
+        public IActionResult Open()
+        {
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Client client = instance.SessionUser as Client;
+                return View(client.Pedido);
+            } else
+            {
+                return Forbid();
+            }
         }
 
     }

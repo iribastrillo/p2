@@ -10,9 +10,8 @@ namespace Dominio
         private Service service;
         private Client client;
         private DateTime date;
+        private bool open;
         private float finalPrice;
-
-
 
         public float FinalPrice { get => finalPrice; set => finalPrice = value; }
 
@@ -21,27 +20,22 @@ namespace Dominio
         public Client Client { get => client; set => client = value; }
 
         public DateTime Date { get => date; set => date = value; }
+        public bool Open { get => open; set => open = value; }
 
-        public float PrecioFinal()
+        public void Settle()
         {
-            if (service is Delivery)
-            {
-                Delivery delivery = (Delivery)service;
-                return delivery.CalculateTotal();
-            } else
-            {
-                Local local = (Local)service;
-                return local.CalculateTotal();
-            }
+            FinalPrice = Service.CalculateTotal();
         }
-
-
         public Pedido(Service service, Client client)
         {
             this.service = service;
             this.client = client;
             this.date = DateTime.Now;
-            this.finalPrice = PrecioFinal();
+            this.open = false;
+        }
+        public Pedido ()
+        {
+
         }
 
         public override string ToString()

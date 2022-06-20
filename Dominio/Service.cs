@@ -13,6 +13,8 @@ namespace Dominio
         {
             this.dishes = dishes;
         }
+        public abstract float CalculateTotal();
+        public abstract float CalculateSubtotal();
 
         public void AddDish (Dish dish)
         {
@@ -26,8 +28,6 @@ namespace Dominio
         private string address;
         private float distance;
         private Deliveryman deliveryman;
-
-
         public DateTime Delivered { get; set; }
         public void Deliver()
         {
@@ -40,7 +40,6 @@ namespace Dominio
             this.distance = distance;
             this.deliveryman = deliveryman;
         }
-
         public string Address
         {
             get
@@ -67,7 +66,17 @@ namespace Dominio
 
         public Deliveryman Deliveryman { get => deliveryman; set => deliveryman = value; }
 
-        public float CalculateTotal()
+        public override float CalculateSubtotal()
+        {
+            float subtotal = 0;
+            foreach (var dish in Dishes)
+            {
+                subtotal += dish.Price;
+            }
+            return subtotal;
+        }
+
+        public override float CalculateTotal()
         {
              /*
              * Si la entrega es mediante Delivery se agregan $50 de envío
@@ -117,6 +126,7 @@ namespace Dominio
     public class Local : Service
     {
         private Waiter mozo;
+        private float tip;
         private int table;
         private List<Client> guests;
         private static float cover = 100;
@@ -127,8 +137,8 @@ namespace Dominio
             this.table = table;
             this.guests = new List<Client> ();
             this.mozo = mozo;
+            this.tip = 0;
         }
-
         public int Table
         {
             get
@@ -154,8 +164,17 @@ namespace Dominio
                 mozo = value;
             }
         }
+        public override float CalculateSubtotal()
+        {
+            float subtotal = 0;
+            foreach (var dish in Dishes)
+            {
+                subtotal += dish.Price;
+            }
+            return subtotal;
+        }
 
-        public float CalculateTotal ()
+        public override float CalculateTotal ()
         {
             float total = 0;
             foreach (var guest in guests)
@@ -166,9 +185,9 @@ namespace Dominio
             {
                 total += dish.Price;
             }
-            float tip = (float)(total * 0.1);
+            Tip = (float)(total * 0.1);
 
-            return total + tip;
+            return total + Tip;
         }
 
         public void AddGuest (Client guest)
@@ -200,6 +219,8 @@ namespace Dominio
                 cover = value;
             }
         }
+
+        public float Tip { get => tip; set => tip = value; }
 
         public override string ToString()
         {

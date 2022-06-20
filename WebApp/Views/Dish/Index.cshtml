@@ -14,26 +14,35 @@
             <div class="card p-3">
                 <img class="card-img-top" src="~/assets/img/burger.svg" alt="Card image cap">
                 <div class="card-body">
-                    @if (Context.Session.GetString("LogueadoRol") == "cliente")
-                    {
-                        <div class="d-flex">
-                            <img src="~/assets/img/like.svg" alt="Ícono de like" style="height:24px;" />
-                            @Html.ActionLink("Me gusta",
-                                 "Like",
-                                 new { id = item.ID }
-                                )
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end">
+                            <img src="~/assets/img/like.svg" alt="Alternate Text" style="height: 12px;" />
+                            <span>@item.Likes.Count()</span>
                         </div>
-                    }
+                    </div>
+                    
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                     <p class="card-text">$ @Html.DisplayFor(modelItem => item.Price)</p>
-                    @if (Context.Session.GetString("LogueadoRol") == "cliente")
-                    {
-                        @Html.ActionLink("+",
-                             "Add",
-                             new { id = item.ID },
-                             new { @class = "btn btn-primary" }
-                            )
-                    }
+                    <div class="row">
+                        @if (Context.Session.GetString("LogueadoRol") == "cliente")
+                        {
+                            <div class="col-8">
+                                @Html.ActionLink("+ Agregar",
+                                 "Add",
+                                 new { id = item.ID },
+                                 new { @class = "btn btn-outline-primary" }
+                                )
+                            </div>
+                            <div class="col-4">
+                                @Html.ActionLink("Like",
+                                     "Like",
+                                     new { id = item.ID },
+                                     new { @class = "btn btn-outline-primary" }
+                                    )
+                            </div>
+                        }
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -12,12 +12,14 @@ namespace Dominio
         private int iD;
         private string name;
         private string lastName;
-        private List<Dish> orden;
+        private List<Dish> cart;
+        private Pedido pedido;
 
         public int ID { get => iD; set => iD = value; }
         public string Name { get => name; set => name = value; }
         public string LastName { get => lastName; set => lastName = value; }
-        public List<Dish> Orden { get => orden; set => orden = value; }
+        public List<Dish> Cart { get => cart; set => cart = value; }
+        public Pedido Pedido { get => pedido; set => pedido = value; }
 
         public Client (string name, string lastName, string email, string password, string rol) : base(email, password, rol)
         {
@@ -27,13 +29,19 @@ namespace Dominio
             this.Email = email;
             this.Password = password;
             this.Rol = "cliente";
-            this.Orden = new List<Dish>();
+            this.Cart = new List<Dish>();
+            this.Pedido = null;
             n++;
         }
 
         public static int CompareByLastName (Client client_one, Client client_two)
         {
             return String.Compare(client_one.LastName, client_two.LastName);
+        }
+
+        public void Confirm ()
+        {
+            Pedido.Open = true;
         }
 
         public static bool IsValid (string name, string last_name, string email, string password)
@@ -47,9 +55,14 @@ namespace Dominio
             return isValid;
         }
 
-        public List<Dish> GetPedido ()
+        public List<Dish> GetCart ()
         {
-            return Orden;
+            return Cart;
+        }
+
+        public void ClearCart ()
+        {
+            Cart = new List<Dish>();
         }
 
         public override string ToString()
