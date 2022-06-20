@@ -41,18 +41,20 @@ namespace WebApp.Controllers
                 return Forbid();
             }
         }
+        public IActionResult Local ()
+        {
+            return View();
+        }
+        [HttpGet]
         public IActionResult Delivery ()
         {
             Client client = instance.SessionUser as Client;
             if (instance.IsClient(instance.SessionUser))
             {
-                
                 Pedido pedido = instance.BuildPedido(true);
                 client.Pedido = pedido;
                 ViewBag.Checkout = false;
-                return View(client.Pedido);
-            } else
-            {
+                ViewBag.Dishes = pedido.Service.Dishes;
                 if (client.Pedido.Open)
                 {
                     return RedirectToAction("Open", "Pedido", client.Pedido);
@@ -62,6 +64,47 @@ namespace WebApp.Controllers
                     ViewBag.Checkout = false;
                     return View(client.Pedido);
                 }
+            } else
+            {
+                return Forbid();
+            }
+           
+        }
+        [HttpPost]
+        public IActionResult Delivery (string address)
+        {
+            Client client = instance.SessionUser as Client;
+            Random random = new Random();
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Delivery delivery = client.Pedido.Service as Delivery;
+                ViewBag.Dishes = delivery.Dishes;
+                if (address != null)
+                {
+                    ViewBag.Checkout = true;
+                    ViewBag.Costo = delivery.CalculateSubtotal();
+                    ViewBag.Total = delivery.CalculateTotal();
+                    ViewBag.Extra = delivery.Extra;
+                    delivery.Address = address;
+                    delivery.Distance = (float) random.NextDouble() * 50;
+                    if (client.Pedido.Open)
+                    {
+                        return RedirectToAction("Open", "Pedido", client.Pedido);
+                    }
+                    else
+                    {
+                        ViewBag.Checkout = true;
+                        return View(client.Pedido);
+                    }
+                } else
+                {
+                    ViewBag.Checkout = false;
+                    ViewBag.ErrorAddress = "Debes ingresar una dirección para el delivery :)";
+                    return View(client.Pedido);
+                }
+            } else
+            {
+                return Forbid();
             }
         }
         public IActionResult MayorPrecio()

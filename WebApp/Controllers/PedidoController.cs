@@ -26,6 +26,11 @@ namespace WebApp.Controllers
         public IActionResult Details ()
         {
             Client client = instance.SessionUser as Client;
+            ViewBag.isDelivery = false;
+            if (client.Pedido.Service is Delivery)
+            {
+                ViewBag.isDelivery = true;
+            }
             ViewBag.Service = client.Pedido.Service;
             ViewBag.Cart = client.Cart;
             return View("Pedido", client.Pedido);

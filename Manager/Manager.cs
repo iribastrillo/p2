@@ -139,17 +139,22 @@ namespace Manager
         public Pedido BuildPedido (bool isDelivery)
         {
             Client client = instance.SessionUser as Client;
+            Pedido pedido;
+            Random random = new Random();
             if (isDelivery)
             {
-                //client.OpenService = new Delivery("Calle Falsa 123", 30, Deliverymen[0], client.Cart);
+                int deliveryman = random.Next(Deliverymen.Count);
+                Delivery delivery = AltaDelivery("", 0, Deliverymen[deliveryman], client.Cart);
+                pedido = AltaPedido(delivery, client);
+
             } else
             {
-                Random random = new Random();
                 int waiter = random.Next(Waiters.Count);
                 Local local = AltaLocal(1, client, client.Cart, Waiters[waiter]);
-                Pedido pedido = AltaPedido(local, client);
+                pedido = AltaPedido(local, client);
                 client.Pedido = pedido;
             }
+            client.Pedido = pedido;
             return client.Pedido;
         }
         public bool IsLoggedIn()

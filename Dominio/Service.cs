@@ -28,6 +28,7 @@ namespace Dominio
         private string address;
         private float distance;
         private Deliveryman deliveryman;
+        private float extra;
         public DateTime Delivered { get; set; }
         public void Deliver()
         {
@@ -39,6 +40,7 @@ namespace Dominio
             this.address = address;
             this.distance = distance;
             this.deliveryman = deliveryman;
+            this.extra = 0;
         }
         public string Address
         {
@@ -65,6 +67,7 @@ namespace Dominio
         }
 
         public Deliveryman Deliveryman { get => deliveryman; set => deliveryman = value; }
+        public float Extra { get => extra; set => extra = value; }
 
         public override float CalculateSubtotal()
         {
@@ -99,6 +102,7 @@ namespace Dominio
                     extra = Math.Min(extra, 100);
                 }
             }
+            Extra = extra;
             return total + extra;
         }
         public override string ToString()
