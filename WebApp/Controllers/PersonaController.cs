@@ -15,7 +15,7 @@ namespace WebApp.Controllers
         Manager.Manager instance = Manager.Manager.GetInstance();
         public IActionResult Registro()
         {
-            if (instance.IsLoggedIn())
+            if (!instance.IsLoggedIn())
             {
                 return View();
             } else
@@ -55,7 +55,6 @@ namespace WebApp.Controllers
                 User buscado = instance.Login(email, password);
                 if (buscado != null)
                 {
-
                     HttpContext.Session.SetString("LogueadoEmail", buscado.Email);
                     HttpContext.Session.SetString("LogueadoRol", buscado.Rol);
                     return RedirectToAction("Index", "Dish");
@@ -69,7 +68,6 @@ namespace WebApp.Controllers
             {
                 return Forbid();
             }
-            
         }
         [HttpPost]
         public IActionResult Registro(string name, string lastname, string email, string password)

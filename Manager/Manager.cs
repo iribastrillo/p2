@@ -111,14 +111,10 @@ namespace Manager
             Pedido elmayor = comienzo[0];
             foreach (Pedido p in comienzo)
             {
-                if (p.FinalPrice > elmayor.FinalPrice)
+                if (p.FinalPrice >= elmayor.FinalPrice)
                 {
                     retorno.Add(p);
                     elmayor = p;
-                }
-                else if (p.FinalPrice == elmayor.FinalPrice)
-                {
-                    retorno.Add(p);
                 }
             }
             return retorno;
