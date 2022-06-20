@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Local\" />
-    <Folder Include="Views\Delivery\" />
     <Folder Include="wwwroot\assets\img\" />
   </ItemGroup>
 

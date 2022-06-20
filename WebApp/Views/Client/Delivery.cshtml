@@ -1,0 +1,70 @@
+﻿@model Dominio.Pedido
+
+@{
+    ViewData["Title"] = "Open";
+}
+
+<h2>Pedido en curso</h2>
+
+<section class="container border mb-3">
+    <div class="row">
+        <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
+            <figure>
+                <img class="empty-order" src="~/assets/img/ongoing.svg" alt="Imagen de la orden abierta" style="height: 96px;" />
+            </figure>
+            <h2 class="lead">¡Tu pedido está siendo preparado! :P</h2>
+        </div>
+    </div>
+</section>
+
+<section class="d-flex justify-content-center mb-3">
+    <div class="row">
+        <div class="col-6 d-flex">
+            @Html.ActionLink("¡Ya lo tengo!",
+                                 "Close",
+                                 new { },
+                                 new { @class = "btn btn-outline-success" }
+                             )
+        </div>
+        <div class="col-6 d-flex">
+            @Html.ActionLink("Cancelar :(",
+                                 "Cancel",
+                                 new { },
+                                 new { @class = "btn btn-outline-danger" }
+                             )
+        </div>
+    </div>
+</section>
+
+
+
+<h1>Open</h1>
+
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FinalPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FinalPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Open)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Open)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

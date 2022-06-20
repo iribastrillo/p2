@@ -16,7 +16,6 @@ namespace WebApp.Controllers
         {
             return View();
         }
-        [HttpGet]
         public IActionResult Cart ()
         {
             if (instance.IsClient(instance.SessionUser))
@@ -42,7 +41,29 @@ namespace WebApp.Controllers
                 return Forbid();
             }
         }
-
+        public IActionResult Delivery ()
+        {
+            Client client = instance.SessionUser as Client;
+            if (instance.IsClient(instance.SessionUser))
+            {
+                
+                Pedido pedido = instance.BuildPedido(true);
+                client.Pedido = pedido;
+                ViewBag.Checkout = false;
+                return View(client.Pedido);
+            } else
+            {
+                if (client.Pedido.Open)
+                {
+                    return RedirectToAction("Open", "Pedido", client.Pedido);
+                }
+                else
+                {
+                    ViewBag.Checkout = false;
+                    return View(client.Pedido);
+                }
+            }
+        }
         public IActionResult MayorPrecio()
         {
             string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
@@ -63,19 +84,6 @@ namespace WebApp.Controllers
             }
 
             return View(retorno);
-        }
-
-
-        [HttpPost]
-        public IActionResult Cart (string isDelivery)
-        {
-            Pedido pedido = instance.BuildPedido(false);
-            Local service = pedido.Service as Local;
-            ViewBag.Costo = pedido.Service.CalculateSubtotal();
-            ViewBag.Cubierto = service.Cover;
-            ViewBag.Total = pedido.Service.CalculateTotal();
-            ViewBag.Checkout = true;
-            return View(instance.GetCartForCurrentUser());
         }
 
         [HttpPost]
