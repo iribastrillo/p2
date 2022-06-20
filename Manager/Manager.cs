@@ -146,14 +146,15 @@ namespace Manager
             {
                 Random random = new Random();
                 int waiter = random.Next(Waiters.Count);
-                Local local = new Local(1, client.Cart, Waiters[waiter]);
-                client.Pedido = new Pedido(local, client);
+                Local local = AltaLocal(1, client, client.Cart, Waiters[waiter]);
+                Pedido pedido = AltaPedido(local, client);
+                client.Pedido = pedido;
             }
             return client.Pedido;
         }
         public bool IsLoggedIn()
         {
-            return SessionUser == null;
+            return !(instance.SessionUser == null);
         }
         public User GetUser(string email)
         {

@@ -23,15 +23,7 @@ namespace WebApp.Controllers
 
         public IActionResult Index()
         {
-            
-            if (instance.IsLoggedIn())
-            {
-                 return (RedirectToAction("Index", "Dish"));
-            }
-            else 
-            {
-                return View();
-            }
+            return (RedirectToAction("Index", "Dish"));
         }
         public IActionResult Team()
         {

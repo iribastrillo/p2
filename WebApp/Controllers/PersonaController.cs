@@ -39,7 +39,7 @@ namespace WebApp.Controllers
         }
         public IActionResult Login()
         {
-            if (instance.IsLoggedIn())
+            if (!instance.IsLoggedIn())
             {
                 return View();
             } else
@@ -50,7 +50,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            if (instance.IsLoggedIn())
+            if (!instance.IsLoggedIn())
             {
                 User buscado = instance.Login(email, password);
                 if (buscado != null)
@@ -74,7 +74,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Registro(string name, string lastname, string email, string password)
         {
-            if (instance.IsLoggedIn())
+            if (!instance.IsLoggedIn())
             {
                 User buscado = instance.GetUser(email);
                 bool contraSegura = Validation.Validator.EsSegura(password);
