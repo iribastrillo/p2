@@ -103,6 +103,42 @@ namespace Manager
         {
             instance.SessionUser = null;
         }
+
+        public List<Pedido> ObtenerMayorPrecio()
+        {
+            List<Pedido> comienzo = instance.GetServicios(instance.SessionUser.Email);
+            List<Pedido> retorno = new List<Pedido>();
+            Pedido elmayor = comienzo[0];
+            foreach (Pedido p in comienzo)
+            {
+                if (p.FinalPrice > elmayor.FinalPrice)
+                {
+                    retorno.Add(p);
+                    elmayor = p;
+                }
+                else if (p.FinalPrice == elmayor.FinalPrice)
+                {
+                    retorno.Add(p);
+                }
+            }
+            return retorno;
+        }
+
+
+        public List<Pedido> VerServiciosPorFecha(DateTime f1, DateTime f2) 
+        { 
+            List<Pedido> comienzo = GetServicios(instance.SessionUser.Email);
+            List<Pedido> retorno = new List<Pedido>();
+            foreach (Pedido p in comienzo)
+            {
+                if (p.Date > f1 && p.Date < f2)
+                {
+                    retorno.Add(p);
+                }
+            }
+            return retorno;
+        }
+
         public Like Likes (int id)
         {
             Like like = null;
