@@ -109,40 +109,28 @@ namespace WebApp.Controllers
         }
         public IActionResult MayorPrecio()
         {
-            string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
-            List<Pedido> comienzo = instance.GetServicios(loggedEmail);
-            List<Pedido> retorno = new List<Pedido>();
-
-            Pedido elmayor = comienzo[0];
-            foreach (Pedido p in comienzo)
-            {
-                if (p.FinalPrice > elmayor.FinalPrice)
-                {
-                    retorno.Add(p);
-                    elmayor = p;
-                } else if (p.FinalPrice == elmayor.FinalPrice)
-                {
-                    retorno.Add(p);
-                }
-            }
-
+            List<Pedido> retorno = instance.ObtenerMayorPrecio();
             return View(retorno);
         }
 
         [HttpPost]
         public IActionResult VerServicios(DateTime f1, DateTime f2)
         {
-            string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
-            List<Pedido> comienzo = instance.GetServicios(loggedEmail);
-            List<Pedido> retorno = new List<Pedido>();
-            foreach (Pedido p in comienzo)
-            {
-                if (p.Date > f1 && p.Date < f2)
-                {
-                    retorno.Add(p);
-                }
-            }
+            List<Pedido> retorno = instance.VerServiciosPorFecha(f1, f2);
             return View(retorno);
         }
+
+        public IActionResult VerPedidosPorPlato()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult VerPedidosPorPlato(string plato)
+        {
+            List<Pedido> retorno = instance.VerPedidosPorPlato(plato);
+            return View(retorno);
+        }
+
     }
 }
