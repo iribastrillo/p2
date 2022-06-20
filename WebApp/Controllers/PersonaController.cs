@@ -20,7 +20,7 @@ namespace WebApp.Controllers
                 return View();
             } else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dish");
             }
             
         }
@@ -30,10 +30,10 @@ namespace WebApp.Controllers
             {
                 instance.Logout();
                 HttpContext.Session.Clear();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dish");
             } else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dish");
             }
             
         }

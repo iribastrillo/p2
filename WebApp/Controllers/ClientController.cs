@@ -42,6 +42,30 @@ namespace WebApp.Controllers
                 return Forbid();
             }
         }
+
+        public IActionResult MayorPrecio()
+        {
+            string loggedEmail = HttpContext.Session.GetString("LogueadoEmail");
+            List<Pedido> comienzo = instance.GetServicios(loggedEmail);
+            List<Pedido> retorno = new List<Pedido>();
+
+            Pedido elmayor = comienzo[0];
+            foreach (Pedido p in comienzo)
+            {
+                if (p.FinalPrice > elmayor.FinalPrice)
+                {
+                    retorno.Add(p);
+                    elmayor = p;
+                } else if (p.FinalPrice == elmayor.FinalPrice)
+                {
+                    retorno.Add(p);
+                }
+            }
+
+            return View(retorno);
+        }
+
+
         [HttpPost]
         public IActionResult Cart (string isDelivery)
         {
