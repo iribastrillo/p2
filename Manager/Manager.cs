@@ -198,13 +198,12 @@ namespace Manager
             {
                 int deliveryman = random.Next(Deliverymen.Count);
                 Delivery delivery = AltaDelivery("", 0, Deliverymen[deliveryman], client.Cart);
-                pedido = AltaPedido(delivery, client);
-
+                pedido = new Pedido(delivery, client);
             } else
             {
                 int waiter = random.Next(Waiters.Count);
                 Local local = AltaLocal(1, client, client.Cart, Waiters[waiter]);
-                pedido = AltaPedido(local, client);
+                pedido = new Pedido (local, client);
                 client.Pedido = pedido;
             }
             client.Pedido = pedido;
@@ -452,8 +451,6 @@ namespace Manager
         public Local AltaLocal(int table, Client cliente, List<Dish> dishes, Waiter mozo)
         {
             Local local = new Local(table, dishes, mozo);
-
-            local.AddGuest(cliente);
             services.Add(local);
             locales.Add(local);
             

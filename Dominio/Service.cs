@@ -132,14 +132,14 @@ namespace Dominio
         private Waiter mozo;
         private float tip;
         private int table;
-        private List<Client> guests;
+        private int guests;
         private static float cover = 100;
         
 
         public Local (int table, List<Dish> dishes, Waiter mozo) : base (dishes)
         {
             this.table = table;
-            this.guests = new List<Client> ();
+            this.Guests = 0;
             this.mozo = mozo;
             this.tip = 0;
         }
@@ -181,7 +181,7 @@ namespace Dominio
         public override float CalculateTotal ()
         {
             float total = 0;
-            foreach (var guest in guests)
+            for (int i = 0; i < Guests; i++)
             {
                 total += cover;
             }
@@ -192,24 +192,6 @@ namespace Dominio
             Tip = (float)(total * 0.1);
 
             return total + Tip;
-        }
-
-        public void AddGuest (Client guest)
-        {
-            guests.Add(guest);
-        }
-
-        public List<Client> Guests
-        {
-            get
-            {
-                return guests;
-            }
-
-            set
-            {
-                guests = value;
-            }
         }
 
         public float Cover
@@ -225,21 +207,17 @@ namespace Dominio
         }
 
         public float Tip { get => tip; set => tip = value; }
+        public int Guests { get => guests; set => guests = value; }
 
         public override string ToString()
         {
-            string str = "";
-            foreach (Client g in guests)
-            {
-                str += $" {g.Name} {g.LastName}"; 
-            }
-            return $" {mozo.Name} || {table} || {cover} ||  {str} ";
+            return $" {mozo.Name} || {table} || {cover}";
           
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Local local && mozo == local.Mozo && table == local.Table && guests == local.Guests && cover == local.Cover;
+            return obj is Local local && mozo == local.Mozo && table == local.Table && Guests == local.Guests && cover == local.Cover;
         }
 
         public override int GetHashCode()

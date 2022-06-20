@@ -49,6 +49,7 @@ namespace Dominio
         }
         public void Close ()
         {
+            Pedido.Open = false;
             Pedido = null;
         }
         public static bool IsValid (string name, string last_name, string email, string password)

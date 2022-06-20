@@ -50,45 +50,12 @@ else
                 </div>
                 <div class="col-2">
                     <p>
-                        @Html.ActionLink("Ver", "Details", new { /* id=item.PrimaryKey */ }) |
                         @Html.ActionLink("Quitar", "Remove", "Dish", new { id = item.ID })
                     </p>
                 </div>
             </div>
         }
     </section>
-
-    @if (false)
-    {
-        <h2>Detalles del pago</h2>
-
-        <section class="border mb-3 p-3">
-            <div class="row">
-                <div class="col-4">
-                    <p><b>COSTO POR PLATOS:</b></p>
-                </div>
-                <div class="col-8">
-                    <p>$ @ViewBag.Costo</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <p><b>CUBIERTO:</b></p>
-                </div>
-                <div class="col-8">
-                    <p>$ @ViewBag.Cubierto</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <p><b>TOTAL A PAGAR:</b></p>
-                </div>
-                <div class="col-8">
-                    <p>$ @ViewBag.Total</p>
-                </div
-            </div>
-        </section>
-    }
 
 <section class="d-flex justify-content-center mb-3">
     <div class="row">

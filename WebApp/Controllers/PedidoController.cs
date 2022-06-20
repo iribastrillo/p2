@@ -51,6 +51,7 @@ namespace WebApp.Controllers
         public IActionResult Close()
         {
             Client client = instance.SessionUser as Client;
+            instance.AltaPedido(client.Pedido);
             client.Close();
             return RedirectToAction("Thanks");
         }

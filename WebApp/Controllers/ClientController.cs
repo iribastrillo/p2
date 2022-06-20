@@ -23,7 +23,6 @@ namespace WebApp.Controllers
                 Client client = instance.SessionUser as Client;
                 if (client.Pedido == null)
                 {
-                    ViewBag.Checkout = false;
                     return View(instance.GetCartForCurrentUser());
                 } else
                 {
@@ -32,7 +31,6 @@ namespace WebApp.Controllers
                         return RedirectToAction("Open", "Pedido", client.Pedido);
                     } else
                     {
-                        ViewBag.Checkout = false;
                         return View(instance.GetCartForCurrentUser());
                     }
                 }
@@ -41,9 +39,66 @@ namespace WebApp.Controllers
                 return Forbid();
             }
         }
-        public IActionResult Local ()
+        [HttpGet]
+        public IActionResult Local()
         {
-            return View();
+            Client client = instance.SessionUser as Client;
+            if (instance.IsClient(instance.SessionUser))
+            {
+                //Hay que cambiar esto, no hacer el alta hasta que el usuario confirme.
+                Pedido pedido = instance.BuildPedido(false);
+                client.Pedido = pedido;
+                ViewBag.Dishes = pedido.Service.Dishes;
+                if (client.Pedido.Open)
+                {
+                    return RedirectToAction("Open", "Pedido", client.Pedido);
+                }
+                else
+                {
+                    return View(client.Pedido);
+                }
+            }
+            else
+            {
+                return Forbid();
+            }
+
+        }
+        [HttpPost]
+        public IActionResult Local(string guests)
+        {
+            Client client = instance.SessionUser as Client;
+            Random random = new Random();
+            if (instance.IsClient(instance.SessionUser))
+            {
+                Local local = client.Pedido.Service as Local;
+                ViewBag.Dishes = local.Dishes;
+                if (guests != null)
+                {
+                    int n = int.Parse(guests);
+                    ViewBag.Costo = local.CalculateSubtotal();
+                    ViewBag.Total = local.CalculateTotal();
+                    ViewBag.Extra = local.Tip;
+                    local.Guests = n;
+                    if (client.Pedido.Open)
+                    {
+                        return RedirectToAction("Open", "Pedido", client.Pedido);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Confirm", "Pedido", client.Pedido);
+                    }
+                }
+                else
+                {
+                    ViewBag.ErrorAddress = "Debes ingresar la cantidad de comensales :)";
+                    return View(client.Pedido);
+                }
+            }
+            else
+            {
+                return Forbid();
+            }
         }
         [HttpGet]
         public IActionResult Delivery ()
@@ -53,7 +108,6 @@ namespace WebApp.Controllers
             {
                 Pedido pedido = instance.BuildPedido(true);
                 client.Pedido = pedido;
-                ViewBag.Checkout = false;
                 ViewBag.Dishes = pedido.Service.Dishes;
                 if (client.Pedido.Open)
                 {
@@ -61,7 +115,6 @@ namespace WebApp.Controllers
                 }
                 else
                 {
-                    ViewBag.Checkout = false;
                     return View(client.Pedido);
                 }
             } else
@@ -81,7 +134,6 @@ namespace WebApp.Controllers
                 ViewBag.Dishes = delivery.Dishes;
                 if (address != null)
                 {
-                    ViewBag.Checkout = true;
                     ViewBag.Costo = delivery.CalculateSubtotal();
                     ViewBag.Total = delivery.CalculateTotal();
                     ViewBag.Extra = delivery.Extra;
@@ -93,12 +145,10 @@ namespace WebApp.Controllers
                     }
                     else
                     {
-                        ViewBag.Checkout = true;
-                        return View(client.Pedido);
+                        return RedirectToAction ("Confirm", "Pedido", client.Pedido);
                     }
                 } else
                 {
-                    ViewBag.Checkout = false;
                     ViewBag.ErrorAddress = "Debes ingresar una dirección para el delivery :)";
                     return View(client.Pedido);
                 }
