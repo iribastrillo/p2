@@ -165,9 +165,16 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult VerServicios(DateTime f1, DateTime f2)
+        public IActionResult VerServicios(DateTime? f1, DateTime? f2)
         {
+            if (f1 == null || f2 == null)
+            {
+                ViewBag.mensajeFechas = "Ingrese fechas";
+            }
+
             List<Pedido> retorno = instance.VerServiciosPorFecha(f1, f2);
+
+
             return View(retorno);
         }
 

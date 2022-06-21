@@ -113,12 +113,11 @@ namespace Manager
             {
                 if (p.FinalPrice >= elmayor.FinalPrice)
                 {
+                    retorno.Add(elmayor);
                     elmayor = p;
-                    
                 }
-             
             }
-            retorno.Add(elmayor);
+
             return retorno;
         }
 
@@ -149,7 +148,7 @@ namespace Manager
             return retorno;
         } 
 
-        public List<Pedido> VerServiciosPorFecha(DateTime f1, DateTime f2) 
+        public List<Pedido> VerServiciosPorFecha(DateTime? f1, DateTime? f2) 
         { 
             List<Pedido> comienzo = GetServicios(instance.SessionUser.Email);
             List<Pedido> retorno = new List<Pedido>();
@@ -205,12 +204,14 @@ namespace Manager
             {
                 int deliveryman = random.Next(Deliverymen.Count);
                 Delivery delivery = AltaDelivery("", 0, Deliverymen[deliveryman], client.Cart);
-                pedido = new Pedido(delivery, client);
+                pedido = AltaPedido(delivery, client);
+ 
+
             } else
             {
                 int waiter = random.Next(Waiters.Count);
                 Local local = AltaLocal(1, client, client.Cart, Waiters[waiter]);
-                pedido = new Pedido (local, client);
+                pedido = AltaPedido (local, client);
                 client.Pedido = pedido;
             }
             client.Pedido = pedido;
@@ -333,7 +334,6 @@ namespace Manager
                 }
 
             }
-                
                 return ret;   
         }
         public List<Delivery> PedidosEntregados(string email)
@@ -358,11 +358,12 @@ namespace Manager
             Pedido pedido = new Pedido(service, client);
             pedido.FinalPrice = service.CalculateTotal();
             pedidos.Add(pedido);
+
             return pedido;
         }
         public Pedido AltaPedido(Pedido pedido)
         {
-            Pedidos.Add(pedido);
+            pedidos.Add(pedido);
             return pedido;
         }
         public List<Pedido> GetServicios(string email)
