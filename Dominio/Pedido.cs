@@ -34,6 +34,7 @@ namespace Dominio
             this.date = DateTime.Now;
             this.open = false;
         }
+
         public Pedido ()
         {
 

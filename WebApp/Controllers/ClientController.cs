@@ -150,7 +150,7 @@ namespace WebApp.Controllers
                     }
                 } else
                 {
-                    ViewBag.ErrorAddress = "Debes ingresar una dirección para el delivery :)";
+                    ViewBag.ErrorAddress = "Por favor, ingresar una dirección para el delivery :)";
                     return View(client.Pedido);
                 }
             } else

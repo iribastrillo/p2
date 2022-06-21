@@ -52,13 +52,16 @@ namespace Dominio
         }
         public static void UpdateMinimum (float minimo)
         {
-            minimumPrice = minimo;
+            if (minimo > 0)
+            {
+                minimumPrice = minimo;
+            }
         }
 
         public static bool ValidarDatos(string nombre, float precio)
         {
             return !string.IsNullOrWhiteSpace(nombre)
-                && precio > minimumPrice;
+                && precio > minimumPrice && precio > 0;
         }
 
         public override bool Equals(object obj)

@@ -37,18 +37,52 @@
     }
 </section>
 
-    <section class="d-flex justify-content-center mb-3 border bg-white p-3">
-        <div class="row">
-            <form class="row col-12" method="post">
-                <div class="col-12 d-flex justify-content-center">
-                    <label for="address">Dirección: </label>
-                    <input class="mb-3" type="text" name="address" />
-                </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <input class="btn btn-primary" type="submit" value="Ver detalles del pago" />
-                </div>
-            </form>
-        </div>
-    </section>
+<section class="d-flex justify-content-center mb-3 border bg-white p-3">
+    <div class="row">
+        <form asp-action="Pedido" id="AddressDelivery" class="row col-12" method="post">
+            <div class="col-12 d-flex justify-content-center">
+                <label id="address" for="address">Dirección: </label>
+                <input id="address" class="mb-3" type="text" name="address" />
+                <span id="avisoAd" class="text-danger"></span>
+                @ViewBag.ErrorAddress;
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <input class="btn btn-primary" type="submit" value="Ver detalles del pago" />
+            </div>
+        </form>
+    </div>
+</section>
+
+
+@section Scripts {
+
+    <script>
+        document.querySelector("#AddressDelivery").addEventListener('submit', validarDatos);
+
+        function validarDatos(evento) {
+
+            evento.preventDefault();
+
+            let address = document.querySelector("#address").value;
+
+            let addressValido = false;
+
+            if (address != "") { addressValido = true; } else { document.querySelector("#avisoAd").innerHTML = "Dirección inválida" }
+           
+
+            if (addressValido) {
+
+                this.submit();
+            }
+
+
+        }
+
+
+
+    </script>
+
+}
+
 
 

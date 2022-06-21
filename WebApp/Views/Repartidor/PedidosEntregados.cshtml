@@ -6,6 +6,8 @@
 
 <h1>Pedidos entregados</h1>
 
+@if (Model != null)
+{
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +18,7 @@
                 Dirección
             </th>
             <th>
-               Distancia (KM)
+                Distancia (KM)
             </th>
             <th>
                 Platos
@@ -24,7 +26,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Delivered)
@@ -42,3 +45,7 @@
 }
     </tbody>
 </table>
+} else
+            {
+                <p>No se encuentran pedidos</p>
+            }

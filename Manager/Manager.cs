@@ -71,11 +71,11 @@ namespace Manager
 
         private int PorFechaRepartos(Delivery a, Delivery b)
         {
-            if (a.Delivered.CompareTo(b.Delivered) > 0)
+            if (a.Delivered.CompareTo(b.Delivered) < 0)
             {
                 return 1;
             }
-            else if (a.Delivered.CompareTo(b.Delivered) < 0)
+            else if (a.Delivered.CompareTo(b.Delivered) > 0)
             {
                 return -1;
             }
