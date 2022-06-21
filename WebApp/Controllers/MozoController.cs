@@ -15,14 +15,14 @@ namespace WebApp.Controllers
 
         Manager.Manager instance = Manager.Manager.GetInstance();
 
-        public IActionResult ServiciosAtendidos()
+        public IActionResult Atendidos()
         {
             return View();
         }
 
 
         [HttpPost]
-        public IActionResult ServiciosAtendidos(DateTime f1, DateTime f2)
+        public IActionResult Atendidos(DateTime f1, DateTime f2)
         {
             string logueadoEmail = HttpContext.Session.GetString("LogueadoEmail");
 
