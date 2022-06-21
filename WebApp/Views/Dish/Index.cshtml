@@ -34,13 +34,26 @@
                                  new { @class = "btn btn-outline-primary" }
                                 )
                             </div>
-                            <div class="col-4">
-                                @Html.ActionLink("♥",
-                                     "Like",
-                                     new { id = item.ID },
-                                     new { @class = "btn btn-outline-primary" }
-                                    )
-                            </div>
+                            @if (item.Likes.Count > 0)
+                            {
+                                <div class="col-4">
+                                    @Html.ActionLink("♥",
+                                         "Like",
+                                         new { id = item.ID },
+                                         new { @class = "btn btn-primary" }
+                                        )
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-4">
+                                    @Html.ActionLink("♥",
+                                         "Like",
+                                         new { id = item.ID },
+                                         new { @class = "btn btn-outline-primary" }
+                                        )
+                                </div>
+                            }
                         }
                     </div>
 

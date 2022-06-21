@@ -2,60 +2,62 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    <div class="row align-items-stretch">
-        <div class="col-sm-4 pb-3">
-            <div class="card p-3">
-                <img class="card-img-top" src="~/assets/img/20.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Buscar pedidos</h5>
-                    <p class="card-text">Buscá el pedido donde pediste cierto plato</p>
-                    <div class="row">
-                        <div class="col-8">
-                            @Html.ActionLink("GO!",
-                             "VerPedidosPorPlato",
-                             new { },
-                             new { @class = "btn btn-outline-primary" }
-                             )
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 pb-3">
-            <div class="card p-3">
-                <img class="card-img-top" src="~/assets/img/history.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Buscar por fecha</h5>
-                    <p class="card-text">Buscá los pedidos comprendidos entre dos fechas</p>
-                    <div class="row">
-                        <div class="col-8">
-                            @Html.ActionLink("GO!",
-                             "VerServicios",
-                             new { },
-                             new { @class = "btn btn-outline-primary" }
-                             )
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 pb-3">
-            <div class="card p-3">
-                <img class="card-img-top" src="~/assets/img/4.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Buscar el más caro</h5>
-                    <p class="card-text">Buscá el pedido más caro</p>
-                    <div class="row">
-                        <div class="col-8">
-                            @Html.ActionLink("GO!",
-                             "MayorPrecio",
-                             new { },
-                             new { @class = "btn btn-outline-primary" }
-                             )
-                        </div>
+    ViewData["Title"] = "Cuenta";
+}
+
+<div class="row align-items-stretch">
+    <div class="col-sm-4 pb-3">
+        <div class="card p-3">
+            <img class="card-img-top" src="~/assets/img/20.svg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Buscar pedidos</h5>
+                <p class="card-text">Buscá el pedido donde pediste cierto plato</p>
+                <div class="row">
+                    <div class="col-8">
+                        @Html.ActionLink("GO!",
+                         "VerPedidosPorPlato",
+                         new { },
+                         new { @class = "btn btn-outline-primary" }
+                         )
                     </div>
                 </div>
             </div>
         </div>
     </div>
-}
+    <div class="col-sm-4 pb-3">
+        <div class="card p-3">
+            <img class="card-img-top" src="~/assets/img/history.svg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Buscar por fecha</h5>
+                <p class="card-text">Buscá los pedidos comprendidos entre dos fechas</p>
+                <div class="row">
+                    <div class="col-8">
+                        @Html.ActionLink("GO!",
+                         "VerServicios",
+                         new { },
+                         new { @class = "btn btn-outline-primary" }
+                         )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 pb-3">
+        <div class="card p-3">
+            <img class="card-img-top" src="~/assets/img/4.svg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Buscar el más caro</h5>
+                <p class="card-text">Buscá el pedido más caro</p>
+                <div class="row">
+                    <div class="col-8">
+                        @Html.ActionLink("GO!",
+                         "MayorPrecio",
+                         new { },
+                         new { @class = "btn btn-outline-primary" }
+                         )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
