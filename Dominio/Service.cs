@@ -86,7 +86,7 @@ namespace Dominio
              * en las distancias menores a 2 km, y va a aumentando $10 por
              * cada kilómetro, hasta un máximo de $100. 
              */
-            float total = 50;
+            float total = 0;
             float extra = 0;
 
             foreach (var dish in Dishes)
