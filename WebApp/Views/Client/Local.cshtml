@@ -39,11 +39,12 @@
 
 <section class="d-flex justify-content-center mb-3 border bg-white p-3">
     <div class="row">
-        <form class="row col-12" method="post">
+        <form class="row col-12" method="post" id="form">
             <div class="col-12 mb-3">
                 <label for="guests" class="form-label">Cantidad de comensales</label>
-                <input type="number" class="form-control" name="guests" id="guests" aria-describedby="Cantidad de comensales">
+                <input type="number" min="1" class="form-control" name="guests" id="guests" aria-describedby="Cantidad de comensales">
                 <div id="emailHelp" class="form-text">Indicanos cuántos comensales esperamos :)</div>
+                <span id="avisoComensales" class="text-danger"></span>
             </div>
             <div class="col-12 d-flex justify-content-center">
                 <input class="btn btn-primary" type="submit" value="Ver detalles del pago" />
@@ -51,5 +52,37 @@
         </form>
     </div>
 </section>
+
+
+@section Scripts {
+
+    <script>
+        document.querySelector("#form").addEventListener('submit', validarDatos);
+
+        function validarDatos(evento) {
+
+            evento.preventDefault();
+
+            let comensales = document.querySelector("#guests").value;
+
+            let comensalesValidos = false;
+
+            if (comensales != "") { comensalesValidos = true; } else {
+                document.querySelector("#avisoComensales").innerHTML = "Ingrese un número"
+            } 
+
+            if (comensalesValidos) {
+
+                this.submit();
+            }
+
+
+        }
+
+
+
+    </script>
+
+}
 
 
