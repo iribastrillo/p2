@@ -266,3 +266,5 @@ C:\Users\agust\Source\Repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client\VerPedidosPorPlato.cshtml.g.cs
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client\Local.cshtml.g.cs
 C:\Users\Admin.DESKTOP-0Q23CA9\Desktop\Personal\ORT\P2\Obligatorio\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client\Cuenta.cshtml.g.cs
+C:\Users\agust\Source\Repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client\Cuenta.cshtml.g.cs
+C:\Users\agust\Source\Repos\p2\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Client\Local.cshtml.g.cs

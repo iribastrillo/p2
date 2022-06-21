@@ -113,10 +113,12 @@ namespace Manager
             {
                 if (p.FinalPrice >= elmayor.FinalPrice)
                 {
-                    retorno.Add(p);
                     elmayor = p;
+                    
                 }
+             
             }
+            retorno.Add(elmayor);
             return retorno;
         }
 
@@ -349,6 +351,7 @@ namespace Manager
         public Pedido AltaPedido(Service service, Client client)
         {
             Pedido pedido = new Pedido(service, client);
+            pedido.FinalPrice = service.CalculateTotal();
             pedidos.Add(pedido);
             return pedido;
         }
