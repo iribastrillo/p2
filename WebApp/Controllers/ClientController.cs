@@ -14,34 +14,70 @@ namespace WebApp.Controllers
         Manager.Manager instance = Manager.Manager.GetInstance();
         public IActionResult VerServicios()
         {
-            return View();
-        }
-        public IActionResult Cuenta()
-        {
-            return View();
-        }
-        public IActionResult Cart ()
-        {
-            if (instance.IsClient(instance.SessionUser))
+            if (instance.IsLoggedIn())
             {
-                Client client = instance.SessionUser as Client;
-                if (client.Pedido == null)
+                if (instance.SessionUser is Client)
                 {
-                    return View(instance.GetCartForCurrentUser());
+                    return View();
                 } else
                 {
-                    if (client.Pedido.Open)
-                    {
-                        return RedirectToAction("Open", "Pedido", client.Pedido);
-                    } else
-                    {
-                        return View(instance.GetCartForCurrentUser());
-                    }
+                    return RedirectToAction("Index", "Dish");
                 }
             } else
             {
-                return Forbid();
+                return RedirectToAction("Index", "Dish");
             }
+        }
+        public IActionResult Cuenta()
+        {
+            if (instance.IsLoggedIn())
+            {
+                if (instance.SessionUser is Client)
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Dish");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Dish");
+            }
+        }
+        public IActionResult Cart ()
+        {
+            if (instance.IsLoggedIn ())
+            {
+                if (instance.IsClient(instance.SessionUser))
+                {
+                    Client client = instance.SessionUser as Client;
+                    if (client.Pedido == null)
+                    {
+                        return View(instance.GetCartForCurrentUser());
+                    }
+                    else
+                    {
+                        if (client.Pedido.Open)
+                        {
+                            return RedirectToAction("Open", "Pedido", client.Pedido);
+                        }
+                        else
+                        {
+                            return View(instance.GetCartForCurrentUser());
+                        }
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Dish");
+                }
+            } else
+            {
+                return RedirectToAction("Index", "Dish");
+            }
+            
         }
         [HttpGet]
         public IActionResult Local()

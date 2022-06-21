@@ -17,18 +17,43 @@ namespace WebApp.Controllers
 
         public IActionResult Atendidos()
         {
-            return View();
+            if (instance.IsLoggedIn())
+            {
+                if (instance.SessionUser is Waiter)
+                {
+                    return View();
+                } else
+                {
+                    return RedirectToAction("Index", "Dish");
+                }
+            } else
+            {
+                return RedirectToAction("Index", "Dish");
+            }
         }
 
 
         [HttpPost]
         public IActionResult Atendidos(DateTime f1, DateTime f2)
         {
-            string logueadoEmail = HttpContext.Session.GetString("LogueadoEmail");
-
-            List<Local> filtradas = instance.ServiciosAtendidos(f1, f2, logueadoEmail);
-
-            return View(filtradas);
+            if (instance.IsLoggedIn())
+            {
+                if (instance.SessionUser is Waiter)
+                {
+                    string logueadoEmail = HttpContext.Session.GetString("LogueadoEmail");
+                    List<Local> filtradas = instance.ServiciosAtendidos(f1, f2, logueadoEmail);
+                    return View(filtradas);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Dish");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Dish");
+            }
+            
         }
     }
 }
