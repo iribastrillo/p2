@@ -40,7 +40,7 @@ namespace Dominio
         }
         public void Cancel ()
         {
-            Cart = Pedido.Service.Dishes;
+            ClearCart();
             Pedido = null;
         }
         public void Confirm ()

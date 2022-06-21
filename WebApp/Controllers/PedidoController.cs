@@ -27,9 +27,18 @@ namespace WebApp.Controllers
         {
             Client client = instance.SessionUser as Client;
             ViewBag.isDelivery = false;
+            ViewBag.Subtotal = client.Pedido.Service.CalculateSubtotal();
+            ViewBag.Total = client.Pedido.FinalPrice;
             if (client.Pedido.Service is Delivery)
             {
+                Delivery delivery = client.Pedido.Service as Delivery;
                 ViewBag.isDelivery = true;
+                ViewBag.Extra = delivery.Extra;
+            } else
+            {
+                Local local = client.Pedido.Service as Local;
+                ViewBag.Tip = local.Tip;
+                ViewBag.CoverCost = local.CoverCost;
             }
             ViewBag.Service = client.Pedido.Service;
             ViewBag.Cart = client.Cart;
@@ -37,10 +46,30 @@ namespace WebApp.Controllers
         }
         public IActionResult Success()
         {
-            Client client = instance.SessionUser as Client;
-            client.Confirm();
-            client.ClearCart();
-            return View();
+            if (instance.IsLoggedIn())
+            {
+                if (instance.IsClient (instance.SessionUser))
+                {
+                    Client client = instance.SessionUser as Client;
+                    if (client.Pedido != null)
+                    {
+                        client.Confirm();
+                        client.ClearCart();
+                        return View();
+                    }
+                    else
+                    {
+                        return Forbid();
+                    }
+                } else
+                {
+                    return Forbid();
+                }      
+            } else
+            {
+                return Forbid();
+            }
+            
         }
         public IActionResult Cancel ()
         {

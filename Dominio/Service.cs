@@ -131,6 +131,7 @@ namespace Dominio
     {
         private Waiter mozo;
         private float tip;
+        private float coverCost;
         private int table;
         private int guests;
         private static float cover = 100;
@@ -142,6 +143,7 @@ namespace Dominio
             this.Guests = 0;
             this.mozo = mozo;
             this.tip = 0;
+            this.coverCost = 0;
         }
         public int Table
         {
@@ -183,14 +185,11 @@ namespace Dominio
             float total = 0;
             for (int i = 0; i < Guests; i++)
             {
-                total += cover;
+                CoverCost += Cover;
             }
-            foreach (var dish in Dishes)
-            {
-                total += dish.Price;
-            }
+            total += CalculateSubtotal();
+            total += CoverCost;
             Tip = (float)(total * 0.1);
-
             return total + Tip;
         }
 
@@ -208,6 +207,7 @@ namespace Dominio
 
         public float Tip { get => tip; set => tip = value; }
         public int Guests { get => guests; set => guests = value; }
+        public float CoverCost { get => coverCost; set => coverCost = value; }
 
         public override string ToString()
         {

@@ -16,6 +16,10 @@ namespace WebApp.Controllers
         {
             return View();
         }
+        public IActionResult Cuenta()
+        {
+            return View();
+        }
         public IActionResult Cart ()
         {
             if (instance.IsClient(instance.SessionUser))
@@ -76,9 +80,6 @@ namespace WebApp.Controllers
                 if (guests != null)
                 {
                     int n = int.Parse(guests);
-                    ViewBag.Costo = local.CalculateSubtotal();
-                    ViewBag.Total = local.CalculateTotal();
-                    ViewBag.Extra = local.Tip;
                     local.Guests = n;
                     if (client.Pedido.Open)
                     {

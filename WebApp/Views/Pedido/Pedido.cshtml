@@ -51,7 +51,7 @@
                 <p><b>COSTO POR PLATOS:</b></p>
             </div>
             <div class="col-8">
-                <p>$ @ViewBag.Service.CalculateSubtotal()</p>
+                <p>$ @ViewBag.Subtotal</p>
             </div>
         </div>
         <div class="row">
@@ -67,47 +67,55 @@
                 <p><b>TOTAL A PAGAR:</b></p>
             </div>
             <div class="col-8">
-                <p>$ @ViewBag.Service.CalculateTotal()</p>
+                <p>$ @ViewBag.Total</p>
             </div>
         </div>
     </section>
 }
 else
 {
-    <section class="border mb-3 p-3">
-        <div class="row">
-            <div class="row">
-                <div class="col-4">
-                    <p><b>FECHA:</b></p>
-                </div>
-                <div class="col-8">
-                    <p>@Html.DisplayFor(model => model.Date)</p>
-                </div>
-            </div>
-            <div class="col-4">
-                <p><b>COSTO POR PLATOS:</b></p>
-            </div>
-            <div class="col-8">
-                <p>$ @ViewBag.Costo</p>
-            </div>
+<section class="border mb-3 p-3">
+    <div class="row">
+        <div class="col-4">
+            <p><b>FECHA:</b></p>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <p><b>CUBIERTO:</b></p>
-            </div>
-            <div class="col-8">
-                <p>$ @ViewBag.Cover</p>
-            </div>
+        <div class="col-8">
+            <p>@Html.DisplayFor(model => model.Date)</p>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <p><b>TOTAL A PAGAR:</b></p>
-            </div>
-            <div class="col-8">
-                <p>$ @ViewBag.Total</p>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p><b>COSTO POR PLATOS:</b></p>
         </div>
-    </section>
+        <div class="col-8">
+            <p>$ @ViewBag.Subtotal</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p><b>CUBIERTO:</b></p>
+        </div>
+        <div class="col-8">
+            <p>$ @ViewBag.CoverCost</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p><b>PROPINA:</b></p>
+        </div>
+        <div class="col-8">
+            <p>$ @ViewBag.Tip</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p><b>TOTAL A PAGAR:</b></p>
+        </div>
+        <div class="col-8">
+            <p>$ @ViewBag.Total</p>
+        </div>
+    </div>
+</section>
 }
 
 <section class="d-flex justify-content-center mb-3">
