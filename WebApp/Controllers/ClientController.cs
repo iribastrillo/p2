@@ -179,7 +179,16 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult VerPedidosPorPlato(string plato)
         {
-            List<Pedido> retorno = instance.VerPedidosPorPlato(plato);
+            List<Pedido> retorno = new List<Pedido>();
+            if (plato != null)
+            {
+                retorno = instance.VerPedidosPorPlato(plato);
+             
+
+            } else
+            {
+                ViewBag.mensajePlato = "Ingrese un plato";
+            }
             return View(retorno);
         }
 

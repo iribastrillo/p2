@@ -7,9 +7,10 @@
     "\\WebApp\\Controllers",
     "\\WebApp\\Views",
     "\\WebApp\\Views\\Client",
+    "\\WebApp\\Views\\Dish",
     "\\WebApp\\Views\\Repartidor",
     "\\WebApp\\Views\\Waiter"
   ],
-  "SelectedNode": "\\WebApp\\Controllers\\PersonaController.cs",
+  "SelectedNode": "\\WebApp\\Views\\Client\\Cart.cshtml",
   "PreviewInSolutionExplorer": false
 }

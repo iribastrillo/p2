@@ -124,23 +124,26 @@ namespace Manager
 
         public List<Pedido> VerPedidosPorPlato(string plato) 
         {
-            Dish dish = null;
-            foreach (Dish d in Dishes)
-            {
-                if (d.Name.ToUpper() == plato.ToUpper())
-                {
-                    dish = d;
-                }
-            }
+
             List<Pedido> comienzo = GetServicios(instance.SessionUser.Email);
             List<Pedido> retorno = new List<Pedido>();
+            Dish dish = null;
 
-            foreach (Pedido p in comienzo)
-            {
-                if (p.Service.Dishes.Contains(dish)) {
-                    retorno.Add(p);
+                foreach (Dish d in Dishes)
+                {
+                    if (d.Name.ToUpper() == plato.ToUpper())
+                    {
+                        dish = d;
+                    }
                 }
-            }
+
+                foreach (Pedido p in comienzo)
+                {
+                    if (p.Service.Dishes.Contains(dish))
+                    {
+                        retorno.Add(p);
+                    }
+                }
             return retorno;
         } 
 
