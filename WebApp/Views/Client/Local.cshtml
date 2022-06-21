@@ -40,9 +40,10 @@
 <section class="d-flex justify-content-center mb-3 border bg-white p-3">
     <div class="row">
         <form class="row col-12" method="post">
-            <div class="col-12 d-flex justify-content-center">
-                <label for="guests">Cantidad de comensales: </label>
-                <input class="mb-3" type="number" name="guests" />
+            <div class="col-12 mb-3">
+                <label for="guests" class="form-label">Cantidad de comensales</label>
+                <input type="number" class="form-control" name="guests" id="guests" aria-describedby="Cantidad de comensales">
+                <div id="emailHelp" class="form-text">Indicanos cuántos comensales esperamos :)</div>
             </div>
             <div class="col-12 d-flex justify-content-center">
                 <input class="btn btn-primary" type="submit" value="Ver detalles del pago" />

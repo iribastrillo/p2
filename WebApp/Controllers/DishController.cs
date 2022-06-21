@@ -17,19 +17,32 @@ namespace WebApp.Controllers
         
         public IActionResult Index()
         {
+
+            Client client = instance.SessionUser as Client;
+            ViewBag.Open = false;
+            if (client != null)
+            {
+                if (client.Pedido != null)
+                {
+                    if (client.Pedido.Open)
+                    {
+                        ViewBag.Open = true;
+                    }
+                }
+            }
             return View(instance.GetDishes());
         }
         public IActionResult Like (string id)
         {
             int ID = int.Parse(id);
             instance.Likes(ID);
-            return RedirectToAction("Index", instance.GetDishes());
+            return RedirectToAction("Index");
         }
         public IActionResult Add (string id)
         {
             int ID = int.Parse(id);
             instance.AddToOrder (ID);
-            return View("Index", instance.GetDishes());
+            return RedirectToAction("Index");
         }
         public IActionResult Remove (string id)
         {

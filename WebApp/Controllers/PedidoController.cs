@@ -26,6 +26,10 @@ namespace WebApp.Controllers
         public IActionResult Details ()
         {
             Client client = instance.SessionUser as Client;
+            if (client.Pedido.Open)
+            {
+                return RedirectToAction("Open");
+            }
             ViewBag.isDelivery = false;
             ViewBag.Subtotal = client.Pedido.Service.CalculateSubtotal();
             ViewBag.Total = client.Pedido.FinalPrice;
