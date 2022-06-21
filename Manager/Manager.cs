@@ -128,14 +128,15 @@ namespace Manager
             List<Pedido> comienzo = GetServicios(instance.SessionUser.Email);
             List<Pedido> retorno = new List<Pedido>();
             Dish dish = null;
-
+            if (plato != null)
+            {
                 foreach (Dish d in Dishes)
                 {
                     if (d.Name.ToUpper() == plato.ToUpper())
                     {
                         dish = d;
                     }
-                }
+                } 
 
                 foreach (Pedido p in comienzo)
                 {
@@ -144,6 +145,7 @@ namespace Manager
                         retorno.Add(p);
                     }
                 }
+            }
             return retorno;
         } 
 

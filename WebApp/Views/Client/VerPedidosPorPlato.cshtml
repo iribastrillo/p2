@@ -24,9 +24,8 @@
             <label>Nombre de plato</label>
             <input id="name" type="text" name="plato" />
             <span id="avisoNombre" class="text-danger"></span>
-
         </div>
-        @ViewBag.mensajePlato
+        <p>@ViewBag.mensajeVer</p>
         <div class="col-12 d-flex justify-content-center">
             <input class="btn btn-outline-primary" type="submit" value="Buscar">
         </div>
@@ -95,7 +94,7 @@ else
 
             let nameValido = false;
 
-            if (nameValido != "") { nameValido = true; } else { document.querySelector("#avisoNombre").innerHTML = "El nombre no puede estar vacío" }
+            if (name != "") { nameValido = true; } else { document.querySelector("#avisoNombre").innerHTML = "El nombre no puede estar vacío" }
             
 
             if (nameValido) {

@@ -41,10 +41,10 @@
     <div class="row">
         <form asp-action="Pedido" id="AddressDelivery" class="row col-12" method="post">
             <div class="col-12 d-flex justify-content-center">
-                <label id="address" for="address">Dirección: </label>
-                <input id="address" class="mb-3" type="text" name="address" />
-                <span id="avisoAd" class="text-danger"></span>
-                @ViewBag.ErrorAddress;
+                <label for="address">Dirección: </label>
+                <input class="mb-3" type="text" id="address" name="address" />
+               <span id="avisoAd" class="text-danger"></span>
+                @ViewBag.ErrorAddress
             </div>
             <div class="col-12 d-flex justify-content-center">
                 <input class="btn btn-primary" type="submit" value="Ver detalles del pago" />
