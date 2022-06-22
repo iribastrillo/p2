@@ -198,8 +198,15 @@ namespace WebApp.Controllers
         }
         public IActionResult MayorPrecio()
         {
-            List<Pedido> retorno = instance.ObtenerMayorPrecio();
-            return View(retorno);
+            if (instance.IsClient(instance.SessionUser))
+            {
+                List<Pedido> retorno = instance.ObtenerMayorPrecio();
+                return View(retorno);
+            }
+            else
+            {
+                return Forbid();
+            }
         }
 
         [HttpPost]
@@ -218,7 +225,14 @@ namespace WebApp.Controllers
 
         public IActionResult VerPedidosPorPlato()
         {
-            return View();
+            if (instance.IsClient(instance.SessionUser))
+            {
+                return View();
+            }
+            else
+            {
+                return Forbid();
+            }
         }
 
         [HttpPost]

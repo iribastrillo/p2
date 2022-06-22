@@ -18,12 +18,17 @@ namespace WebApp.Controllers
 
         public IActionResult PedidosEntregados()
         {
+            if (instance.IsDeliveryman(instance.SessionUser))
+            {
+                string emailLog = HttpContext.Session.GetString("LogueadoEmail");
 
-            string emailLog = HttpContext.Session.GetString("LogueadoEmail");
+                List<Delivery> misOperaciones = instance.PedidosEntregados(emailLog);
 
-            List<Delivery> misOperaciones = instance.PedidosEntregados(emailLog);
-
-            return View(misOperaciones);
+                return View(misOperaciones);
+            } else
+            {
+                return Forbid();
+            }
         }
 
     }
