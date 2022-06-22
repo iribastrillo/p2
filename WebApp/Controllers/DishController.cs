@@ -17,9 +17,15 @@ namespace WebApp.Controllers
         
         public IActionResult Index()
         {
-
             Client client = instance.SessionUser as Client;
             ViewBag.Open = false;
+            if (client != null)
+            {
+                if (client.Cart != null)
+                {
+                    ViewBag.Cart = client.Cart;
+                }
+            }
             if (client != null)
             {
                 if (client.Pedido != null)
