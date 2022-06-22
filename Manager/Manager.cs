@@ -7,8 +7,6 @@ namespace Manager
     public class Manager
     {
         public static Manager instance { get; set; }
-        public User SessionUser { get; set; }
-
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
         private List<Waiter> waiters = new List<Waiter>();
@@ -210,13 +208,13 @@ namespace Manager
             {
                 int deliveryman = random.Next(Deliverymen.Count);
                 Delivery delivery = AltaDelivery("", 0, Deliverymen[deliveryman], client.Cart);
-                pedido = AltaPedido(delivery, client);
+                pedido = new Pedido (delivery, client);
 
             } else
             {
                 int waiter = random.Next(Waiters.Count);
                 Local local = AltaLocal(1, client, client.Cart, Waiters[waiter]);
-                pedido = AltaPedido (local, client);
+                pedido = new Pedido (local, client);
                 client.Pedido = pedido;
             }
             client.Pedido = pedido;
@@ -487,6 +485,8 @@ namespace Manager
 
             return plato;
         }
+
+        public User SessionUser { get; set; }
 
 
         public List<Deliveryman> Deliverymen
