@@ -87,7 +87,6 @@ namespace WebApp.Controllers
             Client client = instance.SessionUser as Client;
             if (instance.IsClient(instance.SessionUser))
             {
-                //Hay que cambiar esto, no hacer el alta hasta que el usuario confirme.
                 Pedido pedido = instance.BuildPedido(false);
                 client.Pedido = pedido;
                 ViewBag.Dishes = pedido.Service.Dishes;
