@@ -111,10 +111,16 @@ namespace Manager
             Pedido elmayor = comienzo[0];
             foreach (Pedido p in comienzo)
             {
-                if (p.FinalPrice >= elmayor.FinalPrice)
+                if (p.FinalPrice > elmayor.FinalPrice)
                 {
-                    retorno.Add(elmayor);
+
+                    retorno.Add(p);
                     elmayor = p;
+                
+                } else if (p.FinalPrice == elmayor.FinalPrice)
+                {
+                    retorno.Add(p);
+
                 }
             }
 
@@ -205,7 +211,6 @@ namespace Manager
                 int deliveryman = random.Next(Deliverymen.Count);
                 Delivery delivery = AltaDelivery("", 0, Deliverymen[deliveryman], client.Cart);
                 pedido = AltaPedido(delivery, client);
- 
 
             } else
             {

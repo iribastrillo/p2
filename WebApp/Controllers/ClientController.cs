@@ -56,6 +56,7 @@ namespace WebApp.Controllers
                     if (client.Pedido == null)
                     {
                         return View(instance.GetCartForCurrentUser());
+                        
                     }
                     else
                     {
@@ -66,6 +67,7 @@ namespace WebApp.Controllers
                         else
                         {
                             return View(instance.GetCartForCurrentUser());
+                          
                         }
                     }
                 }
