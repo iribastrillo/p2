@@ -11,6 +11,6 @@
     "\\WebApp\\Views\\Repartidor",
     "\\WebApp\\Views\\Waiter"
   ],
-  "SelectedNode": "\\WebApp\\Controllers\\RepartidorController.cs",
+  "SelectedNode": "\\WebApp\\Views\\Repartidor\\PedidosEntregados.cshtml",
   "PreviewInSolutionExplorer": false
 }

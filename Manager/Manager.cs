@@ -57,11 +57,11 @@ namespace Manager
             Client cliente4 = AltaCliente("Anaru", "Martínez", "anaru@gmail.com", "Anaru1");
             Client cliente5 = AltaCliente("Juan", "Rodríguez", "juanr@outlook.com", "juanR13");
 
-            Local local1 = AltaLocal(2, cliente1, new List<Dish>() { plato1, plato2 }, waiter2);
-            Local local2 = AltaLocal(4, cliente2, new List<Dish>() { plato6, plato5, plato4 }, waiter3);
-            Local local3 = AltaLocal(7, cliente3, new List<Dish>() { plato10 }, waiter1);
-            Local local4 = AltaLocal(1, cliente4, new List<Dish>() { plato8, plato4 }, waiter4);
-            Local local5 = AltaLocal(3, cliente5, new List<Dish>() { plato9, plato10, plato5 }, waiter5);
+            Local local1 = AltaLocal(2, cliente1, new List<Dish>() { plato1, plato2 }, waiter2, 2);
+            Local local2 = AltaLocal(4, cliente2, new List<Dish>() { plato6, plato5, plato4 }, waiter3, 3);
+            Local local3 = AltaLocal(7, cliente3, new List<Dish>() { plato10 }, waiter1, 1);
+            Local local4 = AltaLocal(1, cliente4, new List<Dish>() { plato8, plato4 }, waiter4, 2);
+            Local local5 = AltaLocal(3, cliente5, new List<Dish>() { plato9, plato10, plato5 }, waiter5, 3);
 
             Pedido pedido1 = AltaPedido(local1, cliente4, new DateTime(2022, 9, 20));
             Pedido pedido2 = AltaPedido(local4, cliente5, new DateTime(2021, 10, 18));
@@ -467,12 +467,21 @@ namespace Manager
             return delivery;
         }
 
+        public Local AltaLocal(int table, Client cliente, List<Dish> dishes, Waiter mozo, int guests)
+        {
+            Local local = new Local(table, dishes, mozo, guests);
+            services.Add(local);
+            locales.Add(local);
+            
+            return local;
+        }
+
         public Local AltaLocal(int table, Client cliente, List<Dish> dishes, Waiter mozo)
         {
             Local local = new Local(table, dishes, mozo);
             services.Add(local);
             locales.Add(local);
-            
+
             return local;
         }
 

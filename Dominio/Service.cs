@@ -137,7 +137,16 @@ namespace Dominio
         private static float cover = 100;
         
 
-        public Local (int table, List<Dish> dishes, Waiter mozo) : base (dishes)
+        public Local (int table, List<Dish> dishes, Waiter mozo, int guests) : base (dishes)
+        {
+            this.table = table;
+            this.Guests = guests;
+            this.mozo = mozo;
+            this.tip = 0;
+            this.coverCost = 0;
+        }
+
+        public Local(int table, List<Dish> dishes, Waiter mozo) : base(dishes)
         {
             this.table = table;
             this.Guests = 0;
