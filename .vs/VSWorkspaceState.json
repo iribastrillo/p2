@@ -11,6 +11,6 @@
     "\\WebApp\\Views\\Repartidor",
     "\\WebApp\\Views\\Waiter"
   ],
-  "SelectedNode": "\\Obligatorio.sln",
+  "SelectedNode": "\\WebApp\\Controllers\\RepartidorController.cs",
   "PreviewInSolutionExplorer": false
 }
