@@ -317,7 +317,6 @@ namespace Manager
                 }
             }
             return ret;
-
         }
         public List<Pedido> ServiciosAtendidos (Deliveryman deliveryman)
         {
