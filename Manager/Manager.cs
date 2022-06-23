@@ -319,6 +319,22 @@ namespace Manager
             return ret;
 
         }
+        public List<Pedido> ServiciosAtendidos (Deliveryman deliveryman)
+        {
+            List<Pedido> pedidos = new List<Pedido>();
+            foreach (var item in Pedidos)
+            {
+                if (item.Service is Delivery)
+                {
+                    Delivery delivery = item.Service as Delivery;
+                    if(delivery.Deliveryman == deliveryman)
+                    {
+                        pedidos.Add(item);
+                    }
+                }
+            }
+            return pedidos;
+        }
         public List<Local> ServiciosAtendidos(DateTime f1, DateTime f2, string email)
         {
                 List<Local> ret = new List<Local>();
@@ -338,23 +354,6 @@ namespace Manager
 
             }
                 return ret;   
-        }
-        public List<Delivery> PedidosEntregados(string email)
-        {
-            List<Delivery> ret = new List<Delivery>();
-            foreach (Delivery d in ADomicilio)
-            {
-                if (d.Delivered < DateTime.Now)
-                {
-                    if(d.Deliveryman.Email == email)
-                    {
-                        ret.Add(d);
-                    }
-                }
-            }
-             ret.Sort(PorFechaRepartos);
-
-            return ret;
         }
         public Pedido AltaPedido(Service service, Client client)
         {
