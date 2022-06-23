@@ -124,7 +124,6 @@ namespace Manager
 
         public List<Pedido> VerPedidosPorPlato(string plato) 
         {
-
             List<Pedido> comienzo = GetServicios(instance.SessionUser.Email);
             List<Pedido> retorno = new List<Pedido>();
             Dish dish = null;

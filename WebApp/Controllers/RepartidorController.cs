@@ -24,11 +24,12 @@ namespace WebApp.Controllers
                 Deliveryman deliveryman = instance.SessionUser as Deliveryman;
                 pedidos = instance.ServiciosAtendidos(deliveryman);
                 return View(pedidos);
-            } else
-            {
-                return Forbid();
             }
-           
+            else
+            {
+                return RedirectToAction("Index", "Dish");
+            }
+
         }
     }
 }
