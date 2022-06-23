@@ -17,6 +17,8 @@
     </div>
 </section>
 
+<p>@ViewBag.vacio</p>
+
 @if (Model != null)
 {
     <table class="table">
@@ -54,14 +56,14 @@
 }
 else
 {
-<section class="container bg-white border">
-    <div class="row">
-        <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
-            <figure>
-                <img class="empty-order" src="~/assets/img/20.svg" alt="Plato vacío" style="height:96px;" />
-            </figure>
-            <h3 class="lead">No hay resultados &#129301;</h3>
+    <section class="container bg-white border">
+        <div class="row">
+            <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
+                <figure>
+                    <img class="empty-order" src="~/assets/img/20.svg" alt="Plato vacío" style="height:96px;" />
+                </figure>
+                <h3 class="lead">No hay resultados &#129301;</h3>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 }

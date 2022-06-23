@@ -201,6 +201,10 @@ namespace WebApp.Controllers
             if (instance.IsClient(instance.SessionUser))
             {
                 List<Pedido> retorno = instance.ObtenerMayorPrecio();
+                if (retorno.Count == 0)
+                {
+                    ViewBag.vacio = "No existen servicios";
+                }
                 return View(retorno);
             }
             else
@@ -246,7 +250,7 @@ namespace WebApp.Controllers
 
             if (retorno.Count() == 0)
             {
-                ViewBag.mensajeVer = "Plato no existe";
+                ViewBag.mensajeVer = "No existen pedidos";
             }
             return View(retorno);
         }

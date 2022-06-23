@@ -25,12 +25,12 @@
             <input id="name" type="text" name="plato" />
             <span id="avisoNombre" class="text-danger"></span>
         </div>
-        <p>@ViewBag.mensajeVer</p>
         <div class="col-12 d-flex justify-content-center">
             <input class="btn btn-outline-primary" type="submit" value="Buscar">
         </div>
     </form>
 </section>
+<p>@ViewBag.mensajeVer</p>
 
 @if (Model != null)
 {
@@ -95,7 +95,7 @@ else
             let nameValido = false;
 
             if (name != "") { nameValido = true; } else { document.querySelector("#avisoNombre").innerHTML = "El nombre no puede estar vacío" }
-            
+
 
             if (nameValido) {
 
