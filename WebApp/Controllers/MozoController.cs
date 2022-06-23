@@ -42,6 +42,11 @@ namespace WebApp.Controllers
                 {
                     string logueadoEmail = HttpContext.Session.GetString("LogueadoEmail");
                     List<Local> filtradas = instance.ServiciosAtendidos(f1, f2, logueadoEmail);
+
+                    if (filtradas.Count == 0)
+                    {
+                        ViewBag.mensajeFechas = "No existen pedidos servidos en estas fechas";
+                    }
                     return View(filtradas);
                 }
                 else
