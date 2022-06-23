@@ -106,22 +106,19 @@ namespace Manager
         {
             List<Pedido> comienzo = instance.GetServicios(instance.SessionUser.Email);
             List<Pedido> retorno = new List<Pedido>();
-            Pedido elmayor = comienzo[0];
+            float mayor = -1;
             foreach (Pedido p in comienzo)
             {
-                if (p.FinalPrice > elmayor.FinalPrice)
+                if (p.FinalPrice > mayor)
                 {
-
+                    retorno.Clear();
                     retorno.Add(p);
-                    elmayor = p;
-                
-                } else if (p.FinalPrice == elmayor.FinalPrice)
+                    mayor = p.FinalPrice;
+                } else if (p.FinalPrice == mayor)
                 {
                     retorno.Add(p);
-
                 }
             }
-
             return retorno;
         }
 
