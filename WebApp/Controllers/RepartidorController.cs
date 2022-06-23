@@ -19,6 +19,7 @@ namespace WebApp.Controllers
         public IActionResult PedidosEntregados()
         {
             List<Pedido> pedidos = new List<Pedido>();
+            //validación para evitar el acceso por url
             if (instance.IsDeliveryman(instance.SessionUser))
             {
                 Deliveryman deliveryman = instance.SessionUser as Deliveryman;

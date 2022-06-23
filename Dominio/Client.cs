@@ -45,6 +45,7 @@ namespace Dominio
         }
         public void Confirm ()
         {
+            // pedido queda abierto
             Pedido.Open = true;
         }
         public void Close ()

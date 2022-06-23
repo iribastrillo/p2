@@ -6,6 +6,7 @@ namespace Dominio
 {
     public class Like
     {
+        // instancia el like en un plato y un cliente específico
         public Like(Dish dish, Client client)
         {
             Dish = dish;

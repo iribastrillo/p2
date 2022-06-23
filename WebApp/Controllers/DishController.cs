@@ -44,6 +44,7 @@ namespace WebApp.Controllers
             instance.Likes(ID);
             return RedirectToAction("Index");
         }
+        //activado por actionLink
         public IActionResult Add (string id)
         {
             int ID = int.Parse(id);

@@ -87,6 +87,7 @@ namespace WebApp.Controllers
             Client client = instance.SessionUser as Client;
             if (instance.IsClient(instance.SessionUser))
             {
+                // crea el pedido como local si es false
                 Pedido pedido = instance.BuildPedido(false);
                 client.Pedido = pedido;
                 ViewBag.Dishes = pedido.Service.Dishes;
@@ -218,6 +219,10 @@ namespace WebApp.Controllers
 
             List<Pedido> retorno = instance.VerServiciosPorFecha(f1, f2);
 
+            if (retorno.Count == 0)
+            {
+                ViewBag.mensajeVacio = "No existen servicios entre estas fechas";
+            }
 
             return View(retorno);
         }

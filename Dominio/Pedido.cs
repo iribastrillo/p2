@@ -27,11 +27,11 @@ namespace Dominio
         {
             FinalPrice = Service.CalculateTotal();
         }
-        public Pedido(Service service, Client client)
+        public Pedido(Service service, Client client, DateTime date)
         {
             this.service = service;
             this.client = client;
-            this.date = DateTime.Now;
+            this.date = date;
             this.open = false;
         }
 
