@@ -1,51 +1,68 @@
-﻿@model IEnumerable<Dominio.Delivery>
+﻿@using Dominio;
+@model IEnumerable<Dominio.Pedido>
 
 @{
-    ViewData["Title"] = "PedidosEntregados";
+    ViewData["Title"] = "Entregados";
 }
 
-<h1>Pedidos entregados</h1>
+<h2>Servicios entregados</h2>
+
+<section class="container bg-white border mb-3">
+    <div class="row">
+        <div class="col-12 d-flex flex-column justify-content-center text-center p-3">
+            <figure>
+                <img class="empty-order" src="~/assets/img/delivery.svg" alt="Imagen de repartos del repartidor" style="height:96px;" />
+            </figure>
+            <h3 class="lead">¡Mirá los pedidos que entregaste!</h3>
+        </div>
+    </div>
+</section>
 
 @if (Model != null)
 {
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Fecha de entrega
-            </th>
-            <th>
-                Dirección
-            </th>
-            <th>
-                Distancia (KM)
-            </th>
-            <th>
-                Platos
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model)
-{
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Delivered)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Distance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dishes)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-} else
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Fecha de entrega
+                </th>
+                <th>
+                    Dirección
+                </th>
+                <th>
+                    Distancia (KM)
+                </th>
+                <th>
+                    Precio final
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
             {
-                <p>No se encuentran pedidos</p>
+                @if (item.Service is Delivery delivery)
+                {
+                    <tr>
+                        <td>
+                            @delivery.Delivered
+                        </td>
+                        <td>
+                            @delivery.Address
+                        </td>
+                        <td>
+                            @delivery.Distance
+                        </td>
+                        <td>
+                            @item.FinalPrice
+                        </td>
+                    </tr>
+                }
+
             }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encuentran pedidos</p>
+}
